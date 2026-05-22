@@ -1,0 +1,100 @@
+---
+title: "logboek"
+author: "alexander"
+date: "2026-05-20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## introductie 
+Studenten ervaren over het algemeen erg veel stress door school, zoals gebleken uit het rapport van Monitor Mentale Gezondheid en Middelengebruik Studenten hoger onderwijs (MMMS). Met ons onderzoek proberen wij de stress te meten, door de hartslag en bloeddruk te meten tijdens en na het maken van korte rekentoetsen. Deze rekentoetsen worden onder variërende tijdsdruk gemaakt.
+
+De onderzoeksvraag luidt als volgt: Heeft tijdsdruk effect op de prestatie, bloeddruk en hartslag van studenten.
+
+onze H0 is dat studenten onder tijdsdruk niet significant meer stress ervaren. 
+onze H1 is dat studenten onder tijdsdruk wel significant meer stress ervaren. 
+
+
+Daarnaast hebben wij twee nevenvragen: 
+
+Heeft de dagelijks ervaren stress invloed op de stress onder tijdsdruk?
+
+H0: De dagelijks ervaren stress heeft invloed op de stress onder tijdsdruk.
+H1: De dagelijks ervaren stress heeft geen invloed op de stress onder tijdsdruk.
+
+Heeft sexe invloed op ervaren stress onder tijdsdruk?
+
+H0: De sexe heeft geen invloed op de ervaren stress onder tijdsdruk.
+H1: De sexe heeft invloed op de ervaren stress onder tijdsdruk. 
+
+
+## Data
+WIP
+
+
+
+
+## 20/5/2026
+
+### doel van de dag
+Vandaag is het doel om zo veel mogelijk mensen te meten. Dit wordt gedaan zoals
+in het protocol vermeld.
+
+### motivatie van aanpak
+Dit doel is gekozen omdat er nog veel data verzameld moet worden. Door het 
+verzamelen van deze data kunnen wij zo snel mogelijk verder met ons onderzoek. 
+
+### uitgevoerde werkzaamheden
+Er zijn een aantal proefpersonen getest en gemeten zoals vermeld in het protocol.
+
+### resultaten
+Er zijn succesvol gegevens verzameld van een aantal mensen. 
+
+### conclusie en vervolgstappen
+De volgende dag moeten er nog meer mensen getest en gemeten worden.
+
+
+
+
+
+## 21/5/2026
+
+### doel van de dag
+Vandaag is het doel om het artikel tot zover het er is (introductie,
+materiaal en methoden) aan te passen zodat deze klopt en actueel is. 
+
+### motivatie van aanpak
+dit doel is gekozen omdat we het artikel nog actueel moeten maken. Dit zorgt er voor dat we een beter reproduceerbaar expirment hebben.
+
+### uitgevoerde werkzaamheden
+het protocol en de introductie zijn aangescherpt, de oude informatie is voor het grootste deel vervangen. Voor de introductie is er meer uitleg over de pss verzameld. Ook is er nog een persoon getest.
+
+### resultaten
+het protocol en de introductie zijn aangescherpt en er is succesvol een persoon getest.
+
+### conclusie en vervolgstappen
+een volgende dag/sessie moeten er nog personen getest worden voor ons onderzoek.
+
+
+
+# 22/5/2026
+
+### doel van de dag
+eerder gemaakte werk in een repo zetten 
+
+### motivatie van aanpak
+repos zijn handiger om in terug te vinden wat er is gebeurd. Ook moet het uiteindelijk gemaakte werk in een repo ingeleverd worden. 
+
+### uitgevoerde werkzaamheden
+de meeste dingen zijn in een repo omgezet, m.u.v. rauwe data en 2 logboeken door afwezigheid van groepsgenoten
+
+### resultaten
+alle tot nu toe gemaakte bestanden zitten in de repo, m.u.v. bestanden vermeld in uitgevoerde werkzaamheden
+
+### conclusie en vervolgstappen
+alle rauwe data en logboeken moeten nog in de repo gezet worden.
+
+
