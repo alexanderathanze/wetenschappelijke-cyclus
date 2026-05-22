@@ -1,0 +1,20 @@
+---
+title: "protocol"
+author: "alexander"
+date: "2026-05-22"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Protocol
+
+Voor het verzamelen van de gegevens zullen wij medestudenten benaderen in en rondom het schoolgebouw. Elke proefpersoon wordt op een beleefde manier gevraagd of hij of zij wil deelnemen aan een klein wetenschappelijk onderzoek over de invloed van tijdsdruk op bloeddruk, hartslag en prestaties op rekentaken. Wanneer een student niet wil deelnemen, wordt deze vriendelijk bedankt en zoeken we verder naar een volgende mogelijke deelnemer. Wanneer een student wel wil deelnemen, wordt eerst kort uitgelegd wat het onderzoek inhoudt: de proefpersoon zal drie korte rekentesten maken onder verschillende niveaus van tijdsdruk, terwijl bloeddruk, hartslag en prestaties worden gemeten. Daarbij wordt benadrukt dat alle gegevens anoniem worden verzameld en dat er geen namen worden genoteerd, maar uitsluitend een nummer.
+
+Vervolgens wordt er een google forms gegeven aan de gebruiker waar vragen in staan. Er wordt gevraagd naar de sekse van de proefpersoon, waarbij de opties man, vrouw of anders/onbekend worden gebruikt. Ook wordt de leeftijd gevraagd. Ook worden er 10 vragen gesteld om te berekenen of de proefpersoon in het dagelijks leven veel stress ervaart (de PSS).  Als de proefpersoon deze informatie niet wil geven, wordt dit geregistreerd als “anders/onbekend”. Voorafgaand aan de eerste meting krijgt de proefpersoon één minuut rust, zodat de eerste bloeddruk- en hartslag waarden niet worden beïnvloed door recente inspanning. Tijdens deze minuut moet de testpersoon volledig stilzitten met de handpalmen naar boven.
+
+Daarna doorloopt de proefpersoon drie condities: één zonder tijdsdruk, één met matige tijdsdruk en één met hoge tijdsdruk. Bij de eerste conditie wordt de starttijd genoteerd en de eindtijd genoteerd. Tijdens deze toets wordt de hartslag continu geregistreerd via de polar verity sense. De uitslagen van de rekentoets worden verzameld en beoordeeld op het aantal correcte antwoorden, het aantal fouten en het aantal onbeantwoorde vragen. Direct na het afronden van de test wordt opnieuw de bloeddruk gemeten en wordt de hartslag kort na inspanning vastgelegd. Dit wordt voor de matige en hoge tijdsdruk herhaald.
+
+Aan het einde van de deelname wordt gecontroleerd of alle gegevens volledig zijn ingevuld. De proefpersoon wordt vriendelijk bedankt voor de deelname en krijgt de gelegenheid om vragen te stellen. Dit proces wordt herhaald totdat er van minimaal veertig proefpersonen volledige datasets zijn verzameld, bestaande uit alle drie de condities en alle bijbehorende metingen. De gegevens worden veilig opgeslagen en uitsluitend onder participant-ID’s bewaard.
