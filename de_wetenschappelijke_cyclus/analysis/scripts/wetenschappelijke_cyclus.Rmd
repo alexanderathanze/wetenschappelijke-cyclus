@@ -1,0 +1,33 @@
+---
+title: "wetenschappelijke cyclus"
+author: "alexander"
+date: "2026-05-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+om de databestanden in te lezen hebben we readr nodig, die hier wordt ingeladen.
+als je deze nog niet hebt moet je de lijn install.packages("readr") runnen.
+```{r}
+install.packages("readr")
+library(readr)
+```
+
+
+
+```{r}
+
+file_1 <- read.csv("../../raw_data/heartrate_1.csv")
+file_1
+subset_file_1 <- file_1[2:3]
+subset_file_1
+subset_file_1 <- subset_file_1[3:length(subset_file_1$Sport),]
+colnames(subset_file_1)<- c("Time", "HR (bpm)")
+subset_file_1
+
+```
+

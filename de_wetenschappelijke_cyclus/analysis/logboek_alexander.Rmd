@@ -12,6 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ## introductie 
 Studenten ervaren over het algemeen erg veel stress door school, zoals gebleken uit het rapport van Monitor Mentale Gezondheid en Middelengebruik Studenten hoger onderwijs (MMMS). Met ons onderzoek proberen wij de stress te meten, door de hartslag en bloeddruk te meten tijdens en na het maken van korte rekentoetsen. Deze rekentoetsen worden onder variërende tijdsdruk gemaakt.
 
+al onze data en gegevens zijn te vinden op https://github.com/alexanderathanze/wetenschappelijke-cyclus.git
+
 De onderzoeksvraag luidt als volgt: Heeft tijdsdruk effect op de prestatie, bloeddruk en hartslag van studenten.
 
 onze H0 is dat studenten onder tijdsdruk niet significant meer stress ervaren. 
