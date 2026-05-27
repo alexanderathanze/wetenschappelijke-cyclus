@@ -107,10 +107,10 @@ alle rauwe data en logboeken moeten nog in de repo gezet worden.
 de tot nu toe verzamelde data van 11 personen online opvragen en deze data filteren op tijd en hartslag. Hiervan moet in de tabel met toetsscores (wetenschappelijke_cyclus/raw_data/wetcyc.xlsx) een nieuwe rij toegevoegd worden waarin de hartslagen per situatie (geen, lage en hoge tijdsdruk) in staan.
 
 ### motivatie van aanpak
-de data moet in één document komen zodat deze voor verdere verwerking en statistiek goed te gebruiken is.  
+de data moet in één document in tabelvorm komen zodat deze voor verdere verwerking en statistiek goed te gebruiken is. 
 
 ### uitgevoerde werkzaamheden
-er is een begin gemaakt aan het script om data mee te verwerken. De geschreven code is in de repo terug te vinden in commit hash 0967af086218ce1985df5bfbd43198639c626fd7. ik was er even tegenaan gelopen hoe ik subsets moest maken van de rauwe data, maar dat is ook opgelost. verder is er nog een testpersoon gemeten.
+er is een begin gemaakt aan het script om data mee te verwerken. De geschreven code is in de repo terug te vinden in commit hash 0967af086218ce1985df5bfbd43198639c626fd7. ik was er even tegenaan gelopen hoe ik subsets moest maken van de rauwe data, maar dat is ook opgelost. verder is er nog een testpersoon gemeten in lokaal D1.08 Door Tristan, Jasmijn en ik.
 
 ### resultaten
 De geschreven code filtert tot nu toe uit een van de rauwe databestanden (wetenschappelijke_cyclus/raw_data/heartrate_1.csv) de tijd en hartslagen in bpm.
@@ -118,3 +118,22 @@ De geschreven code filtert tot nu toe uit een van de rauwe databestanden (wetens
 ### conclusie en vervolgstappen
 er moet nog veel gedaan worden. Ten eerste is onze data nog niet compleet, aangezien we afgesproken hebben om van minimaal 20 personen de data te verzamelen. daarnaast moet de poweranalyse nog gedaan worden en is de code om alle data te verwerken ook nog niet af. na deze stappen kan er pas verder gewerkt worden aan de resultaten, maar een deel van de discussie zou evt wel al gemaakt kunnen worden.
 
+
+
+##27/5/2026
+
+### doel van de dag
+de eerder geschreven code moet in een functie gezet worden, zodat deze op alle andere documenten met de hartslag (/raw_data/heartrate_x.csv, waarin x een geheel getal). 
+
+### motivatie van aanpak
+de data moet in één document in tabelvorm komen zodat deze voor verdere verwerking en statistiek goed te gebruiken is. door weinig tijd is de stap vandaag relatief klein. 
+
+### uitgevoerde werkzaamheden
+er is van de eerder geschreven code (zie 26/5/2026 of git hash 0967af086218ce1985df5bfbd43198639c626fd7) een functie gemaakt.  verder is er nog een testpersoon gemeten door Jasmijn en ik, waardoor we nu op 13/20 personen zitten.
+
+
+### resultaten
+de functie is geschreven en werkzaam. de code hiervoor is terug te vinden in wetenschappelijke_cyclus/analysis/scripts/wetenschappelijke_cyclus.Rmd in git hash 2cbe08dcec567d95a80cb3c228724519cd8433a5.
+
+### conclusie en vervolgstappen
+er moeten nog 7 personen gemeten worden voor onze data, waarvan het liefst nog 1 man en 6 vrouwen. in scripts moet er nog veel geschreven worden, om onze data nog verder te filteren op tijd tijdens de test. daarnaast moet de dan gefilterde data nog in een nieuwe tabel gezet worden. ook moet de poweranalyse, resultaten en discussie nog geschreven/gedaan worden in onze paper.   
