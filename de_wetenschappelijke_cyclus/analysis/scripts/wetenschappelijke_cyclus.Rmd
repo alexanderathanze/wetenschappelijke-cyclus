@@ -21,13 +21,27 @@ library(readr)
 
 ```{r}
 
-file_1 <- read.csv("../../raw_data/heartrate_1.csv")
-file_1
-subset_file_1 <- file_1[2:3]
-subset_file_1
-subset_file_1 <- subset_file_1[3:length(subset_file_1$Sport),]
-colnames(subset_file_1)<- c("Time", "HR (bpm)")
-subset_file_1
+file <- read.csv("../../raw_data/heartrate_1.csv")
+file
+subset_file <- file[2:3]
+subset_file
+subset_file <- subset_file[3:length(subset_file$Sport),]
+colnames(subset_file)<- c("Time", "HR (bpm)")
+subset_file
 
 ```
+
+```{r}
+read_and_filter <- function(filelocation) {
+file <- read.csv("../../raw_data/heartrate_1.csv")
+subset_file <- file[2:3]
+subset_file <- subset_file[3:length(subset_file$Sport),]
+colnames(subset_file)<- c("Time", "HR (bpm)")
+return(subset_file)
+}
+
+read_and_filter("../../raw_data/heartrate_1.csv")
+
+```
+
 
