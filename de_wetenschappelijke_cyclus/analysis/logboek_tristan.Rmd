@@ -1,0 +1,108 @@
+---
+title: "Logboek"
+author: "Tristan Kruithof"
+date: '`r Sys.Date()`'
+output: html_document
+---
+
+
+## Notities
+
+Wat kan er beter aan dit logboek?
+
+- 
+
+
+# Levensverwachting en leefstijl 
+
+### Introductie
+
+Ik ga onderzoek doen naar geïnterpreteerde stress doormiddel van bloeddruk en hartslag tijdens het maken van een rekentoets onder verschillende tijd drukken.
+
+
+### Motivatie:
+
+Omdat stress bij het maken van toetsen een negatieve impact heeft op je prestatie, wordt in dit onderzoek beter in kaart gebracht hoe stress wordt ervaren tijdens het maken van toetsen onder tijdsdruk. 
+
+
+### Hoofdvraag:
+
+Beïnvloedt een tijdsdruk de bloeddruk, hartslag en de prestatie?
+
+
+### hoofddoel:
+
+Onderzoeken in hoeverre tijdsdruk invloed heeft op de:
+
+Bloeddruk voor/na het maken van rekensommen
+Hartslag voor/tijdens/na het maken van rekensommen
+Prestatie op rekentaken (aantal goede antwoorden, fouten, snelheid)
+
+
+### Onze nevenvragen:
+
+- Heeft dagelijks ervaren stress (door middel van een HADS of PSS vragenlijst) invloed op het gemeten verschil in bloeddruk, hartslag en  prestatie?
+
+- Is er een verschil in bloeddruk, hartslag en prestatie tussen de sexes?
+
+
+### Data die wij verkrijgen per test persoon: 
+
+- Toestemming annoniem opslaan van gegevens
+- Leeftijd
+- Geslacht
+- PSS-10 vragen lijst (indicatie van stress in het dagelijks leven)
+- Gemeten bloeddruk voor/na elke toets in mmHg, verdeeld in bovendruk en onderdruk
+- Gemeten hartslag tijdens de gehele test in BPM
+- Testscores van de 3 testen 
+
+Deze data wordt naderhand gelijk verwerkt zodat de totale score van de testen en de PSS-10 vragenlijst wordt bewaard. De bloeddruk en hartslag wordt opgeslagen op een account van Polar ()  en Omron (bloeddruk meter)
+
+De inviduele antwoorden zijn door ons niet meer te zien nadat wij deze data verwijderd hebben.
+
+
+### Github Repo (zie voor meer info over ons onderzoek)
+
+https://github.com/alexanderathanze/wetenschappelijke-cyclus/tree/main
+
+
+# Logboek
+
+## 19/05/2026
+Artikel gevonden voor de journal club en daarbij in teams gezet dat ik het graag op 29 mei om half 11 presenteer. Dit artikel heb ik een tijdje geleden al gevonden toen ik er een youtube video over keek.
+
+Artikel titel: H-Neurons: On the Existence, Impact, and Origin of Hallucination-Associated Neurons in LLMs en
+
+link:https://arxiv.org/abs/2512.01797 
+
+Ook hebben we getest op onszelf en gediscussieerd over onze meetmethode en hebben we deze verbeterd doormiddel van noteren van starttijd toetsen en hebben ons protocol over begeleiden van het proefpersoon tijdens de test ook verbeterd.
+
+
+## 20/05/2026
+We zijn verder gegaan met onze metingen. Om 10:36 en hebben klasgenoten elk voor elk eruit gehaald om te testen. Elk van deze metingen slaan we op doormiddel van het exporteren van een google forms. Ondertussen noteren wij de starttijd van elk toetsje erbij. En halen we de data op van de bloeddruk- en hartslagmeter.
+
+Ondertussen heb ik gewerkt aan mijn logboek en heb ik een stukje informatie opgezocht over wat bloeddruk inhoudt en dit verwerkt in de intro van ons artikel met bronvermelding. Bron: https://www.hartstichting.nl/oorzaken/bloeddruk
+
+
+Ook heb ik een stukje geschreven over de hartslag met de volgende bronnen: https://www.hartstichting.nl/gezond-leven/hartslag/normale-hartslag [9] - hartslag
+https://www.hartstichting.nl/hart-en-vaatziekten/bouw-en-werking-hart [10] - hart werking
+https://www.ahealthylife.nl/medisch-woordenboek/hf/ [11] - hartslag afkorting
+
+
+## 21/05/2026
+We waren in de ochtend begonnen met beter leren schrijven. Een abstract beter leren schrijven. Het onderwerp, uitkomsten en conclusie moest je zelf allemaal verzinnen, vervolgens werden tussen 3 artikel, 1 gemaakt door ai, 1 echt artikel online en je eigen verzonnen artikel. De persoon met de meeste punten kreeg een chocolade letter. 
+
+Daarna heb ik gewerkt aan een stukje schrijven over de pss-10 test met al bestaande bronnen in het document en heb ik referenties aangepast. Dit kun je terug vinden in de repo. Ook heb ik een korte hypothese geschreven op basis een vergelijkbaar artikel (https://minds.wisconsin.edu/handle/1793/80216) dat wij aan het schrijven zijn, waar uit kwam dat er niet een significant verschil is in bloeddruk en hartslag. Wel had dat artikel een andere methode van meten gebruikt dan wij dat hebben gedaan. 
+
+
+## 22 t/m 25 mei
+22 mei was ik ziek en daarna was het pinkster weekend.
+
+
+## 26/05/2026
+Bezig gegaan met deel 2 van de VER. Een repository was aangemaakt op github door Alexander op 22 mei:
+https://github.com/alexanderathanze/wetenschappelijke-cyclus/tree/main
+
+Zijn verder gegaan met data verzamelen en het juist opslaan van onze data tot nu toe.
+
+
