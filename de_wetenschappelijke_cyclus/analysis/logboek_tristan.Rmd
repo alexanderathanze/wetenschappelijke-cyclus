@@ -10,7 +10,8 @@ output: html_document
 
 Wat kan er beter aan dit logboek?
 
-- 
+- project beschrijving (locatie bestanden)
+- installatie apps bloedddruk en hartslag
 
 
 # Levensverwachting en leefstijl 
@@ -54,7 +55,7 @@ Prestatie op rekentaken (aantal goede antwoorden, fouten, snelheid)
 - PSS-10 vragen lijst (indicatie van stress in het dagelijks leven)
 - Gemeten bloeddruk voor/na elke toets in mmHg, verdeeld in bovendruk en onderdruk
 - Gemeten hartslag tijdens de gehele test in BPM
-- Testscores van de 3 testen 
+- Testscores van de 3 rekentests 
 
 Deze data wordt naderhand gelijk verwerkt zodat de totale score van de testen en de PSS-10 vragenlijst wordt bewaard. De bloeddruk en hartslag wordt opgeslagen op een account van Polar ()  en Omron (bloeddruk meter)
 
@@ -63,23 +64,34 @@ De inviduele antwoorden zijn door ons niet meer te zien nadat wij deze data verw
 
 ### Github Repo (zie voor meer info over ons onderzoek)
 
-https://github.com/alexanderathanze/wetenschappelijke-cyclus/tree/main
+https://github.com/alexanderathanze/wetenschappelijke-cyclus/tree/main  
 
 
 # Logboek
 
 ## 19/05/2026
+Doel:
+
+Motivatie: 
+
+Conclusie:
+
+
+
 Artikel gevonden voor de journal club en daarbij in teams gezet dat ik het graag op 29 mei om half 11 presenteer. Dit artikel heb ik een tijdje geleden al gevonden toen ik er een youtube video over keek.
 
 Artikel titel: H-Neurons: On the Existence, Impact, and Origin of Hallucination-Associated Neurons in LLMs en
 
-link:https://arxiv.org/abs/2512.01797 
+link:https://arxiv.org/abs/2512.01797
+
+Samenvatting artikel: 
+
 
 Ook hebben we getest op onszelf en gediscussieerd over onze meetmethode en hebben we deze verbeterd doormiddel van noteren van starttijd toetsen en hebben ons protocol over begeleiden van het proefpersoon tijdens de test ook verbeterd.
 
 
 ## 20/05/2026
-We zijn verder gegaan met onze metingen. Om 10:36 en hebben klasgenoten elk voor elk eruit gehaald om te testen. Elk van deze metingen slaan we op doormiddel van het exporteren van een google forms. Ondertussen noteren wij de starttijd van elk toetsje erbij. En halen we de data op van de bloeddruk- en hartslagmeter.
+We zijn verder gegaan met onze metingen. Om 10:36 en hebben klasgenoten elk voor elk eruit gehaald om te testen. Elk van deze metingen slaan we op doormiddel van het exporteren van een google forms. Ondertussen noteren wij de starttijd van elk toetsje erbij ook in excel. En halen we de data op van de bloeddruk- en hartslagmeter door deze apparaten geconnect te hebben met beide apps van Polar en .
 
 Ondertussen heb ik gewerkt aan mijn logboek en heb ik een stukje informatie opgezocht over wat bloeddruk inhoudt en dit verwerkt in de intro van ons artikel met bronvermelding. Bron: https://www.hartstichting.nl/oorzaken/bloeddruk
 
@@ -100,8 +112,15 @@ Daarna heb ik gewerkt aan een stukje schrijven over de pss-10 test met al bestaa
 
 
 ## 26/05/2026
-Bezig gegaan met deel 2 van de VER. Een repository was aangemaakt op github door Alexander op 22 mei:
+
+Doel: Aan het einde van de dag nog een meting doen van een meid. Begin maken aan de R code voor ons onderzoek. Logboek verbeteren op basis van feedback en van journal club artikel een presentatie maken.
+
+
+
+Bezig gegaan met deel 2 van de FAIR. Een repository was aangemaakt op github door Alexander op 22 mei:
 https://github.com/alexanderathanze/wetenschappelijke-cyclus/tree/main
+
+
 
 Zijn verder gegaan met data verzamelen en het juist opslaan van onze data tot nu toe.
 
