@@ -1,0 +1,66 @@
+---
+title: "wetenschappelijke cyclus"
+author: "alexander"
+date: "2026-05-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+om de databestanden in te lezen hebben we readr nodig, die hier wordt ingeladen.
+als je deze nog niet hebt moet je de lijn install.packages("readr") runnen.
+```{r}
+install.packages("readr")
+library(readr)
+```
+
+
+
+```{r}
+
+file <- read.csv("../../raw_data/heartrate_1.csv")
+file
+subset_file <- file[2:3]
+subset_file
+subset_file <- subset_file[3:length(subset_file$Sport),]
+colnames(subset_file)<- c("Time", "HR (bpm)")
+subset_file
+
+
+```
+
+
+
+```{r}
+read_and_filter <- function(filelocation, testtime_1, testtime_2, testtime_3) {
+  
+  #eerst maak je een subset van het bestand
+  file <- read.csv(filelocation)
+  subset_file <- file[, 2:3]
+  subset_file <- subset_file[3:nrow(subset_file), ]
+  colnames(subset_file) <- c("time", "HR_bpm")
+
+  #uit die subset haal je de hartslagen over de gespecificeerde tijd
+  results_1 <- as.numeric(subset_file$HR_bpm[testtime_1])
+  results_2 <- as.numeric(subset_file$HR_bpm[testtime_2])
+  results_3 <- as.numeric(subset_file$HR_bpm[testtime_3])
+
+  # return alles als een list
+  return(list(
+    subset_file = subset_file,
+    results_1 = results_1,
+    results_2 = results_2,
+    results_3 = results_3
+  ))
+}
+
+testtime_1 <- 298:389
+testtime_2 <- 455:516
+testtime_3 <- 590:621
+data_list <- read_and_filter("../../raw_data/heartrate_1.csv",testtime_1,testtime_2, testtime_3)
+data_list
+```
+
