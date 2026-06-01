@@ -158,3 +158,21 @@ doordat er een test is uitgevoerd, zitten we op 14/20 personen, waarvan de rest 
 ### conclusie en vervolgstappen
 er moeten nog 6 personen gemeten worden, bij voorkeur allemaal vrouw. ons script moet nog verder geschreven worden, zodat deze uiteindelijk de data in de tabel met andere gegevens (raw_data/wetcyc.xlsx) kan zetten. 
 
+
+## 30/5/2026
+### doel van de dag
+de code voor de analyse verder/af proberen te krijgen
+
+### motivatie van aanpak
+doordat we in het weekend geen mensen kunnen testen en de deadline nadert, moeten we er voor zorgen dat de analyse van data zo snel mogelijk kan nadat de data er is. om dit te kunnen doen moet het script voor de data analyse afgemaakt worden, wat de reden is voor dit doel. 
+
+### uitgevoerde werkzaamheden
+er is een stuk code toegevoegd die automatisch de hartslagen tijdens het maken van de tests filtert uit de volle meting, door middel van de genoteerde start/eindtijd. daarnaast is er een stuk toegevoegd waarmee de code de "slopes" van de trendlijn uit de data kan halen. dit is een gegeven die nodig is voor de daadwerkelijke analyse van de data. de volledige details van de toegevoegde code zijn te vinden in git hash 53eb6c59caa86d78cb510288c8c4b8e4ee606d48. 
+tijdens het schrijven van deze code ben ik tegen wat dingen aangelopen. eerst had ik de code zo geschreven dat deze gehardcode de namen van de data bij langs ging in de juiste map. na het inzien dat dit niet helemaal goed is, heb ik dit veranderd (met moeite) naar een manier van inlezen waarbij hij de juiste map 'scant' voor bestanden met "heartrate" in de naam. deze code werkt nu.
+
+
+### resultaten
+de code voor de analyse kan nu de juiste datapunten uit de vele csv-bestanden halen en kan voor een deel van deze datapunten de slope berekenen. 
+
+### conclusie en vervolgstappen
+er moet nog verder gewerkt worden aan het programma voor data-analyse en de metingen moeten afgemaakt worden.  
