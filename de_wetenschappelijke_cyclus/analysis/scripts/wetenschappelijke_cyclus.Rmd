@@ -69,9 +69,11 @@ data_list
 
 
 test_tijden <- read.csv("../../raw_data/testtijden.csv")
+
 #deze lijn zorgt er voor dat alle bestanden met de pattern "heartrate" in files opgeslagen wordt.
 files <- list.files("../../raw_data/", pattern = "heartrate", full.names = TRUE)
 files
+
 
 
 all_results <- lapply(seq_along(files), function(x) {
@@ -87,7 +89,8 @@ all_results <- lapply(seq_along(files), function(x) {
   read_and_filter(heartrate_locatie, testtime_1, testtime_2, testtime_3)
 })
 
-results1 <- all_results[[1]]$results_3
+all_results
+results1 <- all_results[[1]]
 results1
 ```
 
@@ -100,5 +103,40 @@ slopes_1 <- sapply(all_results, function(res) {
   coef(lm(y ~ x))[2]
 })
 slopes_1
+
+
+
+```
+
+
+```{r}
+mean_results <- lapply(all_results, function(res) {
+  
+  mean1 <- mean(res$results_1)
+  mean2 <- mean(res$results_2)
+  mean3 <- mean(res$results_3)
+  
+  data.frame(
+    mean1,
+    mean2,
+    mean3
+  )
+})
+mean_results
+
+
+mean_results <- lapply(all_results, function(res) {
+  
+  mean1 <- mean(res$results_1)
+  mean2 <- mean(res$results_2)
+  mean3 <- mean(res$results_3)
+  
+  data.frame(
+    mean_1 = mean1,
+    mean_2 = mean2,
+    mean_3 = mean3
+  )
+})
+mean_results
 ```
 
