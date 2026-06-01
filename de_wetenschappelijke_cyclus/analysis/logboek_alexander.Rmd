@@ -136,4 +136,43 @@ er is van de eerder geschreven code (zie 26/5/2026 of git hash 0967af086218ce198
 de functie is geschreven en werkzaam. de code hiervoor is terug te vinden in wetenschappelijke_cyclus/analysis/scripts/wetenschappelijke_cyclus.Rmd in git hash 2cbe08dcec567d95a80cb3c228724519cd8433a5.
 
 ### conclusie en vervolgstappen
-er moeten nog 7 personen gemeten worden voor onze data, waarvan het liefst nog 1 man en 6 vrouwen. in scripts moet er nog veel geschreven worden, om onze data nog verder te filteren op tijd tijdens de test. daarnaast moet de dan gefilterde data nog in een nieuwe tabel gezet worden. ook moet de poweranalyse, resultaten en discussie nog geschreven/gedaan worden in onze paper.   
+er moeten nog 7 personen gemeten worden voor onze data, waarvan het liefst nog 1 man en 6 vrouwen. in scripts moet er nog veel geschreven worden, om onze data nog verder te filteren op tijd tijdens de test. daarnaast moet de dan gefilterde data nog in een nieuwe tabel gezet worden. ook moet de poweranalyse, resultaten en discussie nog geschreven/gedaan worden in onze paper. 
+
+
+
+##29/5/2026
+
+### doel van de dag
+mensen testen en het eerder gemaakte script proberen te laten filteren op de testtijden
+
+### motivatie van aanpak
+dit is de volgende stap in het dataverwerkingprocess. door de testtijden uit de eerder gegenereerde gegevens te krijgen kunnen wij verder met de analyse. daarnaast is onze data nog niet compleet, dus moeten wij nog mensen testen
+
+### uitgevoerde werkzaamheden
+er is 1 persoon getest in lokaal D1.07. de test is uitgevoert door Tristan, Jasmijn en ik. voor de test liep de bloeddrukmeter leeg, waarna daar batterijen voor zijn gehaald. de testpersoon was meegelopen en heeft als correctie op de inspanning 2 extra minuten rust gekregen. verder is er gewerkt aan de code, zodat deze op testtijden kan filteren. 
+
+
+### resultaten
+doordat er een test is uitgevoerd, zitten we op 14/20 personen, waarvan de rest met voorkeur vrouwelijk is. verder is de code zo aangepast dat deze nu ook op testtijden kan filteren, voor meer detais zie git hash 1141ef2a9cbcddf9309e2158799d3a170df47373.
+
+### conclusie en vervolgstappen
+er moeten nog 6 personen gemeten worden, bij voorkeur allemaal vrouw. ons script moet nog verder geschreven worden, zodat deze uiteindelijk de data in de tabel met andere gegevens (raw_data/wetcyc.xlsx) kan zetten. 
+
+
+## 30/5/2026
+### doel van de dag
+de code voor de analyse verder/af proberen te krijgen
+
+### motivatie van aanpak
+doordat we in het weekend geen mensen kunnen testen en de deadline nadert, moeten we er voor zorgen dat de analyse van data zo snel mogelijk kan nadat de data er is. om dit te kunnen doen moet het script voor de data analyse afgemaakt worden, wat de reden is voor dit doel. 
+
+### uitgevoerde werkzaamheden
+er is een stuk code toegevoegd die automatisch de hartslagen tijdens het maken van de tests filtert uit de volle meting, door middel van de genoteerde start/eindtijd. daarnaast is er een stuk toegevoegd waarmee de code de "slopes" van de trendlijn uit de data kan halen. dit is een gegeven die nodig is voor de daadwerkelijke analyse van de data. de volledige details van de toegevoegde code zijn te vinden in git hash 53eb6c59caa86d78cb510288c8c4b8e4ee606d48. 
+tijdens het schrijven van deze code ben ik tegen wat dingen aangelopen. eerst had ik de code zo geschreven dat deze gehardcode de namen van de data bij langs ging in de juiste map. na het inzien dat dit niet helemaal goed is, heb ik dit veranderd (met moeite) naar een manier van inlezen waarbij hij de juiste map 'scant' voor bestanden met "heartrate" in de naam. deze code werkt nu.
+
+
+### resultaten
+de code voor de analyse kan nu de juiste datapunten uit de vele csv-bestanden halen en kan voor een deel van deze datapunten de slope berekenen. 
+
+### conclusie en vervolgstappen
+er moet nog verder gewerkt worden aan het programma voor data-analyse en de metingen moeten afgemaakt worden.  
