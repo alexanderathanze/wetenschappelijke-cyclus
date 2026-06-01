@@ -1,0 +1,22 @@
+---
+title: "bloodpressure"
+output: html_document
+---
+
+```{r}
+install.packages("readxl")
+
+library(readxl)
+
+```
+
+```{r}
+data <- read_excel("../../raw_data/Blood pressure/bloodpressure.xlsx")
+
+
+```
+
+```{r}
+
+```
+
