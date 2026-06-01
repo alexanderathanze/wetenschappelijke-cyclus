@@ -136,4 +136,25 @@ er is van de eerder geschreven code (zie 26/5/2026 of git hash 0967af086218ce198
 de functie is geschreven en werkzaam. de code hiervoor is terug te vinden in wetenschappelijke_cyclus/analysis/scripts/wetenschappelijke_cyclus.Rmd in git hash 2cbe08dcec567d95a80cb3c228724519cd8433a5.
 
 ### conclusie en vervolgstappen
-er moeten nog 7 personen gemeten worden voor onze data, waarvan het liefst nog 1 man en 6 vrouwen. in scripts moet er nog veel geschreven worden, om onze data nog verder te filteren op tijd tijdens de test. daarnaast moet de dan gefilterde data nog in een nieuwe tabel gezet worden. ook moet de poweranalyse, resultaten en discussie nog geschreven/gedaan worden in onze paper.   
+er moeten nog 7 personen gemeten worden voor onze data, waarvan het liefst nog 1 man en 6 vrouwen. in scripts moet er nog veel geschreven worden, om onze data nog verder te filteren op tijd tijdens de test. daarnaast moet de dan gefilterde data nog in een nieuwe tabel gezet worden. ook moet de poweranalyse, resultaten en discussie nog geschreven/gedaan worden in onze paper. 
+
+
+
+##29/5/2026
+
+### doel van de dag
+mensen testen en het eerder gemaakte script proberen te laten filteren op de testtijden
+
+### motivatie van aanpak
+dit is de volgende stap in het dataverwerkingprocess. door de testtijden uit de eerder gegenereerde gegevens te krijgen kunnen wij verder met de analyse. daarnaast is onze data nog niet compleet, dus moeten wij nog mensen testen
+
+### uitgevoerde werkzaamheden
+er is 1 persoon getest in lokaal D1.07. de test is uitgevoert door Tristan, Jasmijn en ik. voor de test liep de bloeddrukmeter leeg, waarna daar batterijen voor zijn gehaald. de testpersoon was meegelopen en heeft als correctie op de inspanning 2 extra minuten rust gekregen. verder is er gewerkt aan de code, zodat deze op testtijden kan filteren. 
+
+
+### resultaten
+doordat er een test is uitgevoerd, zitten we op 14/20 personen, waarvan de rest met voorkeur vrouwelijk is. verder is de code zo aangepast dat deze nu ook op testtijden kan filteren, voor meer detais zie git hash 1141ef2a9cbcddf9309e2158799d3a170df47373.
+
+### conclusie en vervolgstappen
+er moeten nog 6 personen gemeten worden, bij voorkeur allemaal vrouw. ons script moet nog verder geschreven worden, zodat deze uiteindelijk de data in de tabel met andere gegevens (raw_data/wetcyc.xlsx) kan zetten. 
+

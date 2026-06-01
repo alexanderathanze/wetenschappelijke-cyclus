@@ -37,20 +37,19 @@ subset_file
 ```{r}
 read_and_filter <- function(filelocation, testtime_1, testtime_2, testtime_3) {
   
-  #eerst maak je een subset van het bestand
+  #eerst maakt deze functie een subset van het bestand
   file <- read.csv(filelocation)
   subset_file <- file[, 2:3]
   subset_file <- subset_file[3:nrow(subset_file), ]
   colnames(subset_file) <- c("time", "HR_bpm")
 
-  #uit die subset haal je de hartslagen over de gespecificeerde tijd
+  #uit die subset haalt de functie de hartslagen over de gespecificeerde tijd en maakt deze numeriek
   results_1 <- as.numeric(subset_file$HR_bpm[testtime_1])
   results_2 <- as.numeric(subset_file$HR_bpm[testtime_2])
   results_3 <- as.numeric(subset_file$HR_bpm[testtime_3])
 
   # return alles als een list
   return(list(
-    subset_file = subset_file,
     results_1 = results_1,
     results_2 = results_2,
     results_3 = results_3
@@ -62,5 +61,44 @@ testtime_2 <- 455:516
 testtime_3 <- 590:621
 data_list <- read_and_filter("../../raw_data/heartrate_1.csv",testtime_1,testtime_2, testtime_3)
 data_list
+```
+
+
+```{r}
+#!!!!!!!!!!!!! de bestandsnamen zijn nog niet op de juiste volgorde, omdat de alfabetische volgorde gepakt wordt
+
+
+test_tijden <- read.csv("../../raw_data/testtijden.csv")
+#deze lijn zorgt er voor dat alle bestanden met de pattern "heartrate" in files opgeslagen wordt.
+files <- list.files("../../raw_data/", pattern = "heartrate", full.names = TRUE)
+files
+
+
+all_results <- lapply(seq_along(files), function(x) {
+  
+  heartrate_locatie <- files[x]
+  
+  testtime_1 <- test_tijden$Geen.tijdsdruk.start[x] : test_tijden$geen.tijdsdruk.eind[x]
+  
+  testtime_2 <- test_tijden$Licht.tijdsdruk.start[x] : test_tijden$lichte.tijdsdruk.eind[x]
+
+  testtime_3 <- test_tijden$Hoge.tijdsdruk.start[x] : test_tijden$hoge.tijdsdruk.eind[x]
+
+  read_and_filter(heartrate_locatie, testtime_1, testtime_2, testtime_3)
+})
+
+results1 <- all_results[[1]]$results_3
+results1
+```
+
+
+```{r}
+# zorgt ervoor dat de slopes in een variabele gezet worden
+slopes_1 <- sapply(all_results, function(res) {
+  y <- res$results_1
+  x <- 1:length(y)
+  coef(lm(y ~ x))[2]
+})
+slopes_1
 ```
 
