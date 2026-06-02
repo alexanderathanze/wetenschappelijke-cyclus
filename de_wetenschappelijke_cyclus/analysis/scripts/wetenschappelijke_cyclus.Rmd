@@ -15,25 +15,17 @@ als je deze nog niet hebt moet je de lijn install.packages("readr") runnen.
 ```{r}
 install.packages("readr")
 library(readr)
+install.packages("ggplot2")
+library(ggplot2)
+install.packages("tidyr")
+library(tidyr)
+install.packages("ez")
+library(ez)
 ```
 
 
 
-```{r}
-
-file <- read.csv("../../raw_data/heartrate_1.csv")
-file
-subset_file <- file[2:3]
-subset_file
-subset_file <- subset_file[3:length(subset_file$Sport),]
-colnames(subset_file)<- c("Time", "HR (bpm)")
-subset_file
-
-
-```
-
-
-
+de functie in dit blok zorgt er voor dat de bestanden met de hartslag worden ingelezen en gefilterd op de data die voor ons interessant is.
 ```{r}
 read_and_filter <- function(filelocation, testtime_1, testtime_2, testtime_3) {
   
@@ -56,26 +48,20 @@ read_and_filter <- function(filelocation, testtime_1, testtime_2, testtime_3) {
   ))
 }
 
-testtime_1 <- 298:389
-testtime_2 <- 455:516
-testtime_3 <- 590:621
-data_list <- read_and_filter("../../raw_data/heartrate_1.csv",testtime_1,testtime_2, testtime_3)
-data_list
 ```
 
 
-```{r}
-#!!!!!!!!!!!!! de bestandsnamen zijn nog niet op de juiste volgorde, omdat de alfabetische volgorde gepakt wordt
 
+het volgende blok zorgt er voor dat de hartslagen worden gefilterd zodat alleen de hartslagen per toetstijd worden opgeslagen in een lijst
+```{r}
 
 test_tijden <- read.csv("../../raw_data/testtijden.csv")
 
 #deze lijn zorgt er voor dat alle bestanden met de pattern "heartrate" in files opgeslagen wordt.
 files <- list.files("../../raw_data/", pattern = "heartrate", full.names = TRUE)
-files
 
 
-
+# de volgende lapply zorgt ervoor dat de tijden wanneer de test gebeurde uit de 
 all_results <- lapply(seq_along(files), function(x) {
   
   heartrate_locatie <- files[x]
@@ -89,12 +75,12 @@ all_results <- lapply(seq_along(files), function(x) {
   read_and_filter(heartrate_locatie, testtime_1, testtime_2, testtime_3)
 })
 
-all_results
+
 results1 <- all_results[[1]]
 results1
 ```
 
-
+dit codeblok berekent de toename van de trendlijn in de eerste test per persoon
 ```{r}
 # zorgt ervoor dat de slopes in een variabele gezet worden
 slopes_1 <- sapply(all_results, function(res) {
@@ -108,23 +94,9 @@ slopes_1
 
 ```
 
-
+de code in dit blok zorgt er voor dat er een dataframe gemaakt wordt gemaakt van alle gemiddelde waardes per test per persoon. 
 ```{r}
-mean_results <- lapply(all_results, function(res) {
-  
-  mean1 <- mean(res$results_1)
-  mean2 <- mean(res$results_2)
-  mean3 <- mean(res$results_3)
-  
-  data.frame(
-    mean1,
-    mean2,
-    mean3
-  )
-})
-mean_results
-
-
+# deze functie zorgt er voor dat de eerder gemaakte lijst (all_results) wordt ingelezen en de means van alle harslagen in bpm in een dataframe worden gezet
 mean_results <- lapply(all_results, function(res) {
   
   mean1 <- mean(res$results_1)
@@ -137,6 +109,43 @@ mean_results <- lapply(all_results, function(res) {
     mean_3 = mean3
   )
 })
-mean_results
+
+mean_results_df <- do.call(rbind, mean_results)
+mean_results_df$participant <- seq_len(nrow(mean_results_df))
+mean_results_df
+```
+
+```{r}
+
+df_long <- pivot_longer(
+  mean_results_df,
+  cols = c(mean_1, mean_2, mean_3),
+  names_to = "condition",
+  values_to = "heart_rate"
+)
+
+df_long
+```
+
+
+
+
+
+```{r}
+ggplot(df_long, aes(condition, heart_rate)) +
+  geom_boxplot(width = 0.7)
+```
+
+
+```{r}
+#niet definitief
+pairwise.t.test(
+  df_long$heart_rate,
+  df_long$condition,
+  paired = TRUE,
+  p.adjust.method = "holm"
+)
+
+
 ```
 
