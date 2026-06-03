@@ -75,7 +75,7 @@ all_results <- lapply(seq_along(files), function(x) {
   read_and_filter(heartrate_locatie, testtime_1, testtime_2, testtime_3)
 })
 
-
+all_results
 results1 <- all_results[[1]]
 results1
 ```
@@ -104,25 +104,42 @@ mean_results <- lapply(all_results, function(res) {
   mean3 <- mean(res$results_3)
   
   data.frame(
-    mean_1 = mean1,
-    mean_2 = mean2,
-    mean_3 = mean3
+    mean_test_1 = mean1,
+    mean_test_2 = mean2,
+    mean_test_3 = mean3
   )
 })
 
 mean_results_df <- do.call(rbind, mean_results)
 mean_results_df$participant <- seq_len(nrow(mean_results_df))
 mean_results_df
+
 ```
+
+dit blok zorgt ervoor dat de gender en pss uit de pss_gender_scores.csv in rauwe data ook in de dataframe van de mean test scores staat
+```{r}
+gender_pss_data <- read_csv("../../raw_data/pss_gender_scores.csv")
+mean_results_df$gender <- gender_pss_data$Gender
+mean_results_df$pss_score <- gender_pss_data$`PSS-10 (/40)`
+mean_results_df$toets_score <- gender_pss_data$`Totaal Rekenen (/60)`
+mean_results_df
+```
+
+
+
+
+
+
 
 ```{r}
 
 df_long <- pivot_longer(
   mean_results_df,
-  cols = c(mean_1, mean_2, mean_3),
+  cols = c(mean_test_1, mean_test_2, mean_test_3),
   names_to = "condition",
   values_to = "heart_rate"
 )
+
 
 df_long
 ```
@@ -134,17 +151,27 @@ df_long
 ```{r}
 ggplot(df_long, aes(condition, heart_rate)) +
   geom_boxplot(width = 0.7)
+
+
+
+#qqplot, shapiro wilkinson
 ```
 
-
+in dit blok wordt een data analyse gedaan. dit wordt met de pairwise wilcox test gedaan omdat onze data geen normale distributie heeft. dit is de equivalent aan een paired t-test.
 ```{r}
-#niet definitief
-pairwise.t.test(
+#hieruit komt dat de data geen normale distributie heeft
+shapiro.test(mean_results_df$mean_test_1)
+qqnorm(mean_results_df$mean_test_1)
+
+
+pairwise.wilcox.test(
   df_long$heart_rate,
   df_long$condition,
   paired = TRUE,
   p.adjust.method = "holm"
 )
+
+
 
 
 ```
