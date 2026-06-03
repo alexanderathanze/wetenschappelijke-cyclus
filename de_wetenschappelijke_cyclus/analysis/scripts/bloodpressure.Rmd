@@ -3,20 +3,155 @@ title: "bloodpressure"
 output: html_document
 ---
 
+Install libary's but only once
 ```{r}
 install.packages("readxl")
+install.packages("ggplot2")
+```
 
+
+Load library's each session
+
+```{r}
 library(readxl)
+library(ggplot2)
+```
+
+
+Read the data and assign to vector what you want to use. 
+In this case we need the diastolic and systolic bloodpressure of every person we measured.
+```{r}
+data <- read_excel("../../raw_data/blood_pressure/bloodpressure.xlsx")
+
+diastolic <- data$`Diastolic (mmHg)`
+systolic <- data$`Systolic (mmHg)`
+```
+
+
+Check if there are any NA's in the data
+```{r}
+sum(is.na(diastolic))
+sum(is.na(systolic))
+```
+
+
+Diastolic measurements
+```{r}
+rust_diastolic <- as.numeric(diastolic[seq(4, length(diastolic), by = 4)])
+
+toets_diastolic_1 <- as.numeric(diastolic[seq(3, length(diastolic), by = 4)])
+toets_diastolic_2 <- as.numeric(diastolic[seq(2, length(diastolic), by = 4)])
+toets_diastolic_3 <- as.numeric(diastolic[seq(1, length(diastolic), by = 4)])
+
+verschil_diastolic_1 <- toets_diastolic_1 - rust_diastolic
+verschil_diastolic_2 <- toets_diastolic_2 - rust_diastolic
+verschil_diastolic_3 <- toets_diastolic_3 - rust_diastolic
+
 
 ```
 
+
+Systolic measurements
 ```{r}
-data <- read_excel("../../raw_data/Blood pressure/bloodpressure.xlsx")
+rust_systolic <- as.numeric(systolic[seq(4, length(diastolic), by = 4)])
+
+toets_systolic_1 <- as.numeric(systolic[seq(3, length(systolic), by = 4)])
+toets_systolic_2 <- as.numeric(systolic[seq(2, length(systolic), by = 4)])
+toets_systolic_3 <- as.numeric(systolic[seq(1, length(systolic), by = 4)])
+
+verschil_systolic_1 <- toets_systolic_1 - rust_systolic
+verschil_systolic_2 <- toets_systolic_2 - rust_systolic
+verschil_systolic_3 <- toets_systolic_3 - rust_systolic
+```   
 
 
+
+```{r}
+gem_rust_dia <- mean(rust_diastolic)
+gem_toets_1_dia <- mean(toets_diastolic_1)
+gem_toets_2_dia <- mean(toets_diastolic_2)
+gem_toets_3_dia <- mean(toets_diastolic_3)
+
+
+
+df <- data.frame(
+  meting  = c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"),
+  waarde  = c(gem_rust_dia, gem_toets_1_dia, gem_toets_2_dia, gem_toets_3_dia)
+)
+
+df$meting <- factor(df$meting, levels = c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
+
+ggplot(df, aes(x = meting, y = waarde, group = 1)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Diastolische bloeddruk per meting",
+       x = "Meting",
+       y = "Diastolisch (mmHg)") +
+  theme_minimal()
+```
+```{r}
+gem_rust_sys <- mean(rust_systolic)
+gem_toets_1_sys <- mean(toets_systolic_1)
+gem_toets_2_sys <- mean(toets_systolic_2)
+gem_toets_3_sys <- mean(toets_systolic_3)
+
+
+
+df <- data.frame(
+  meting  = c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"),
+  waarde  = c(gem_rust_sys, gem_toets_1_sys, gem_toets_2_sys, gem_toets_3_sys)
+)
+
+df$meting <- factor(df$meting, levels = c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
+
+ggplot(df, aes(x = meting, y = waarde, group = 1)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Systolische bloeddruk per meting",
+       x = "Meting",
+       y = "Systolisch (mmHg)") +
+  theme_minimal()
 ```
 
 ```{r}
+n <- length(rust_diastolic)
+persoon <- 1:n
 
+
+df <- data.frame(
+  persoon = rep(persoon, 4),
+  meting  = rep(c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"), each = n),
+  waarde  = c(rust_diastolic, toets_diastolic_1, toets_diastolic_2, toets_diastolic_3)
+)
+
+df$meting <- factor(df$meting, levels = c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
+
+ggplot(df, aes(x = meting, y = waarde)) +
+ geom_boxplot()
+  labs(title = "Systolische bloeddruk per meting",
+       x = "Meting",
+       y = "Systolisch (mmHg)") +
+  theme_minimal()
+```
+
+```{r}
+n <- length(rust_systolic)
+persoon <- 1:n
+
+
+df <- data.frame(
+  persoon = rep(persoon, 4),
+  meting  = rep(c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"), each = n),
+  waarde  = c(rust_systolic, toets_systolic_1, toets_systolic_2, toets_systolic_3)
+)
+
+df$meting <- factor(df$meting, levels = c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
+
+ggplot(df, aes(x = meting, y = waarde)) +
+ geom_boxplot()
+  labs(title = "Systolische bloeddruk per meting",
+       x = "Meting",
+       y = "Systolisch (mmHg)") +
+  theme_minimal()
 ```
 
