@@ -66,16 +66,19 @@ De inviduele antwoorden zijn door ons niet meer te zien nadat wij deze data verw
 
 https://github.com/alexanderathanze/wetenschappelijke-cyclus/tree/main  
 
+Route van rauwe data:
+raw_data/ (heart beats, blood pressure, test scores)
+
+Route van R scripts: 
+analysis/ (boxplots, line plots for blood pressure, heart beats and test scores)
+
 
 # Logboek
 
 ## 19/05/2026
-Doel:
+Doel: Artikel vinden voor journal club, meet methode uittesten op onszelf en eventueel verbeteren.
 
-Motivatie: 
-
-Conclusie:
-
+Motivatie: Onze meet methode is nog niet robuust en hebben we nog niet echt uitgetest, daarom moeten we dat doen. En ik loop al achter met een artikel kiezen voor de journal club, daarom moet ik daar vandaag naar opzoek.
 
 
 Artikel gevonden voor de journal club en daarbij in teams gezet dat ik het graag op 29 mei om half 11 presenteer. Dit artikel heb ik een tijdje geleden al gevonden toen ik er een youtube video over keek.
@@ -84,7 +87,7 @@ Artikel titel: H-Neurons: On the Existence, Impact, and Origin of Hallucination-
 
 link:https://arxiv.org/abs/2512.01797
 
-Samenvatting artikel: 
+Samenvatting artikel: Het artikel gaat over waar precies hallucinaties gebeuren in een LLM model (large language model). De onderzoekers hebben ontdekt welke neuronen in een netwerk precies zorgen voor hallucinaties en welke juist horen bij 
 
 
 Ook hebben we getest op onszelf en gediscussieerd over onze meetmethode en hebben we deze verbeterd doormiddel van noteren van starttijd toetsen en hebben ons protocol over begeleiden van het proefpersoon tijdens de test ook verbeterd.
@@ -115,13 +118,76 @@ Daarna heb ik gewerkt aan een stukje schrijven over de pss-10 test met al bestaa
 
 Doel: Aan het einde van de dag nog een meting doen van een meid. Begin maken aan de R code voor ons onderzoek. Logboek verbeteren op basis van feedback en van journal club artikel een presentatie maken.
 
-
+Motivatie: Moeten nog genoeg metingen doen om te komen bij de 20 metingen. En moeten nog code schrijven voor onze statistische analyse.
 
 Bezig gegaan met deel 2 van de FAIR. Een repository was aangemaakt op github door Alexander op 22 mei:
 https://github.com/alexanderathanze/wetenschappelijke-cyclus/tree/main
 
+Hebben gekeken naar eventuele oplossingen voor hoe wij onze data gaan verwerken en wat we nodig hebben voor een juiste conclusie van ons onderzoek. En hebben een meting gedaan.
+
+Conclusie: Ik heb minder gedaan dan ik wilde doen. Maar we hebben een meting gedaan aan het einde van de dag. En ook gekeken naar eventuele manieren van visualiseren, alleen hier waren we nog niet compleet uit gekomen, want wij wisten niet precies wat wij statistisch uit onze data konden halen en hoe/wat de beste manier daarvan is. 
+
+## 27 t/m 28 mei
+
+Doel: Bezig met ons onderzoek, maar vooral bezig met de journal club, want ik heb op 29 mei een presentatie daarvan.
+
+Motivatie: Ik heb vrijdag 29 mei een presentatie over hallucinaties in LLM's en deze presentatie moest al worden ingeleverd op 27 mei op 9.00 's ochtends. Artikel: https://arxiv.org/abs/2512.01797
+
+Ik was erg ziek en moest de presentatie maken. Ik heb het artikel goed doorgelezen, ook was er een in-depth youtube video over gemaakt: https://www.youtube.com/watch?v=1ONwQzauqkc. Vervolgens heb ik voor plaatjes en feitjes ook nog andere bronnen opgezocht: 
+
+Gao, C. e.a. (2025). H-Neurons: On the Existence, Impact, and Origin of Hallucination-Associated Neurons in LLMs. arXiv:2512.01797.
+Stanford HAI (2026). 2026 AI Index Report – Responsible AI. hai.stanford.edu/ai-index/2026-ai-index-report/responsible-ai
+Artificialanalysis.ai (2026) - AA-Omniscience: Knowledge and Hallucination Benchmark https://artificialanalysis.ai/evaluations/omniscience
+Bao et al. (2025). DeepSeek-R1 Hallucinates More Than DeepSeek-V3.
+Kalai, A. et al. (2025). Why Language Models Hallucinate. arXiv:2501.06521.
+Chelli, M. et al. (2024). Hallucination Rates and Reference Accuracy of ChatGPT and Bard. JMIR. doi:10.2196/53164
 
 
-Zijn verder gegaan met data verzamelen en het juist opslaan van onze data tot nu toe.
+conclusie: Decent presentatie gemaakt over het artikel, niet echt bezig geweest met het onderzoek helaas.
+
+## 29/05/2026
+
+Doel: 
+Presentatie geven en nog een meting doen.
+
+Motivatie: 
+Presentatie moeten geven en we hebben nog niet genoeg metingen gedaan. Want we moeten nog 20 metingen doen en hebben er maar 14. 
+
+Conclusie:
+Wij hebben de gehele dag op school presentaties gedaan en na de les hebben we nog een meting gedaan van een man en de batterijen vervangen van het bloeddruk meter apparaat. Presentatie ging prima, was aantal dingen ondertussen vergeten waardoor ik er later nog op terug moest komen. 
 
 
+## 31/05/2026
+
+Doel:
+R code schrijven voor de data uit de bloeddruk meter.
+
+Motivatie: Wij hebben nog lang niet alle R code geschreven, dus wij moeten dat zo snel mogelijk doen. 
+
+Bezig gegaan met R script voor de bloeddruk data.
+
+Repo: zie bovenaan document
+
+Script: Analysis/bloodpressure.rmd
+
+data: raw data/Blood pressure/bloodpressure.xslx
+
+Conclusie: Een klein begin kunnen maken, alleen in de trein was het zo druk dat ik moest staan en niet echt bezig kon gaan.
+
+## 1/05
+
+Doel:
+Verder gaan met R code schrijven voor de data van de bloeddruk meter en bespreken wat voor plotjes we moeten maken voor de rest.
+Eventueel verder meten.
+
+Motivatie: 
+Ik heb de code ervoor nog lang niet af en had maar een begin gemaakt, het moet af dus ik moet ermee bezig. Ook moeten we samen bespreken welke plotjes van waarde zijn voor ons onderzoek. Nog steeds geen 
+
+
+
+Conclusie:
+
+
+
+
+ 
