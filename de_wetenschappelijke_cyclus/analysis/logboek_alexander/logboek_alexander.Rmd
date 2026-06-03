@@ -42,8 +42,7 @@ WIP
 ## 20/5/2026
 
 ### doel van de dag
-Vandaag is het doel om zo veel mogelijk mensen te meten. Dit wordt gedaan zoals
-in het protocol vermeld.
+Vandaag is het doel om zo veel mogelijk mensen te meten. Dit wordt gedaan zoals in het protocol vermeld.
 
 ### motivatie van aanpak
 Dit doel is gekozen omdat er nog veel data verzameld moet worden. Door het 
@@ -176,3 +175,46 @@ de code voor de analyse kan nu de juiste datapunten uit de vele csv-bestanden ha
 
 ### conclusie en vervolgstappen
 er moet nog verder gewerkt worden aan het programma voor data-analyse en de metingen moeten afgemaakt worden.  
+
+
+## 1/6/2026
+### doel van de dag
+de code voor de analyse verder/af proberen te krijgen en mensen meten
+
+### motivatie van aanpak
+er moeten nog 6 mensen gemeten worden van de 20. dit moet gebeuren zodat onze data betrouwbaarder is. verder moet het script nog verder geschreven worden zodat wij een statistische test kunnen doen op de data. 
+
+### uitgevoerde werkzaamheden
+de namen van de heartrate_x.CSV bestanden is aangepast zodat deze volgens fair beter terug te vinden is. de namen van de bestanden zijn nu vormgegeven in het volgende format: yyyy_mm_dd_heartrate_x.csv. verder is er een deel in het script bijgeschreven wat de means per test per persoon uitrekent. verdere details zijn te vinden in /de_wetenschappelijke_cyclus/analysis/scripts/wetenschappelijke_cyclus.Rmd in git hash c117f13f6a36b22bd39149080d03d0d94f3e46c6. 
+
+
+### resultaten
+de code maakt nu ook een dataframe van de means per test per persoon. verder is het probleem met bestanden die niet in de goede volgorde gelezen worden (alfabetisch ipv testnummer) verholpen doordat de namen zijn aangepast. er zijn vandaag geen personen getest. 
+
+### conclusie en vervolgstappen
+personen testen en de code zo ver krijgen dat hier plotjes en een statistische analyse uit te halen zijn. 
+
+
+
+## 2/6/2026
+### doel van de dag
+vandaag is het weer tijd voor mensen meten, met als doel de metingen af maken. dit houdt in dat er nog 6 mensen gemeten moeten worden. daarnaast moet er nog gewerkt worden aan de visualisaties, vooral het uitzoeken op welke manier wij onze data willen visualiseren en welke data wij willen visualiseren. 
+
+### motivatie van aanpak
+er moeten nog meer mensen gemeten worden om onze data nog betrouwbaarder te maken. daarnaast is het goed om een visualisatie te maken zodat onze data visueel geïnterpreteerd kan worden. 
+ 
+
+### uitgevoerde werkzaamheden
+er is bij de code een deel bijgekomen die ervoor zorgt dat onze means per test per persoon longer gepivot zijn, zodat onze data makkelijker is te gebruiken met ggplot. daarnaast is er van de means per test per persoon een boxplot gemaakt. ook is er gekeken naar de statistiek om de data te interpreteren, maar dat is nog niet definitief. verder zijn er nog 6 mensen gementen door Jasmijn, Tristan en Alexander in lokaal D1.07.
+daarnaast is door de groep de conclusie getrokken dat de prestatie van de test niet meegenomen wordt in de analyse, omdat deze van veel meer afhangt dan alleen stress (denk aan rekenvaardigheid, computervaardigheid, discalculie), wat er voor zorgt dat wij hier geen conclusies uit zouden kunnen trekken.
+
+
+
+### resultaten
+een boxplot van de means per test.
+![een boxplot van de means per test](boxplot_means.png)
+verder is er nog een stuk code geschreven om resultaten longer te pivotten en is deze gebruikt om de boxplot te maken. de code is terug te vinden in git hash
+198632641c5bba84b6cb955401502f6c7b85be56 . 
+
+### conclusie en vervolgstappen
+de data is verzameld. hier moeten nog geschikte visualisaties voor gevonden worden en de juiste analyses op losgelaten worden. als dat af is kunnen de resultaten en discussie van het onderzoek geschreven worden.
