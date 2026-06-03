@@ -205,12 +205,16 @@ er moeten nog meer mensen gemeten worden om onze data nog betrouwbaarder te make
  
 
 ### uitgevoerde werkzaamheden
-er is bij de code een deel bijgekomen die ervoor zorgt dat onze means per test per persoon longer gepivot zijn, zodat onze data makkelijker is te gebruiken met ggplot. daarnaast is er van de means per test per persoon een boxplot gemaakt. ook is er gekeken naar de statistiek om de data te interpreteren, maar dat is nog niet definitief.
+er is bij de code een deel bijgekomen die ervoor zorgt dat onze means per test per persoon longer gepivot zijn, zodat onze data makkelijker is te gebruiken met ggplot. daarnaast is er van de means per test per persoon een boxplot gemaakt. ook is er gekeken naar de statistiek om de data te interpreteren, maar dat is nog niet definitief. verder zijn er nog 6 mensen gementen door Jasmijn, Tristan en Alexander in lokaal D1.07.
+daarnaast is door de groep de conclusie getrokken dat de prestatie van de test niet meegenomen wordt in de analyse, omdat deze van veel meer afhangt dan alleen stress (denk aan rekenvaardigheid, computervaardigheid, discalculie), wat er voor zorgt dat wij hier geen conclusies uit zouden kunnen trekken.
+
 
 
 ### resultaten
 een boxplot van de means per test.
-
+![een boxplot van de means per test](boxplot_means.png)
+verder is er nog een stuk code geschreven om resultaten longer te pivotten en is deze gebruikt om de boxplot te maken. de code is terug te vinden in git hash
+198632641c5bba84b6cb955401502f6c7b85be56 . 
 
 ### conclusie en vervolgstappen
-
+de data is verzameld. hier moeten nog geschikte visualisaties voor gevonden worden en de juiste analyses op losgelaten worden. als dat af is kunnen de resultaten en discussie van het onderzoek geschreven worden.
