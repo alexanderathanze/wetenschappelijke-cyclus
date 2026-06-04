@@ -59,7 +59,7 @@ test_tijden <- read.csv("../../raw_data/testtijden.csv")
 
 #deze lijn zorgt er voor dat alle bestanden met de pattern "heartrate" in files opgeslagen wordt.
 files <- list.files("../../raw_data/", pattern = "heartrate", full.names = TRUE)
-
+files
 
 # de volgende lapply zorgt ervoor dat de tijden wanneer de test gebeurde uit de 
 all_results <- lapply(seq_along(files), function(x) {
@@ -167,8 +167,7 @@ qqnorm(mean_results_df$mean_test_1)
 pairwise.wilcox.test(
   df_long$heart_rate,
   df_long$condition,
-  paired = TRUE,
-  p.adjust.method = "holm"
+  paired = TRUE
 )
 
 

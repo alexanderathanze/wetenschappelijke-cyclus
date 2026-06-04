@@ -218,3 +218,33 @@ verder is er nog een stuk code geschreven om resultaten longer te pivotten en is
 
 ### conclusie en vervolgstappen
 de data is verzameld. hier moeten nog geschikte visualisaties voor gevonden worden en de juiste analyses op losgelaten worden. als dat af is kunnen de resultaten en discussie van het onderzoek geschreven worden.
+
+
+
+## 3/6/2026
+### doel van de dag
+de code voor de analyse verder/af proberen te krijgen en verder schrijven in de readme en het eindproduct
+
+### motivatie van aanpak
+we hebben nog geen statistische analyse van de data en moeten deze wel zsm proberen te krijgen. verder moet het artikel nog afgeschreven worden, of in ieder geval verder geschreven worden. ook is de readme nog niet compleet. 
+
+### uitgevoerde werkzaamheden
+in de dataframe waar de means per test per persoon zitten, zitten nu ook de gender en pss-scores van de participanten. verder is er gekeken naar de statistische test die voor onze data van toepassing zou kunnen zijn. hieruit is gekomen dat wij geen paired t-test kunnen doen, omdat onze data geen normale distributie volgen. dit is geconstateerd met een shapiro test en door de data te plotten met de qqnorm functie.
+hierdoor heb ik ervoor gekozen om dezelfde soort test te doen maar dan voor niet-normale data. dit is de pairwise wilcox test.
+de wilcox test is uitgevoerd op de means per test per persoon. de variabele means_test_1 zijn alle means van de eerste test, hetzelfde geld voor mean_test_2 en mean_test_3
+
+### resultaten
+uit de pairwise wilcox test kwam het volgende: 
+            mean_test_1 mean_test_2
+mean_test_2 0.00097     -          
+mean_test_3 0.86949     0.05328    
+
+
+### conclusie en vervolgstappen
+uit de statistische test valt te concluderen dat het verschil tussen test 1 en test 2 significant is. ook valt er uit te concluderen dat het verschil tussen test 2 en 3, zowel als test 1 en 3 niet significant is. wat dit voor onze data betekend moet nog uitgezocht worden. 
+verder moeten het artikel en de readme nog verder/af geschreven worden.
+
+
+
+
+
