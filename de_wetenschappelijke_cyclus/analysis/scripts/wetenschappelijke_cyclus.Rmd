@@ -136,7 +136,7 @@ mean_results_df
 df_long <- pivot_longer(
   mean_results_df,
   cols = c(mean_test_1, mean_test_2, mean_test_3),
-  names_to = "condition",
+  names_to = "conditie",
   values_to = "heart_rate"
 )
 
@@ -149,13 +149,14 @@ df_long
 
 
 ```{r}
-ggplot(df_long, aes(condition, heart_rate)) +
+ggplot(df_long, aes(conditie, heart_rate)) +
   geom_boxplot(width = 0.7)
 
 
 
 #qqplot, shapiro wilkinson
 ```
+
 
 in dit blok wordt een data analyse gedaan. dit wordt met de pairwise wilcox test gedaan omdat onze data geen normale distributie heeft. dit is de equivalent aan een paired t-test.
 ```{r}
@@ -172,6 +173,32 @@ pairwise.wilcox.test(
 
 
 
+
+```
+
+
+
+het volgende blok plot een boxplot die op gender splitst
+```{r}
+ggplot(df_long, aes(conditie, heart_rate, fill = gender)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("Man" = "cyan", "Vrouw" = "lightcoral"))+
+  labs(
+    title = "Hartslag per conditie, gesplitst op gender",
+    x = "Conditie",
+    y = "Hartslag (bpm)"
+    )
+```
+
+
+
+de statistische tests voor het verschil per conditie tussen gender
+```{r}
+wilcox.test(heart_rate ~ gender, data = df_long[df_long$conditie == "mean_test_1", ])
+
+wilcox.test(heart_rate ~ gender, data = df_long[df_long$conditie == "mean_test_2", ])
+
+wilcox.test(heart_rate ~ gender, data = df_long[df_long$conditie == "mean_test_3", ])
 
 ```
 
