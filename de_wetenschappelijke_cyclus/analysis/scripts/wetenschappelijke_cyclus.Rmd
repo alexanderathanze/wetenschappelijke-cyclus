@@ -157,24 +157,15 @@ df_long
 de volgende code maakt een boxplot van de data met op de x-as de toets met desbetreffende tijdsdruk en op de y-as de hartslag
 ```{r}
 ggplot(df_long, aes(conditie, heart_rate)) +
-<<<<<<< HEAD
   geom_boxplot(width = 0.7) +
   scale_x_discrete(labels = c("Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
-=======
-  geom_boxplot(width = 0.7)
-
->>>>>>> 0efd0f39bf4fa541f989fe332b54f0fb2fed8ea7
 
 
 #qqplot, shapiro wilkinson
 ```
 
 
-<<<<<<< HEAD
 in dit blok wordt een data analyse gedaan. dit wordt met de t test gedaan omdat onze data wel een normale distributie heeft. door middel van de p-waarde uit de shapiro test is dit te zien. 
-=======
-in dit blok wordt een data analyse gedaan. dit wordt met de pairwise wilcox test gedaan omdat onze data geen normale distributie heeft. dit is de equivalent aan een paired t-test.
->>>>>>> 0efd0f39bf4fa541f989fe332b54f0fb2fed8ea7
 ```{r}
 #hieruit komt dat de data geen normale distributie heeft
 shapiro.test(mean_results_df$mean_test_1)
@@ -225,7 +216,6 @@ anova(analyse_prep)
 ```
 
 
-<<<<<<< HEAD
 het volgende blok maakt een plot van de hartslag en pss-score van de eerste test
 ```{r}
 df_test1 <- subset(df_long, conditie == "mean_test_1")
@@ -289,30 +279,3 @@ cor.test(df_long$heart_rate[df_long$conditie == "mean_test_3"],
          df_long$pss_score[df_long$conditie == "mean_test_3"])
 ```
 
-=======
-
-het volgende blok plot een boxplot die op gender splitst
-```{r}
-ggplot(df_long, aes(conditie, heart_rate, fill = gender)) +
-  geom_boxplot() +
-  scale_fill_manual(values = c("Man" = "cyan", "Vrouw" = "lightcoral"))+
-  labs(
-    title = "Hartslag per conditie, gesplitst op gender",
-    x = "Conditie",
-    y = "Hartslag (bpm)"
-    )
-```
-
-
-
-de statistische tests voor het verschil per conditie tussen gender
-```{r}
-wilcox.test(heart_rate ~ gender, data = df_long[df_long$conditie == "mean_test_1", ])
-
-wilcox.test(heart_rate ~ gender, data = df_long[df_long$conditie == "mean_test_2", ])
-
-wilcox.test(heart_rate ~ gender, data = df_long[df_long$conditie == "mean_test_3", ])
-
-```
-
->>>>>>> 0efd0f39bf4fa541f989fe332b54f0fb2fed8ea7
