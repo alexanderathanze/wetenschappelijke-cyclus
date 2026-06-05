@@ -1,35 +1,67 @@
-1. Introductie
+---
+title: "logboek_jasmijn"
+output: html_document
+date: "2026-06-05"
+---
+# Introductie
 Dit is een onderzoek over stress tijdens verschillende tijdsdrukken. Ik heb voor dit onderzoek gekozen om te kunnen aantonen dat er stress wordt ervaren door
 studenten tijdens hoge tijdsdruk tijdens toetsen. De vraag die wij stellen is: Beïnvloedt een tijdsdruk de bloeddruk, hartslag en de prestatie?
 Ik verwacht een resultaat, het gaat erg minimaal zijn maar ik denk dat er wel een duidelijk verschil in de hartslag gaat zitten.
 Wij gaan de hartslag meten door een polarflow, en de bloeddruk door een omron bloeddrukmeter. Deze data gaan we vervolgens verwerken tot een grafiek waarin
 wordt aangetoond dat er een kleine piek zit in de hartslag.
 
-20/05/2026
-Doel: Zo veel mogelijk testdata verzamelen binnen de beschikbare tijd, 
+## 20/05/2026
+### Doel: 
+Zo veel mogelijk testdata verzamelen binnen de beschikbare tijd, 
 om ervoor te zorgen dat de dataverzamelingsfase van het project op tijd wordt afgerond.
 
-Motivatie: Om de deadline voor de dataverzameling te halen en voldoende data 
+### Motivatie: 
+Om de deadline voor de dataverzameling te halen en voldoende data 
 beschikbaar te hebben voor de volgende fase van het project, is het van belang dat 
 er dagelijks een maximum aantal deelnemers wordt getest. Vertragingen in deze fase 
 kunnen de verdere planning in gevaar brengen.
 
-Uitgevoerde werkzaamheden: : Er zijn vandaag 10 deelnemers getest volgens het vastgestelde testprotocol. 
+### Uitgevoerde werkzaamheden:
+Er zijn vandaag 10 deelnemers getest volgens het vastgestelde testprotocol. 
 De verzamelde data is na afloop van elke sessie ingevoerd en opgeslagen in het 
 daarvoor bestemde Excel-document (C:/Users/jrjpe/Downloads/Onderzoek stress bij tijdsdruk (Responses) (1).xlsx)
 
-tijd: 3u
-Volgende stap: We gaan als volgende stap nog minimaal 9 mensen testen, en de code schrijven om de data te verwerken.
+### Volgende stap: 
+We gaan als volgende stap nog minimaal 9 mensen testen, en de code schrijven om de data te verwerken.
   
-21/05/2026
-Doel: Vandaag heb ik twee dingen afrondt: meedoen aan de journalclub en een abstract
+## 21/05/2026
+### Doel: 
+Vandaag heb ik twee dingen afrondt: meedoen aan de journalclub en een abstract
 schrijven voor een wedstrijdje
 
-Motivatie: De journalclub staat al ingepland en is sowieso nuttig om meer 
+### Motivatie: 
+De journalclub staat al ingepland en is sowieso nuttig om meer 
 feeling te krijgen met de literatuur in mijn vakgebied.
 
-Uitgevoerde werkzaamheden: bezig geweest met journalclub, en een abstract geschreven.
-tijd: 4u
-Volgende stap: We gaan als volgende stap mensen testen, minimaal 9 mensen. 
+### Uitgevoerde werkzaamheden: 
+bezig geweest met journalclub, en een abstract geschreven.
+
+### Volgende stap: 
+We gaan als volgende stap mensen testen, minimaal 9 mensen. 
 Dit gaan we doen volgens het al bestaande protecool
+
+## 26/05/2026
+### Doel: 
+Meer mensen meten om de minimale 20 personen te halen
+
+### motivatie: 
+We hebben nog maar een week om dit afteronden
+### Uitgevoerde werkzaamheden: 
+Verder gegaan aan het artikel schrijven, ook begonnen met uitzoeken hoe ik mijn taken moet behalen in R 
+Ook hebben we weer een persoon gevonden om te meten.
+
+### Vervolgende stap
+Nu verder met het coderen en meer mensen meten
+
+
+
+## 01/06/2026
+Doel: Vandaag ben ik begonnen 
+
+
 

@@ -78,6 +78,7 @@ all_results <- lapply(seq_along(files), function(x) {
 
 results1 <- all_results[[1]]
 results1
+all_results
 ```
 
 dit codeblok berekent de toename van de trendlijn in de eerste test per persoon
@@ -135,6 +136,43 @@ df_long
 ggplot(df_long, aes(condition, heart_rate)) +
   geom_boxplot(width = 0.7)
 ```
+
+```{r}
+test1_df <- data.frame(
+  time = 1:length(all_results[[1]]$results_1),
+  HR_bpm = all_results[[1]]$results_1,
+  test = "Test 1"
+)
+
+test2_df <- data.frame(
+  time = 1:length(all_results[[1]]$results_2),
+  HR_bpm = all_results[[1]]$results_2,
+  test = "Test 2"
+)
+
+test3_df <- data.frame(
+  time = 1:length(all_results[[1]]$results_3),
+  HR_bpm = all_results[[1]]$results_3,
+  test = "Test 3"
+)
+
+combined_long <- rbind(test1_df, test2_df, test3_df)
+
+ggplot(combined_long, aes(x = time, y = HR_bpm, color = test)) +
+  geom_line(size = 1) +
+  labs(
+    x = "Tijd (seconden)",
+    y = "Hartslag (bpm)",
+    title = "Hartslag tijdens test 1, 2 en 3"
+  ) +
+  scale_color_manual(
+    values = c("Test 1" = "blue", "Test 2" = "orange", "Test 3" = "red"),
+    labels = c("Geen tijdsdruk", "Lichte tijdsdruk", "Hoge tijdsdruk")
+  ) +
+  theme_minimal()
+
+```
+
 
 
 ```{r}
