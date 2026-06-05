@@ -10,19 +10,24 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-om de databestanden in te lezen hebben we readr nodig, die hier wordt ingeladen.
-als je deze nog niet hebt moet je de lijn install.packages("readr") runnen.
+
+om al onze packages te installeren en klaar te zetten voor gebruik moeten de volgende lijnen gerund worden. als je de packages al hebt kun je alleen de lijnen die beginnen met "library" runnen.
 ```{r}
 install.packages("readr")
-library(readr)
 install.packages("ggplot2")
-library(ggplot2)
 install.packages("tidyr")
-library(tidyr)
-install.packages("ez")
-library(ez)
+install.packages("ARTool")
+
 ```
 
+
+
+```{r}
+library(readr)
+library(ggplot2)
+library(tidyr)
+library(ARTool)
+```
 
 
 de functie in dit blok zorgt er voor dat de bestanden met de hartslag worden ingelezen en gefilterd op de data die voor ons interessant is.
@@ -47,7 +52,6 @@ read_and_filter <- function(filelocation, testtime_1, testtime_2, testtime_3) {
     results_3 = results_3
   ))
 }
-
 ```
 
 
@@ -79,6 +83,7 @@ all_results
 results1 <- all_results[[1]]
 results1
 ```
+
 
 dit codeblok berekent de toename van de trendlijn in de eerste test per persoon
 ```{r}
@@ -116,6 +121,8 @@ mean_results_df
 
 ```
 
+
+
 dit blok zorgt ervoor dat de gender en pss uit de pss_gender_scores.csv in rauwe data ook in de dataframe van de mean test scores staat
 ```{r}
 gender_pss_data <- read_csv("../../raw_data/pss_gender_scores.csv")
@@ -127,51 +134,148 @@ mean_results_df
 
 
 
-
-
-
-
+de volgende lijnen code zorgen er voor dat de dataframe in een longer format veranderd worden
 ```{r}
 
 df_long <- pivot_longer(
   mean_results_df,
   cols = c(mean_test_1, mean_test_2, mean_test_3),
-  names_to = "condition",
+  names_to = "conditie",
   values_to = "heart_rate"
 )
 
-
 df_long
+
+
+# deze lijn schrijft de df_long dataframe om naar een csv bestand. hij staat op het moment gedeactiveerd om te voorkomen dat er constant opnieuw een bestand geschreven wordt.
+
+# write.csv(df_long, "df_long.csv", row.names = FALSE) 
 ```
 
 
 
-
-
+de volgende code maakt een boxplot van de data met op de x-as de toets met desbetreffende tijdsdruk en op de y-as de hartslag
 ```{r}
-ggplot(df_long, aes(condition, heart_rate)) +
-  geom_boxplot(width = 0.7)
-
+ggplot(df_long, aes(conditie, heart_rate)) +
+  geom_boxplot(width = 0.7) +
+  scale_x_discrete(labels = c("Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
 
 
 #qqplot, shapiro wilkinson
 ```
 
-in dit blok wordt een data analyse gedaan. dit wordt met de pairwise wilcox test gedaan omdat onze data geen normale distributie heeft. dit is de equivalent aan een paired t-test.
+
+in dit blok wordt een data analyse gedaan. dit wordt met de t test gedaan omdat onze data wel een normale distributie heeft. door middel van de p-waarde uit de shapiro test is dit te zien. 
 ```{r}
 #hieruit komt dat de data geen normale distributie heeft
 shapiro.test(mean_results_df$mean_test_1)
 qqnorm(mean_results_df$mean_test_1)
 
+shapiro.test(mean_results_df$mean_test_2)
+qqnorm(mean_results_df$mean_test_2)
 
-pairwise.wilcox.test(
+shapiro.test(mean_results_df$mean_test_3)
+qqnorm(mean_results_df$mean_test_3)
+
+
+pairwise.t.test(
   df_long$heart_rate,
-  df_long$condition,
+  df_long$conditie,
   paired = TRUE
 )
+```
 
 
 
+de volgende code maakt een boxplot van de data met op de x-as de toets met desbetreffende tijdsdruk en op de y-as de hartslag. verder is de data op gender gesplitst, met blauw als man en rood als vrouw.
+```{r}
+ggplot(df_long, aes(conditie, heart_rate, fill = gender)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("Man" = "cyan", "Vrouw" = "lightcoral"))+
+  labs(
+    title = "Hartslag per conditie, gesplitst op gender",
+    x = "meting",
+    y = "Hartslag (bpm)"
+    ) +
+  scale_x_discrete(labels = c("Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
+```
 
+
+
+de statistische tests voor de interactie van gender en tijdsdruk
+```{r}
+
+conditie_factor <- as.factor(df_long$conditie)
+gender_factor <- as.factor(df_long$gender)
+participant_factor <- as.factor(df_long$participant)
+
+analyse_prep <- art(heart_rate ~ gender_factor * conditie_factor + Error(participant_factor), data = df_long)
+
+anova(analyse_prep)
+
+```
+
+
+het volgende blok maakt een plot van de hartslag en pss-score van de eerste test
+```{r}
+df_test1 <- subset(df_long, conditie == "mean_test_1")
+
+ggplot(df_test1, aes(pss_score, heart_rate)) +
+  geom_point(size = 3, alpha = 0.8, color = "steelblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  theme_minimal() +
+  labs(
+    title = "relatie tussen pss score en hartslag in test 1",
+    x = "PSS-score",
+    y = "hartslag (bpm)"
+  )
+
+```
+
+
+het volgende blok maakt een plot van de hartslag en pss-score van de tweede test
+```{r}
+df_test2 <- subset(df_long, conditie == "mean_test_2")
+
+ggplot(df_test2, aes(pss_score, heart_rate)) +
+  geom_point(size = 3, alpha = 0.8, color = "steelblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  theme_minimal() +
+  labs(
+    title = "relatie tussen pss score en hartslag in test 2",
+    x = "PSS-score",
+    y = "hartslag (bpm)"
+  )
+
+```
+
+
+het volgende blok maakt een plot van de hartslag en pss-score van de derde test
+```{r}
+df_test3 <- subset(df_long, conditie == "mean_test_3")
+
+ggplot(df_test3, aes(pss_score, heart_rate)) +
+  geom_point(size = 3, alpha = 0.8, color = "steelblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  theme_minimal() +
+  labs(
+    title = "relatie tussen pss score en hartslag in test 3",
+    x = "PSS-score",
+    y = "hartslag (bpm)"
+  )
+
+```
+
+in het volgende blok wordt de correlatie van de pss en hartslagen getest per tijdsdruk
+```{r}
+
+cor.test(df_long$heart_rate[df_long$conditie == "mean_test_1"],
+         df_long$pss_score[df_long$conditie == "mean_test_1"])
+
+cor.test(df_long$heart_rate[df_long$conditie == "mean_test_2"],
+         df_long$pss_score[df_long$conditie == "mean_test_2"])
+
+cor.test(df_long$heart_rate[df_long$conditie == "mean_test_3"],
+         df_long$pss_score[df_long$conditie == "mean_test_3"])
 ```
 
