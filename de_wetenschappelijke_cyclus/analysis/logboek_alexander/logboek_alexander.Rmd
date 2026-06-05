@@ -248,3 +248,104 @@ verder moeten het artikel en de readme nog verder/af geschreven worden.
 
 
 
+## 4/6/2026
+### doel van de dag
+de analyse doen van onze data in gender. dit houdt in: man ~ vrouw, wat de relatie/verschillen tussen deze twee zijn
+
+### motivatie van aanpak
+om een van onze deelvragen te beantwoorden moeten we de statistische analyse en grafiek hebben die het verschil tussen man en vrouw laat zien
+
+### uitgevoerde werkzaamheden
+er is een stuk script geschreven om de visualisatie te doen van man ~ vrouw. ook is er een stuk code geschreven om de statistische analyse tussen deze te doen per test. ook ben ik er tegen aan gelopen wat de beste manier zou zijn van statistische analyse tussen deze twee genders, waar uit is gekomen dat ik weer een wilcox test doe. dit keer moet deze test tussen de verschillende genders per test gedaan worden, zodat je het verschil ziet tussen deze genders per test. 
+verdere details over het script zijn terug te vinden in git hash d4d9ac75fde21470f3e69905be8d08d91b666826
+
+### resultaten
+de boxplot van gemiddelde hartslagen in bpm per test per persoon, gesplitst op gender.
+![boxplot van de verschillende gemiddelde hartslagen in bpm, gesplitst op man of vrouw](boxplot_man_vrouw.png)
+verder is er uit de statistische analyse het volgende gekomen:
+
+voor test 1: 
+
+data:  heart_rate by gender
+W = 35, p-value = 0.2947
+alternative hypothesis: true location shift is not equal to 0
+
+voor test 2: 
+
+data:  heart_rate by gender
+W = 35, p-value = 0.2947
+alternative hypothesis: true location shift is not equal to 0
+
+voor test 3: 
+
+data:  heart_rate by gender
+W = 39, p-value = 0.4561
+alternative hypothesis: true location shift is not equal to 0
+
+
+### conclusie en vervolgstappen
+uit deze statistische tests is te concluderen dat er geen significant verschil zit tussen man en vrouw. 
+verdere stappen in ons onderzoek zijn de statistische test/grafiek van stressniveaus gemeten uit de pss10 doen. daarnaast moeten de readme van onze repo en het artikel nog verder geschreven worden.
+
+
+
+## 5/6/2026
+### doel van de dag
+de code voor de analyse van de pss test en de hartslagen/minuut af krijgen
+
+### motivatie van aanpak
+om onze deelvraag voor het effect van de pss-10 test op de ervaren stress te bekijken, moet hier een grafiek van gemaakt worden en de data geanalyseerd worden. 
+
+### uitgevoerde werkzaamheden
+voor de statistische analyse is toch voor een andere methode gekozen, namelijk een anova. deze keuze is gemaakt omdat de anova de interactie tussen gender en resultaten laat zien. verder zijn er fouten uit het geschreven script gehaald. de data blijkt namelijk toch normaal verdeeld te zijn, waardoor de wilcox test niet meer gebruikt wordt maar de pairwise t toets. er zijn grafieken gemaakt voor de pss-10 toets t.o.v. de hartslag en hier is een trendlijn in getrokken. per toets is deze trendlijn gemaakt. wij gebruiken qua data analyse voor de pss-10 toets t.o.v. de hartslag de correlation test. informatie over deze test is gevonden op https://www.sthda.com/english/wiki/correlation-test-between-two-variables-in-r. 
+de correlatie test is per onze tijdsdruk getoetst. volledige details zijn te vinden bij git hash 
+
+### resultaten
+de resultaten van vandaag zijn de volgende grafieken: 
+
+![de plot van de eerste test met trendlijn](test_1_pss.png)
+
+![de plot van de eerste test met trendlijn](test_2_pss.png)
+
+![de plot van de eerste test met trendlijn](test_3_pss.png)
+
+
+verder kwamen uit de statistische correlatie tests het volgende: 
+
+voor test 1: 
+
+data:  df_long$heart_rate[df_long$conditie == "mean_test_1"] and df_long$pss_score[df_long$conditie == "mean_test_1"]
+t = -0.12219, df = 18, p-value = 0.9041
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.4653801  0.4190715
+sample estimates:
+        cor 
+-0.02878793 
+
+
+voor test 2:
+
+data:  df_long$heart_rate[df_long$conditie == "mean_test_2"] and df_long$pss_score[df_long$conditie == "mean_test_2"]
+t = -0.087928, df = 18, p-value = 0.9309
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.4590323  0.4257037
+sample estimates:
+        cor 
+-0.02072047 
+
+
+voor test 3:
+
+data:  df_long$heart_rate[df_long$conditie == "mean_test_3"] and df_long$pss_score[df_long$conditie == "mean_test_3"]
+t = -0.25535, df = 18, p-value = 0.8013
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.4895832  0.3928876
+sample estimates:
+        cor 
+-0.06007852 
+
+### conclusie en vervolgstappen
+de conclusie die uit de statistische analyse en de grafieken volgt is dat de pss-10 score geen significante correlatie heeft met de hartslag. de vervolgstappen zijn het bekijken van de data van de score en deze statistisch analyseren.
