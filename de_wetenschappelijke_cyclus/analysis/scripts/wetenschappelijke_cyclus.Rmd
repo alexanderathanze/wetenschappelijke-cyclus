@@ -167,7 +167,7 @@ qqnorm(mean_results_df$mean_test_1)
 
 pairwise.wilcox.test(
   df_long$heart_rate,
-  df_long$condition,
+  df_long$conditie,
   paired = TRUE
 )
 
