@@ -349,3 +349,48 @@ sample estimates:
 
 ### conclusie en vervolgstappen
 de conclusie die uit de statistische analyse en de grafieken volgt is dat de pss-10 score geen significante correlatie heeft met de hartslag. de vervolgstappen zijn het bekijken van de data van de score en deze statistisch analyseren.
+
+
+## 3/6/2026
+### doel van de dag
+de data van de hartslag in onze publicatie zetten onder results
+
+### motivatie van aanpak
+er moet verder gewerkt worden aan het artikel. aangezien ik het meeste qua code heb geschreven voor de analyse van de hartslagdata, heb ik de keuze gemaakt om deze zelf ook in het artikel te gaan zetten. 
+
+### uitgevoerde werkzaamheden
+er is gewerkt aan de resultaten van onze publicatie. hierin staan nu de boxplot van alle data, de boxplot die op gender gescheiden is en de scatterplots met trendlijnen voor de interactie tussen pss en hartslag. deze grafieken zijn allemaal ook voorzien van de statistiek die er achter zit en een korte uitleg over wat er te zien is in de grafieken. 
+
+verder is er de keuze gemaakt om in plaats van een correlatie-analyse te doen op de data van de pss ~ hartslag toch te gaan voor een lineair regressiemodel, omdat deze meer zegt over de interactie i.p.v. de correlatie. details over de uitgevoerde werkzaamheden zijn te vinden in git hash ddccb84ef3b08e5c3aeed9d0244553751dd493fd.
+
+informatie over het lineaire regressiemodel is gevonden op https://www.geeksforgeeks.org/machine-learning/ml-linear-regression/.
+
+### resultaten
+de resultaten van de lineaire regressiemodellen is als volgt:
+
+voor test 1:
+Multiple R-squared:  0.0008287,	Adjusted R-squared:  -0.05468 
+F-statistic: 0.01493 on 1 and 18 DF,  p-value: 0.9041
+
+voor test 2: 
+Multiple R-squared:  0.0004293,	Adjusted R-squared:  -0.0551 
+F-statistic: 0.007731 on 1 and 18 DF,  p-value: 0.9309
+
+voor test 3: 
+Multiple R-squared:  0.003609,	Adjusted R-squared:  -0.05175 
+F-statistic: 0.06521 on 1 and 18 DF,  p-value: 0.8013
+
+
+verder is er een groot begin gemaakt aan de resultaten
+
+### conclusie en vervolgstappen
+de lineaire regressiemodellen vertellen het volgende: 
+
+multiple r squared: hoeveel van de gevallen de hartslag verklaard wordt door de pss-score
+
+p value: probability, als deze groter is dan 0.05 kan de H0 niet verworpen worden, als deze kleiner is dan 0.05 kan deze wel verworpen worden.
+
+
+er moet nog verder gewerkt worden aan de publicatie. hier moeten de data van de bloeddruk nog in en de discussie/conclusie moet nog geschreven worden. ook moet de abstract en de readme van onze repo nog geschreven worden. 
+
+
