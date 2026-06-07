@@ -53,5 +53,61 @@ De data van de rekentoetsen en de PSS worden opgenomen uit het maken van een goo
 Voor het verzamelen van de gegevens zullen wij medestudenten benaderen in en rondom het schoolgebouw. Elke proefpersoon wordt op een beleefde manier gevraagd of hij of zij wil deelnemen aan een klein wetenschappelijk onderzoek over de invloed van tijdsdruk op bloeddruk, hartslag en prestaties op rekentaken. Wanneer een student niet wil deelnemen, wordt deze vriendelijk bedankt en zoeken we verder naar een volgende mogelijke deelnemer. Wanneer een student wel wil deelnemen, wordt eerst kort uitgelegd wat het onderzoek inhoudt: de proefpersoon zal drie korte rekentesten maken onder verschillende niveaus van tijdsdruk, terwijl bloeddruk, hartslag en prestaties worden gemeten. Daarbij wordt benadrukt dat alle gegevens anoniem worden verzameld en dat er geen namen worden genoteerd, maar uitsluitend een nummer.
 Vervolgens wordt er een google forms gegeven aan de gebruiker waar vragen in staan. Er wordt gevraagd naar de sekse van de proefpersoon, waarbij de opties man, vrouw of anders/onbekend worden gebruikt. Ook wordt de leeftijd gevraagd. Ook worden er 10 vragen gesteld om te berekenen of de proefpersoon in het dagelijks leven veel stress ervaart (de PSS).  Als de proefpersoon deze informatie niet wil geven, wordt dit geregistreerd als “anders/onbekend”. Voorafgaand aan de eerste meting krijgt de proefpersoon één minuut rust, zodat de eerste bloeddruk- en hartslag waarden niet worden beïnvloed door recente inspanning. Tijdens deze minuut moet de testpersoon volledig stilzitten met de handpalmen naar boven.
 Daarna doorloopt de proefpersoon drie condities: één zonder tijdsdruk, één met matige tijdsdruk en één met hoge tijdsdruk. Bij de eerste conditie wordt de starttijd genoteerd en de eindtijd genoteerd. Tijdens deze toets wordt de hartslag continu geregistreerd via de polar verity sense. De uitslagen van de rekentoets worden verzameld en beoordeeld op het aantal correcte antwoorden, het aantal fouten en het aantal onbeantwoorde vragen. Direct na het afronden van de test wordt opnieuw de bloeddruk gemeten en wordt de hartslag kort na inspanning vastgelegd. Dit wordt voor de matige en hoge tijdsdruk herhaald.
-Aan het einde van de deelname wordt gecontroleerd of alle gegevens volledig zijn ingevuld. De proefpersoon wordt vriendelijk bedankt voor de deelname en krijgt de gelegenheid om vragen te stellen. Dit proces wordt herhaald totdat er van minimaal veertig proefpersonen volledige datasets zijn verzameld, bestaande uit alle drie de condities en alle bijbehorende metingen. De gegevens worden veilig opgeslagen en uitsluitend onder participant-ID’s bewaard.
+Aan het einde van de deelname wordt gecontroleerd of alle gegevens volledig zijn ingevuld. De proefpersoon wordt vriendelijk bedankt voor de deelname en krijgt de gelegenheid om vragen te stellen. Dit proces wordt herhaald totdat er van minimaal twintig proefpersonen volledige datasets zijn verzameld, bestaande uit alle drie de condities en alle bijbehorende metingen. De gegevens worden veilig opgeslagen en uitsluitend onder participant-ID’s bewaard.
+
+
+
+##Resultaten
+
+####Hoofdvraag: Beïnvloedt een tijdsdruk de bloeddruk, hartslag en de prestatie?
+
+![figuur 1: een boxplot van de gemiddelde hartslag in bpm per toets](mean_hartslag_per_toets.png)
+In de boxplot in figuur 1 is te zien hoe hartslag verandert onder verschillende tijdsdruk‑condities. Er is te zien dat de hartslag het laagst was bij toets 3 en het hoogst bij toets 2. 
+Door middel van een shapiro wilk normality test op deze data is te zien dat de data normaal verdeeld is (Toets 1: W = 0.95771, p-value = 0.4991, toets 2: W = 0.97149, p-value = 0.7859, toets 3: W = 0.95417, p-value = 0.4348). 
+de W-waarde hierin staat voor hoe dichtbij onze data bij een normale distributie komt, hoe dichter bij de 1 hoe hoger de overeenkomst. Als de p-waarde van deze test hoger is dan 0.05, betekend het dat onze data normaal verdeeld is.
+Uit de pairwise t-toets op de data uit figuur 1 komen de volgende resultaten:
+
+            mean_test_1 mean_test_2
+mean_test_2 0.00069     -          
+mean_test_3 0.92782     0.02253 
+
+De getallen uit deze test zijn p-waardes. Als deze groter zijn dan 0.05 kunnen wij onze H0 niet verwerpen. 
+
+
+####Deelvraag: Zit er een verschil in ervaren stress tussen de sexes?
+
+![figuur 2: een boxplot van de gemiddelde hartslag per test, gesplitst op gender](mean_hartslag_per_gender.png)
+In de boxplot in figuur 2 is de gemiddelde hartslag per toets te zien, gesplitst op gender. De grootste toename in gemiddelde hartslag vond plaats bij toets 2, onder lichte tijdsdruk. Dit gebeurde bij beide sexes. Beide sexes hadden ook een lagere gemiddelde hartslag bij toets 3 dan bij toets 2. deze data is getest door middel van een ANOVA, dit waren de uitkomsten: 
+
+                                Error Df Df.res F value   Pr(>F)  
+1 gender_factor                 prtc_  1     18  1.0237 0.325054  
+2 conditie_factor               Withn  2     36  4.7860 0.014351 *
+3 gender_factor:conditie_factor Withn  2     36  1.6436 0.207456  
+
+Hierin laat gender factor zien of er een significant verschil ligt tussen gender in onze data, conditie factor laat zien of er tussen de condities een verschil ligt en gender factor:conditie factor laat de interactie tussen deze twee factoren zien. Met een p-waarde onder de 0.05 kan de h0 verworpen worden. 
+
+
+####Deelvraag: Heeft de dagelijks ervaren stress invloed op de ervaren stress tijdens te test?
+
+![figuur 3: de relatie tussen hartslag en pss_score in de eerste test (geen tijdsdruk)](relatie_test_1.png)
+Bij figuur 3 staat op de X-as de pss score en op de y-as de hartslag. De blauwe punten zijn individuele metingen en de zwarte lijn die hierdoor is getrokken is de trendlijn. Deze loopt bijna horizontaal. Uit het lineaire regressiemodel komen de volgende gegevens: 
+Multiple R-squared:  0.0008287,	Adjusted R-squared:  -0.05468 
+F-statistic: 0.01493 on 1 and 18 DF,  p-value: 0.9041
+
+
+
+![figuur 4: de relatie tussen hartslag en pss_score in de tweede test (lichte tijdsdruk)](relatie_test_2.png)
+In figuur 4 is hetzelfde te zien als in figuur 3. Ook hier loopt de trendlijn vrijwel horizontaal. Uit het lineaire regressiemodel komen de volgende gegevens: 
+Multiple R-squared:  0.0004293,	Adjusted R-squared:  -0.0551 
+F-statistic: 0.007731 on 1 and 18 DF,  p-value: 0.9309
+
+
+
+
+![figuur 5: de relatie tussen hartslag en pss_score in de derde test (hoge tijdsdruk)](relatie_test_3.png)
+In figuur 5 is hetzelfde te zien als in figuur 3 en 4. Ook hier loopt de trendlijn vrijwel horizontaal. Uit het lineaire regressiemodel komen de volgende gegevens:
+Multiple R-squared:  0.003609,	Adjusted R-squared:  -0.05175 
+F-statistic: 0.06521 on 1 and 18 DF,  p-value: 0.8013
+
+
 
