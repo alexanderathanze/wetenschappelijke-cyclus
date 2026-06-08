@@ -24,7 +24,7 @@ H1: De dagelijks ervaren stress heeft geen invloed op de stress onder tijdsdruk.
 
 
 
-##Dataverzameling
+## Dataverzameling
 
 In dit onderzoek is gebruik gemaakt van vragenlijsten en korte rekentoetsen in google forms.
 Deze rekentoetsen en vragenlijsten zijn gemaakt op een laptop.
@@ -57,7 +57,7 @@ In deze map staat onze eigen publicatie 2 keer, een keer als een .RMD bestand en
 als een .pdf bestand. 
 
 
-##Analyse
+## Analyse
 
 Voor de analyse van de data is R versie 4.5.3 (2026-03-11 ucrt) gebruikt.
 Verder zijn de gebruikte packages voor de analyse readr, ggplot, ARTool en tidyr.
