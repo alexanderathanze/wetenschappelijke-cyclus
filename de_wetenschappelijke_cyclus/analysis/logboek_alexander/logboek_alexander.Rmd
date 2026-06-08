@@ -34,7 +34,12 @@ H1: De sexe heeft invloed op de ervaren stress onder tijdsdruk.
 
 
 ## Data
-WIP
+De data die in ons onderzoek wordt gebruikt zijn hartslag, bloeddruk en pss-score. dit is allemaal continue data. de pss-data is een nummer tussen 0 en 40 dat representeert hoeveel stress iemand in zijn dagelijkse leven ervaart. 
+de data van de hartslag die gebruikt wordt is de hartslag tijdens de 3 toetsen die gemaakt worden onder geen, lichte en hoge tijdsdruk. van de hartslag zijn de gemiddeldes gepakt (mean) per toets per persoon. in ons onderzoek zijn dit 3 keer 20 waardes (een per toets per persoon). 
+de data van de bloeddruk is gemeten voor de toetsen, na de toets zonder tijdsdruk, na de toets met lichte tijdsdruk en na de toets met hoge tijdsdruk. de metingen pakken zowel de bovendruk als onderdruk. dit is in ons onderzoek dus 4 keer 20 waardes voor de bovendruk en 4 keer 20 waardes voor de onderdruk. 
+de data van de bloeddruk is gemeten door een omron bloeddrukmeter en de data van de hartslag is gemeten door een polar verity sense.
+onze data is verzameld op de hanzehogeschool in het gebouw van Doorenveste in groningen. deze data is in (bijna) lege lokalen opgenomen. de lokalen waarin het is opgenomen zijn D1.07 en D1.08. onze data is uitsluitend van studenten.
+
 
 
 
@@ -351,7 +356,7 @@ sample estimates:
 de conclusie die uit de statistische analyse en de grafieken volgt is dat de pss-10 score geen significante correlatie heeft met de hartslag. de vervolgstappen zijn het bekijken van de data van de score en deze statistisch analyseren.
 
 
-## 3/6/2026
+## 7/6/2026
 ### doel van de dag
 de data van de hartslag in onze publicatie zetten onder results
 
