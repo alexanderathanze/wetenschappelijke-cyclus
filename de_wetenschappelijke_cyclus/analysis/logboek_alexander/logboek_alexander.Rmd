@@ -399,3 +399,21 @@ p value: probability, als deze groter is dan 0.05 kan de H0 niet verworpen worde
 er moet nog verder gewerkt worden aan de publicatie. hier moeten de data van de bloeddruk nog in en de discussie/conclusie moet nog geschreven worden. ook moet de abstract en de readme van onze repo nog geschreven worden. 
 
 
+
+
+## 8/6/2026
+### doel van de dag
+de readme af schrijven
+
+### motivatie van aanpak
+om onze repo op orde te houden, moet de readme gemaakt worden. hierin moet in het kort staan wat we hebben onderzocht
+
+### uitgevoerde werkzaamheden
+de readme is verder geschreven. ik zou willen zeggen dat hij af is maar dat laat ik ter beschouwing van mijn groepsgenoten. hier zijn dingen toegevoegd als wat voor een materiaal we hebben gebruikt, onderzoeksvragen, en welke software wij hebben gebruikt om de data te analyseren. 
+
+### resultaten
+de readme is (hopelijk) af.
+
+
+### conclusie en vervolgstappen
+de vervolgstappen zijn het verder schrijven van de resultaten en de discussie. verder moeten de bronnen ook nog in de publicatie komen. daarnaast moet de abstract ook nog afgeschreven worden.
