@@ -91,7 +91,7 @@ gem_toets_3_sys <- mean(toets_systolic_3)
 Gender and pss-10 score per contestant
 
 ```{r}
-gender_pss_data <- read_csv("../../raw_data/pss_gender_scores.csv")
+gender_pss_data <- read_csv("../../raw_data/google_forms/pss_gender_scores.csv")
 gender <- gender_pss_data$Gender
 pss_10 <- gender_pss_data$`PSS-10 (/40)`
 
