@@ -13,13 +13,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Veel studenten ervaren stress tijdens toetsen, en dit heeft een negatieve invloed op hun prestatie. In dit onderzoek is onderzocht of de tijdsdruk tijdens toetsen invloed heeft op de ervaren stress. Dit is gemeten door de hartslag, bloeddruk en prestatie. 20 leerlingen maakte drie rekentoetsen onder oplopende tijdsdruk (geen tijdsdruk, 1 minuut en 30 seconden voor 20 kleine rekensommen), terwijl er continu hartslag werd gemeten via een Polar Verity Sense en de bloeddruk na elke test met een Omron bloeddrukmeter. Ook werd de dagelijks ervaren stress gemeten door een PSS-10 test
 
-Uit de resultaten bleek dat de hartslag alleen een significant verschil had tussen geen en lichte tijdsdruk(p=0.00069) en tussen licht en hoge (tijdsdruk=0.2253) maar niet tussen geen en hoge tijdsdruk ( p =0.92782). Dit geeft aan dat er geen lineaire fysiologische respons is, mogelijk door gewenning. Er werd ook geen significant verschil gevonden tussen man en vrouw(p=0.325), en dde PSS-10 score toonde ook aan dat er geen significante corolatie is met de hartslag van de drie condities. De conclusie is dat tijdsdruk geen eenduidige fysiologische stressreactie veroorzaakt.
+Uit de resultaten bleek dat de hartslag alleen een significant verschil had tussen geen en lichte tijdsdruk(p=0.00069) en tussen licht en hoge tijdsdruk(p=0.02253) maar niet tussen geen en hoge tijdsdruk ( p =0.92782). Dit geeft aan dat er geen lineaire fysiologische respons is, mogelijk door gewenning. Er werd ook geen significant verschil gevonden tussen man en vrouw(p=0.325), en de PSS-10 score toonde ook aan dat er geen significante correlatie is met de hartslag van de drie condities. De conclusie is dat tijdsdruk geen eenduidige fysiologische stressreactie veroorzaakt.
 
 
 ## Introductie
 
-Uit het rapport MMMS (Monitor Mentale Gezondheid en Middelengebruik Studenten hoger onderwijs) van 2023 blijkt dat veel studenten op het HBO en WO nog stress ervaren (Jolien Dopmeijer et al., (2023). Studenten ervaren meer stress tijdens een toetsweek dan tijdens een normale week en mensen met hogere stress scoren slechter op toetsen (Jennifer A. Heissel et al , 2021). 
-Een misconceptie binnen het onderwijs is dat mensen die goed ingelezen op een onderwerp zijn, sneller onderwerp gerelateerde problemen kunnen beantwoorden of oplossen. Dit is de reden dat binnen het onderwijs tijdsdruk wordt gebruikt tijdens het toetsen van kennis. Echter is dit toch niet een goede manier om studenten te scoren op hun kennis over het onderwerp, omdat ieder persoon informatie op een andere manier verwerkt. Studenten met betere kennis nemen vaak juist meer de tijd bij moeilijke vragen, omdat ze het goed willen beantwoorden. Tijdsdruk meet eerder snelheid en hoe effectief je met stress om kan gaan Andrew J. Browning. (datum onbekend).
+Uit het rapport MMMS (Monitor Mentale Gezondheid en Middelengebruik Studenten hoger onderwijs) van 2023 blijkt dat veel studenten op het HBO en WO nog stress ervaren ((Van Der Meijs, 2025)). Studenten ervaren meer stress tijdens een toetsweek dan tijdens een normale week en mensen met hogere stress scoren slechter op toetsen (Jennifer A. Heissel et al , 2021). 
+Een misconceptie binnen het onderwijs is dat mensen die goed ingelezen op een onderwerp zijn, sneller onderwerp gerelateerde problemen kunnen beantwoorden of oplossen. Dit is de reden dat binnen het onderwijs tijdsdruk wordt gebruikt tijdens het toetsen van kennis. Echter is dit toch niet een goede manier om studenten te scoren op hun kennis over het onderwerp, omdat ieder persoon informatie op een andere manier verwerkt. Studenten met betere kennis nemen vaak juist meer de tijd bij moeilijke vragen, omdat ze het goed willen beantwoorden. Tijdsdruk meet eerder snelheid en hoe effectief je met stress om kan gaan (Browning, 2024)
 Omdat stress bij het maken van toetsen een negatieve impact heeft op je prestatie (Jennifer A. Heissel et al., 2021), wordt in dit onderzoek beter in kaart gebracht hoe stress wordt ervaren tijdens het maken van toetsen onder tijdsdruk. 
 Stress is een psychologisch verschijnsel dat wordt veroorzaakt door een moeilijke of spannende situatie. Stress is een natuurlijke menselijke reactie die ervoor zorgt dat mensen uitdagingen en bedreigingen in hun leven aanpakken. Iedereen ervaart stress in zekere mate, en reageert hier op een andere manier op. Stress. (2025, October 8)
 Een kleine hoeveelheid stress is prima en kan zorgen voor meer motivatie bij dagelijkse activiteiten. Een te grote hoeveelheid stress kan echter fysieke gezondheidsproblemen veroorzaken, zoals hoofdpijn, maagklachten of slaapproblemen, maar ook mentale gezondheidsproblemen zoals depressie en angst. Stress kan ervoor zorgen dat een persoon niet kan ontspannen en kan gepaard gaan met angst en prikkelbaarheid. Ook kan het de concentratie negatief beïnvloeden. Stress. (2025, October 8)
@@ -65,7 +65,7 @@ Aan het einde van de deelname wordt gecontroleerd of alle gegevens volledig zijn
 
 ####Hoofdvraag: Beïnvloedt een tijdsdruk de bloeddruk, hartslag en de prestatie?
 
-![figuur 1: een boxplot van de gemiddelde hartslag in bpm per toets](mean_hartslag_per_toets.png)
+![figuur 1: een boxplot van de gemiddelde hartslag in bpm per toets](figures/mean_hartslag_per_toets.png)
 In de boxplot in figuur 1 is te zien hoe hartslag verandert onder verschillende tijdsdruk‑condities. Er is te zien dat de hartslag het laagst was bij toets 3 en het hoogst bij toets 2. 
 Door middel van een shapiro wilk normality test op deze data is te zien dat de data normaal verdeeld is (Toets 1: W = 0.95771, p-value = 0.4991, toets 2: W = 0.97149, p-value = 0.7859, toets 3: W = 0.95417, p-value = 0.4348). 
 de W-waarde hierin staat voor hoe dichtbij onze data bij een normale distributie komt, hoe dichter bij de 1 hoe hoger de overeenkomst. Als de p-waarde van deze test hoger is dan 0.05, betekend het dat onze data normaal verdeeld is.
@@ -80,7 +80,7 @@ De getallen uit deze test zijn p-waardes. Als deze groter zijn dan 0.05 kunnen w
 
 ####Deelvraag: Zit er een verschil in ervaren stress tussen de sexes?
 
-![figuur 2: een boxplot van de gemiddelde hartslag per test, gesplitst op gender](mean_hartslag_per_gender.png)
+![figuur 2: een boxplot van de gemiddelde hartslag per test, gesplitst op gender](figures/mean_hartslag_per_gender.png)
 In de boxplot in figuur 2 is de gemiddelde hartslag per toets te zien, gesplitst op gender. De grootste toename in gemiddelde hartslag vond plaats bij toets 2, onder lichte tijdsdruk. Dit gebeurde bij beide sexes. Beide sexes hadden ook een lagere gemiddelde hartslag bij toets 3 dan bij toets 2. deze data is getest door middel van een ANOVA, dit waren de uitkomsten: 
 
                                 Error Df Df.res F value   Pr(>F)  
@@ -93,20 +93,20 @@ Hierin laat gender factor zien of er een significant verschil ligt tussen gender
 
 ####Deelvraag: Heeft de dagelijks ervaren stress invloed op de ervaren stress tijdens te test?
 
-![figuur 3: de relatie tussen hartslag en pss_score in de eerste test (geen tijdsdruk)](relatie_test_1.png)
+![figuur 3: de relatie tussen hartslag en pss_score in de eerste test (geen tijdsdruk)](figures/relatie_test_1.png)
 Bij figuur 3 staat op de X-as de pss score en op de y-as de hartslag. De blauwe punten zijn individuele metingen en de zwarte lijn die hierdoor is getrokken is de trendlijn. Deze loopt bijna horizontaal. Uit de correlatietest komen de volgende gegevens: 
 p-value = 0.9041, cor -0.02878793
 
 
 
-![figuur 4: de relatie tussen hartslag en pss_score in de tweede test (lichte tijdsdruk)](relatie_test_2.png)
+![figuur 4: de relatie tussen hartslag en pss_score in de tweede test (lichte tijdsdruk)](figures/relatie_test_2.png)
 In figuur 4 is hetzelfde te zien als in figuur 3. Ook hier loopt de trendlijn vrijwel horizontaal. Uit de correlatietest komen de volgende gegevens: 
 p-value = 0.9309, cor -0.02072047 
 
 
 
 
-![figuur 5: de relatie tussen hartslag en pss_score in de derde test (hoge tijdsdruk)](relatie_test_3.png)
+![figuur 5: de relatie tussen hartslag en pss_score in de derde test (hoge tijdsdruk)](figures/relatie_test_3.png)
 In figuur 5 is hetzelfde te zien als in figuur 3 en 4. Ook hier loopt de trendlijn vrijwel horizontaal. Uit de correlatietest komen de volgende gegevens:
 p-value = 0.8013, cor -0.06007852 
 
@@ -186,7 +186,7 @@ p-value = 0.3638 (niet significant)
 ## Conclusie & discussie
 
 De resultaten van dit onderzoek laten zien dat de invloed van tijdsdruk op fysiologische stressreacties, gemeten via hartslag en bloeddruk, minder eenduidig is dan vooraf werd verwacht. Hoewel tijdsdruk theoretisch leidt tot een acute stressreactie waarbij hartslag en bloeddruk stijgen, laten onze metingen geen sterke of consistente stijging zien tussen de drie condities. Dit sluit opvallend goed aan op eerder onderzoek (Joan Bunyi et al. (2015)), waarin eveneens werd gerapporteerd dat hartslag en bloeddruk tijdens toetsmomenten onder tijdsdruk nauwelijks significant veranderen, ondanks dat deelnemers de situatie wel als stressvol ervaren. In onze data zien we dat de hartslag alleen tussen geen tijdsdruk en lichte tijdsdruk significant toenam (p = 0.00069), en opnieuw tussen lichte en hoge tijdsdruk (p = 0.02253). Tussen geen tijdsdruk en hoge tijdsdruk werd echter geen verschil gevonden (p = 0.92782). Dit patroon suggereert dat de fysiologische respons op tijdsdruk niet lineair verloopt en mogelijk beïnvloed wordt door factoren zoals gewenning en taak vertrouwdheid.
-Een mogelijke verklaring hiervoor is dat deelnemers in de eerste conditie vooral reageerden op de nieuwe situatie. De eerste test kan een initiële stressreactie hebben uitgelokt, waardoor de hartslag relatief hoog lag, zelfs zonder tijdsdruk. Dit sluit aan bij onderzoek naar testangst en prestatie, waarin gewenning en taak vertrouwdheid een dempend effect kunnen hebben op fysiologische stressreacties tijdens opeenvolgende taken (Jennifer A. Heissel, Emma K. Adam, Jennifer L. Doleac, David N. Figlio, Jonathan Meer (2021)). De variatie tussen deelnemers ondersteunt bovendien de hypothese dat fysiologische stressreacties sterk individueel bepaald zijn: sommige deelnemers vertoonden duidelijke stijgingen in hartslag, terwijl anderen nauwelijks fysiologische stress lieten zien. Hierdoor kunnen groepsgemiddelden subtiele individuele verschillen maskeren.
+Een mogelijke verklaring hiervoor is dat deelnemers in de eerste conditie vooral reageerden op de nieuwe situatie. De eerste test kan een initiële stressreactie hebben uitgelokt, waardoor de hartslag relatief hoog lag, zelfs zonder tijdsdruk. Dit sluit aan bij onderzoek naar testangst en prestatie, waarin gewenning en taak vertrouwdheid een dempend effect kunnen hebben op fysiologische stressreacties tijdens opeenvolgende taken (Heissel et al., 2021). De variatie tussen deelnemers ondersteunt bovendien de hypothese dat fysiologische stressreacties sterk individueel bepaald zijn: sommige deelnemers vertoonden duidelijke stijgingen in hartslag, terwijl anderen nauwelijks fysiologische stress lieten zien. Hierdoor kunnen groepsgemiddelden subtiele individuele verschillen maskeren.
 De resultaten laten daarnaast zien dat er geen verschil is tussen mannen en vrouwen in de fysiologische reactie op tijdsdruk. Het hoofdeffect van geslacht was niet significant (p = 0.325), en ook de interactie tussen geslacht en tijdsdruk was niet significant (p = 0.207). Dit betekent dat mannen en vrouwen vergelijkbare hartslagpatronen vertoonden en op dezelfde manier reageerden op oplopende tijdsdruk. Het enige significante effect betrof de tijdsdruk zelf (p = 0.014). Op basis hiervan kan de nulhypothese voor de deelvraag over sekseverschillen niet worden verworpen: er is geen aanwijzing dat geslacht invloed heeft op hartslag, bloeddruk of prestatie.
 Ook de deelvraag over dagelijkse stress kon duidelijk worden beantwoord. De correlatieanalyses laten zien dat er geen significant verband bestaat tussen dagelijkse stress (PSS‑score) en de gemiddelde hartslag tijdens de drie testcondities. Voor test 1 werd een p‑waarde van 0.9041 gevonden met een correlatie van r = –0.0288; voor test 2 een p‑waarde van 0.9309 met r = –0.0207; en voor test 3 een p‑waarde van 0.8013 met r = –0.0601. Deze waarden liggen ver boven de drempel voor significantie en de correlaties zijn bovendien zeer klein. Dit betekent dat dagelijkse stress geen aantoonbare invloed heeft op de fysiologische stressreactie tijdens de test. Hoewel de correlaties negatief zijn, zijn ze te klein om betekenisvol te interpreteren; het is daarom niet correct om te concluderen dat mensen met meer dagelijkse stress zich “minder zouden stressen” tijdens de test.
 Een belangrijke beperking van dit onderzoek is de lage statistische power. De poweranalyse liet zien dat er ongeveer 67 deelnemers nodig zouden zijn om effecten van middelgrote omvang betrouwbaar te detecteren, terwijl dit onderzoek slechts twintig deelnemers omvatte. De berekende power lag rond de 30%, wat betekent dat de kans om een werkelijk bestaand effect te detecteren relatief laag was. Hierdoor is het mogelijk dat subtiele effecten niet zijn opgemerkt. Dat de significante verschillen tussen condities desondanks duidelijk naar voren kwamen, suggereert dat deze effecten robuust zijn, maar voorzichtigheid blijft geboden bij het interpreteren van niet‑significante resultaten.
@@ -209,13 +209,11 @@ Stress over toetsen en examens - Jouw GGD. (n.d.). JouwGGD. https://jouwggd.nl/t
 
 Lupis, S. B., Lerman, M., & Wolf, J. M. (2014). Anger responses to psychosocial stress predict heart rate and cortisol stress responses in men but not women. Psychoneuroendocrinology, 49, 84–95. https://doi.org/10.1016/j.psyneuen.2014.07.004 
 
-Lupis SB, Lerman M, Wolf JM. Anger responses to psychosocial stress predict heart rate and cortisol stress responses in men but not women. Psychoneuroendocrinology. 2014 Nov;49:84-95. doi: 10.1016/j.psyneuen.2014.07.004. Epub 2014 Jul 14. PMID: 25064831; PMCID: PMC4165699. 
-
 Van Der Meijs, F. (2025, December 23). Mentale gezondheid van studenten. Trimbos-instituut. https://www.trimbos.nl/kennis/welzijn-studenten/mentale-gezondheid-van-studenten/
 
 Bunyi, J., Heal, C., Nadendla, S., Sherman, D., Thuy, D. T., & Varsos, J. (2015). Test scores on timed exams decline over time without a significant increase in physiological stress. https://minds.wisconsin.edu/handle/1793/80216
 
-Jennifer A. Heissel, Emma K. Adam, Jennifer L. Doleac, David N. Figlio, Jonathan Meer; Testing, Stress, and Performance: How Students Respond Physiologically to High-Stakes Testing. Education Finance and Policy 2021; 16 (2): 183–208. doi: https://doi.org/10.1162/edfp_a_00306 
+Heissel, J. A., Adam, E. K., Doleac, J. L., Figlio, D. N., & Meer, J. (2021). Testing, stress, and performance: How students respond physiologically to high-stakes testing. Education Finance and Policy, 16(2), 183–208. https://doi.org/10.1162/edfp_a_00306
 
 Browning, A. J. (2024, June 6). Timed tests and their effect on student performance. Fresh Writing. https://freshwriting.nd.edu/essays/timed-tests-and-their-effect-on-student-performance/
 
