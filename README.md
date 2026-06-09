@@ -76,7 +76,7 @@ Het pdf bestand is het eindproduct.
 ## Analyse
 
 Voor de analyse van de data is R versie 4.5.3 (2026-03-11 ucrt) gebruikt.
-Verder zijn de gebruikte packages voor de analyse readr, ggplot, ARTool en tidyr.
+Verder zijn de gebruikte packages voor de analyse readr, ggplot, ARTool, tidyr en ez.
 
 Hieronder staan de stappen om de analyse te runnen.
 
