@@ -431,10 +431,10 @@ de paper afschrijven en omzetten tot een pdf. hiervoor moeten de abstract, resul
 misschien klinkt het een beetje lullig, maar om onze paper af te krijgen en om ons cijfer te krijgen moeten wij hem natuurlijk wel klaar krijgen en omzetten tot pdf.
 
 ### uitgevoerde werkzaamheden
-vandaag heb ik een deel van de abstract geschreven en heb ik de readme geschreven.
+vandaag heb ik een deel van de abstract geschreven en heb ik de readme geschreven. verder heb ik een deel van de conclusie geschreven. verder zijn de punten op de i gezet in het publicatiebestand.
 
 ### resultaten
-de readme is af en de abstract is bijna af
+de readme is af, de abstract is af en de publicatie is af!
 
 ### conclusie en vervolgstappen
 we zijn klaar! jippie!
