@@ -1,8 +1,10 @@
 ---
 title: "logboek_jasmijn"
-output: html_document
+output: word_document
 date: "2026-06-05"
 ---
+
+
 # Logboek Jasmijn
 ## Introductie
 Dit is een onderzoek over stress tijdens verschillende tijdsdrukken. Ik heb voor dit onderzoek gekozen om te kunnen aantonen dat er stress wordt ervaren door
@@ -134,7 +136,7 @@ De publicatie af hebben zodat het optijd kan worden ingeleverd
 ### Motivatie:
 Het moet af
 ### Uitgevoerde werkzaamheden:
-Ik heb vandaag de discussie en conlusie afgemaakt en hierbij ook de p-waarde en correlatiewaarde toegevoegd, ook heb ik de Readme verbeterd. Ik heb een poweranalyse gedaan, en de documeten netter gemaakt. bv de install.package weggehaald en benoemd in de readme zodat dit niet wordt gedaan elke keer als iemand het wil runnen. 
+Ik heb vandaag de discussie en conlusie afgemaakt en hierbij ook de p-waarde en correlatiewaarde toegevoegd, ook heb ik de Readme verbeterd. Ik heb een poweranalyse gedaan, en de documeten netter gemaakt. bv de install.package weggehaald en benoemd in de readme zodat dit niet wordt gedaan elke keer als iemand het wil runnen. Ook heb ik alle bronnen verbeterd omdat sommige APA en andere niet stonden, dit beter in de texten verwerkt en in het publicatie document gezet.
 ### Conclusie:
 We zijn klaar!
 
