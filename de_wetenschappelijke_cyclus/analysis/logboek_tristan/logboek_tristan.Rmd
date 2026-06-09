@@ -1,10 +1,10 @@
 ---
 title: "Logboek"
 author: "Tristan Kruithof"
-date: '`r Sys.Date()`'
-output: html_document
-editor_options: 
-  markdown: 
+date: "`r Sys.Date()`"
+output: word_document
+editor_options:
+  markdown:
     wrap: 72
 ---
 
@@ -776,7 +776,7 @@ Inleverdatum is morgen al en er moet nog veel af. Logboek neemt alleen aanzienli
 
 ### Werkzaamheden:
 
-Vandaag is voornamelijk een herhaling van gister, alleen dan langer. Veel langer. Heb zo'n 2,5 uur aan het logboek gewerkt. Dat duurde extreem lang, maar nu is het allemaal wel bijgewerkt. 
+Vandaag is voornamelijk een herhaling van gister, alleen dan langer. Veel langer. Heb zo'n 2,5 uur aan het logboek gewerkt. Dat duurde extreem lang, maar nu is het allemaal wel bijgewerkt. Uiteindelijk ben ik nog een tijd lang bezig geweest met de uiteindelijk analyses uitvoeren op mijn plotjes aangezien er nog een deel van ontbreekte. 
 
 
 ### Bestanden aangepast:
@@ -785,27 +785,33 @@ Repo: <https://github.com/alexanderathanze/wetenschappelijke-cyclus/tree/main>
 
 Script: analysis/scripts/bloodpressure.rmd (repo)
 
-Data: analysis/logboek_tristan/logboek_tristan.Rmd (repo), word document (zie bovenaan, online) 
+Data: analysis/logboek_tristan/logboek_tristan.Rmd (repo)
 
 
 ### Resultaten/stand van zaken:
-
+Ik heb nu al mijn analyses af en ben volledig bijgewerkt met mijn logboek.
 
 
 ### Conclusie en vervolgstappen:
+Nu ik mijn eigen onderdelen af heb kan ik volledig focussen op alles samenvoegen met mijn teamgenoten in publicatie.Rmd
+We moeten nog de discussie, conclusie, resultaten, README, bronvermelding, repo structuur op orde krijgen voor morgen.
+
 
 
 ## 9/06/2026
 
 ### Doel:
-
+Het onderzoek afronden. Er moet nog veel gebeuren, netjes alles schrijven in resultaten en publicatie.Rmd.
+Goed beschrijven wat er in elk plot te zien valt. De discussie, conclusie, resultaten, README, bronvermelding, repo structuur moet ook af zijn.
 
 ### Motivatie:
-
+Het project moet vandaag af zijn, dus alle bovenstaande dingen bij het 'doel' moet nu echt gedaan worden. Taken worden onderverdeeld onder ons.
 
 
 ### Werkzaamheden:
-
+Ik ben bezig geweest met de plots in publicatie.Rmd krijgen, vervolgens heb ik aan de omschrijving wat er in dat plotje te zien is gewerkt
+en wat de statistische uitkomst was van de test per plotje en wat dit inhoudt. Dit duurde aanzienlijk lang bleek uiteindelijk, want ik liep een beetje vast
+met hoe dit genoteerd moest worden in de resultaten. Ook had ik het niet netjes in bloodpressure.Rmd gezet voorheen, waardoor alle statistische data niet super gemakkelijk terug te vinden was. Zodra dit klaar was heb ik de conclusie aangepast op de bevindingen uit mijn resultaten. Ik heb nog geholpen met de bron vermelding en de repo structuur aangepast zodat het overzichtelijker was (figures folder). 
 
 
 ### Bestanden aangepast:
@@ -814,15 +820,15 @@ Repo: <https://github.com/alexanderathanze/wetenschappelijke-cyclus/tree/main>
 
 Script: analysis/scripts/bloodpressure.rmd (repo)
 
-Data: raw_data/bloodpressure/bloodpressure.xlsx (repo)
+Data: analysis/logboek_tristan/logboek_tristan.Rmd (repo), publication/publicatie.Rmd (repo), word document (online, bovenaan)
 
 
 ### Resultaten/stand van zaken:
-
+Resultaten af, conclusie af, repo af
 
 
 ### Conclusie en vervolgstappen:
-
+Alles af.
 
 
 
