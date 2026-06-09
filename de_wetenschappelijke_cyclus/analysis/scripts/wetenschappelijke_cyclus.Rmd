@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-om de databestanden in te lezen hebben we readr nodig, die hier wordt ingeladen.
-als je deze nog niet hebt moet je de lijn install.packages("readr") runnen.
+
+om al onze packages te installeren en klaar te zetten voor gebruik moeten de volgende lijnen gerund worden. als je de packages al hebt kun je alleen de lijnen die beginnen met "library" runnen.
 ```{r}
 install.packages("readr")
 library(readr)
@@ -23,9 +23,10 @@ install.packages("ez")
 library(ez)
 install.packages("pwr")
 library(pwr)
+install.packages("ARTool")
+library(ARTool)
+
 ```
-
-
 
 de functie in dit blok zorgt er voor dat de bestanden met de hartslag worden ingelezen en gefilterd op de data die voor ons interessant is.
 ```{r}
@@ -49,9 +50,7 @@ read_and_filter <- function(filelocation, testtime_1, testtime_2, testtime_3) {
     results_3 = results_3
   ))
 }
-
 ```
-
 
 
 het volgende blok zorgt er voor dat de hartslagen worden gefilterd zodat alleen de hartslagen per toetstijd worden opgeslagen in een lijst
@@ -77,11 +76,8 @@ all_results <- lapply(seq_along(files), function(x) {
   read_and_filter(heartrate_locatie, testtime_1, testtime_2, testtime_3)
 })
 
-all_results
-results1 <- all_results[[1]]
-results1
-all_results
 ```
+
 
 dit codeblok berekent de toename van de trendlijn in de eerste test per persoon
 ```{r}
@@ -91,7 +87,7 @@ slopes_1 <- sapply(all_results, function(res) {
   x <- 1:length(y)
   coef(lm(y ~ x))[2]
 })
-slopes_1
+
 
 
 
@@ -115,9 +111,10 @@ mean_results <- lapply(all_results, function(res) {
 
 mean_results_df <- do.call(rbind, mean_results)
 mean_results_df$participant <- seq_len(nrow(mean_results_df))
-mean_results_df
 
 ```
+
+
 
 dit blok zorgt ervoor dat de gender en pss uit de pss_gender_scores.csv in rauwe data ook in de dataframe van de mean test scores staat
 ```{r}
@@ -125,15 +122,12 @@ gender_pss_data <- read_csv("../../raw_data/pss_gender_scores.csv")
 mean_results_df$gender <- gender_pss_data$Gender
 mean_results_df$pss_score <- gender_pss_data$`PSS-10 (/40)`
 mean_results_df$toets_score <- gender_pss_data$`Totaal Rekenen (/60)`
-mean_results_df
+
 ```
 
 
 
-
-
-
-
+de volgende lijnen code zorgen er voor dat de dataframe in een longer format veranderd worden
 ```{r}
 
 df_long <- pivot_longer(
@@ -144,17 +138,20 @@ df_long <- pivot_longer(
 )
 
 
-df_long
+
+
+# deze lijn schrijft de df_long dataframe om naar een csv bestand. hij staat op het moment gedeactiveerd om te voorkomen dat er constant opnieuw een bestand geschreven wordt.
+
+# write.csv(df_long, "df_long.csv", row.names = FALSE) 
 ```
 
 
 
-
-
+de volgende code maakt een boxplot van de data met op de x-as de toets met desbetreffende tijdsdruk en op de y-as de hartslag
 ```{r}
 ggplot(df_long, aes(conditie, heart_rate)) +
-  geom_boxplot(width = 0.7)
-
+  geom_boxplot(width = 0.7) +
+  scale_x_discrete(labels = c("Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
 
 
 #qqplot, shapiro wilkinson
@@ -198,59 +195,159 @@ ggplot(combined_long, aes(x = time, y = HR_bpm, color = test)) +
 
 
 
-in dit blok wordt een data analyse gedaan. dit wordt met de pairwise wilcox test gedaan omdat onze data geen normale distributie heeft. dit is de equivalent aan een paired t-test.
+in dit blok wordt een data analyse gedaan. dit wordt met de t test gedaan omdat onze data wel een normale distributie heeft. door middel van de p-waarde uit de shapiro test is dit te zien. 
 ```{r}
 #hieruit komt dat de data geen normale distributie heeft
 shapiro.test(mean_results_df$mean_test_1)
 qqnorm(mean_results_df$mean_test_1)
 
+shapiro.test(mean_results_df$mean_test_2)
+qqnorm(mean_results_df$mean_test_2)
 
-pairwise.wilcox.test(
+shapiro.test(mean_results_df$mean_test_3)
+qqnorm(mean_results_df$mean_test_3)
+
+
+pairwise.t.test(
   df_long$heart_rate,
   df_long$conditie,
   paired = TRUE
 )
-
-
-
-
 ```
 
 
 
-het volgende blok plot een boxplot die op gender splitst
+de volgende code maakt een boxplot van de data met op de x-as de toets met desbetreffende tijdsdruk en op de y-as de hartslag. verder is de data op gender gesplitst, met blauw als man en rood als vrouw.
 ```{r}
 ggplot(df_long, aes(conditie, heart_rate, fill = gender)) +
   geom_boxplot() +
   scale_fill_manual(values = c("Man" = "cyan", "Vrouw" = "lightcoral"))+
   labs(
     title = "Hartslag per conditie, gesplitst op gender",
-    x = "Conditie",
+    x = "meting",
     y = "Hartslag (bpm)"
-    )
+    ) +
+  scale_x_discrete(labels = c("Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
 ```
 
 
 
-de statistische tests voor het verschil per conditie tussen gender
+de statistische tests voor de interactie van gender en tijdsdruk
 ```{r}
-wilcox.test(heart_rate ~ gender, data = df_long[df_long$conditie == "mean_test_1", ])
 
-wilcox.test(heart_rate ~ gender, data = df_long[df_long$conditie == "mean_test_2", ])
+conditie_factor <- as.factor(df_long$conditie)
+gender_factor <- as.factor(df_long$gender)
+participant_factor <- as.factor(df_long$participant)
 
-wilcox.test(heart_rate ~ gender, data = df_long[df_long$conditie == "mean_test_3", ])
+analyse_prep <- art(heart_rate ~ gender_factor * conditie_factor + Error(participant_factor), data = df_long)
+
+anova(analyse_prep)
 
 ```
 
 ```{r}
-pwr.anova.test(k = 3,
-               f = 0.25,
-               sig.level = 0.05,
-               power = 0.80)
+# het volgende blok maakt een plot van de hartslag en pss-score van de eerste test
+df_test1 <- subset(df_long, conditie == "mean_test_1")
 
-pwr.anova.test(k = 3,
-               n = 20,
-               f = 0.22,
-               sig.level = 0.05)
+ggplot(df_test1, aes(pss_score, heart_rate)) +
+  geom_point(size = 3, alpha = 0.8, color = "steelblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  theme_minimal() +
+  labs(
+    title = "relatie tussen pss score en hartslag in test 1",
+    x = "PSS-score",
+    y = "hartslag (bpm)"
+  )
+
+```
+
+
+het volgende blok maakt een plot van de hartslag en pss-score van de tweede test
+```{r}
+df_test2 <- subset(df_long, conditie == "mean_test_2")
+
+ggplot(df_test2, aes(pss_score, heart_rate)) +
+  geom_point(size = 3, alpha = 0.8, color = "steelblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  theme_minimal() +
+  labs(
+    title = "relatie tussen pss score en hartslag in test 2",
+    x = "PSS-score",
+    y = "hartslag (bpm)"
+  )
+
+```
+
+
+het volgende blok maakt een plot van de hartslag en pss-score van de derde test
+```{r}
+df_test3 <- subset(df_long, conditie == "mean_test_3")
+
+ggplot(df_test3, aes(pss_score, heart_rate)) +
+  geom_point(size = 3, alpha = 0.8, color = "steelblue") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  theme_minimal() +
+  labs(
+    title = "relatie tussen pss score en hartslag in test 3",
+    x = "PSS-score",
+    y = "hartslag (bpm)"
+  )
+
+```
+
+in het volgende blok wordt de correlatie van de pss en hartslagen getest per tijdsdruk
+```{r}
+
+cor.test(df_long$heart_rate[df_long$conditie == "mean_test_1"],
+         df_long$pss_score[df_long$conditie == "mean_test_1"])
+
+cor.test(df_long$heart_rate[df_long$conditie == "mean_test_2"],
+         df_long$pss_score[df_long$conditie == "mean_test_2"])
+
+cor.test(df_long$heart_rate[df_long$conditie == "mean_test_3"],
+         df_long$pss_score[df_long$conditie == "mean_test_3"])
+```
+
+```{r}
+# Functie die je al had
+extract_first_number <- function(x) {
+  cleaned <- sub(".*: ", "", x)
+  cleaned <- sub("/.*", "", cleaned)
+  as.numeric(cleaned)
+}
+
+# Foutendata uit je dataset
+fouten_df <- data.frame(
+  participant = gender_pss_data$Deelnemer,
+  F1 = gender_pss_data$`Fouten R1`,
+  F2 = gender_pss_data$`Fouten R2`,
+  F3 = gender_pss_data$`Fouten R3`
+)
+
+# Long-format maken
+fouten_long <- pivot_longer(
+  fouten_df,
+  cols = c(F1, F2, F3),
+  names_to = "ronde",
+  values_to = "fouten"
+)
+
+# Plotten
+ggplot(fouten_long, aes(ronde, fouten)) +
+  geom_boxplot(fill = "#FF6666", alpha = 0.7) +
+  labs(
+    title = "Aantal fouten per ronde",
+    x = "Ronde",
+    y = "Aantal fouten"
+  )
+
+```
+
+```{r}
+pwr.anova.test(k = 3, f = 0.22, sig.level = 0.05, power = 0.80)
+
+pwr.anova.test(k = 3, f = 0.22, sig.level = 0.05, n = 20)
+
+pwr.t.test( sig.level = 0.05, n = 20)
 ```
 

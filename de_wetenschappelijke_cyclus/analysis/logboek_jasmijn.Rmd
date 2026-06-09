@@ -76,7 +76,6 @@ Verder aan de code en meer mensen testen
 ### Motivatie:
 Het af maken van de code zodat we kunnen beginnen aan discussie
 ### Uitgevoerde werkzaamheden:
-
 Hierdoor moest ik mijn plot een klein beetje aanpassen, nu werkt mijn plot beter die ik de les hiervoor heb geschreven. Ook hebben we nog een persoon gemeten. 
 ### Conclusie:
 Ik moet nog veel doen :D
@@ -119,41 +118,6 @@ Mijn code voor de harslag terug schrijven en discussie beginnen
 Deadline is dinsdag al
 ### Uitgevoerde werkzaamheden:
 Ik heb vandaag mijn logboek netjes gemaakt zodat het er netter en overzichterlijker uitziet. Ook heb ik mijn plot voor de harslag opnieuw geschreven, en ik heb het eerste gedeelte van de discussie geschreven.
-```{r}
-test1_df <- data.frame(
-  time = 1:length(all_results[[1]]$results_1),
-  HR_bpm = all_results[[1]]$results_1,
-  test = "Test 1"
-)
-
-test2_df <- data.frame(
-  time = 1:length(all_results[[1]]$results_2),
-  HR_bpm = all_results[[1]]$results_2,
-  test = "Test 2"
-)
-
-test3_df <- data.frame(
-  time = 1:length(all_results[[1]]$results_3),
-  HR_bpm = all_results[[1]]$results_3,
-  test = "Test 3"
-)
-
-combined_long <- rbind(test1_df, test2_df, test3_df)
-
-ggplot(combined_long, aes(x = time, y = HR_bpm, color = test)) +
-  geom_line(size = 1) +
-  labs(
-    x = "Tijd (seconden)",
-    y = "Hartslag (bpm)",
-    title = "Hartslag tijdens test 1, 2 en 3"
-  ) +
-  scale_color_manual(
-    values = c("Test 1" = "blue", "Test 2" = "orange", "Test 3" = "red"),
-    labels = c("Geen tijdsdruk", "Lichte tijdsdruk", "Hoge tijdsdruk")
-  ) +
-  theme_minimal()
-```
-
 ### Volgende stap:
 De discussie verder schrijven en een conclusie trekken
 
