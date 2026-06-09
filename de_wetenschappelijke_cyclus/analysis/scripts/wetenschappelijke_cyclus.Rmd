@@ -9,21 +9,16 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Plak hier de benodigde librarys,(crtl + alt + i om code blok toe te voegen) :
 
 
-om al onze packages te installeren en klaar te zetten voor gebruik moeten de volgende lijnen gerund worden. als je de packages al hebt kun je alleen de lijnen die beginnen met "library" runnen.
+
 ```{r}
-install.packages("readr")
 library(readr)
-install.packages("ggplot2")
 library(ggplot2)
-install.packages("tidyr")
 library(tidyr)
-install.packages("ez")
 library(ez)
-install.packages("pwr")
 library(pwr)
-install.packages("ARTool")
 library(ARTool)
 
 ```

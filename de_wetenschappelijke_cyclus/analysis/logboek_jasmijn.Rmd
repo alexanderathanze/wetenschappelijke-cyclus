@@ -3,13 +3,8 @@ title: "logboek_jasmijn"
 output: html_document
 date: "2026-06-05"
 ---
-### Doel:
-### Motivatie:
-### Uitgevoerde werkzaamheden:
-### Conclusie:
-### Volgende stap:
-
-# Introductie
+# Logboek Jasmijn
+## Introductie
 Dit is een onderzoek over stress tijdens verschillende tijdsdrukken. Ik heb voor dit onderzoek gekozen om te kunnen aantonen dat er stress wordt ervaren door
 studenten tijdens hoge tijdsdruk tijdens toetsen. De vraag die wij stellen is: Beïnvloedt een tijdsdruk de bloeddruk, hartslag en de prestatie?
 Ik verwacht een resultaat, het gaat erg minimaal zijn maar ik denk dat er wel een duidelijk verschil in de hartslag gaat zitten.
@@ -122,8 +117,26 @@ Ik heb vandaag mijn logboek netjes gemaakt zodat het er netter en overzichterlij
 De discussie verder schrijven en een conclusie trekken
 
 
+## 08/06/2026
+### Doel:
+De dicussie verder af hebben.
+### Motivatie:
+Het project optijd inleveren
+### Uitgevoerde werkzaamheden:
+Ik heb de discussie een klein beetje uitgebrijd, nu wordt er bersproken over de hoeveelheid mensen die we hebben getest en hoezo dit een probleem is. 
+### Volgende stap:
+De complete publication af hebben
 
 
+##09/06/2026
+### Doel:
+De publicatie af hebben zodat het optijd kan worden ingeleverd
+### Motivatie:
+Het moet af
+### Uitgevoerde werkzaamheden:
+Ik heb vandaag de discussie en conlusie afgemaakt en hierbij ook de p-waarde en correlatiewaarde toegevoegd, ook heb ik de Readme verbeterd. Ik heb een poweranalyse gedaan, en de documeten netter gemaakt. bv de install.package weggehaald en benoemd in de readme zodat dit niet wordt gedaan elke keer als iemand het wil runnen. 
+### Conclusie:
+We zijn klaar!
 
 
 
