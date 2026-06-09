@@ -2,7 +2,9 @@
 title: "logboek"
 author: "alexander"
 date: "2026-05-20"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -217,6 +219,7 @@ daarnaast is door de groep de conclusie getrokken dat de prestatie van de test n
 
 ### resultaten
 een boxplot van de means per test.
+
 ![een boxplot van de means per test](boxplot_means.png)
 verder is er nog een stuk code geschreven om resultaten longer te pivotten en is deze gebruikt om de boxplot te maken. de code is terug te vinden in git hash
 198632641c5bba84b6cb955401502f6c7b85be56 . 
@@ -266,6 +269,7 @@ verdere details over het script zijn terug te vinden in git hash d4d9ac75fde2147
 
 ### resultaten
 de boxplot van gemiddelde hartslagen in bpm per test per persoon, gesplitst op gender.
+
 ![boxplot van de verschillende gemiddelde hartslagen in bpm, gesplitst op man of vrouw](boxplot_man_vrouw.png)
 verder is er uit de statistische analyse het volgende gekomen:
 
@@ -427,10 +431,10 @@ de paper afschrijven en omzetten tot een pdf. hiervoor moeten de abstract, resul
 misschien klinkt het een beetje lullig, maar om onze paper af te krijgen en om ons cijfer te krijgen moeten wij hem natuurlijk wel klaar krijgen en omzetten tot pdf.
 
 ### uitgevoerde werkzaamheden
-vandaag heb ik een deel van de abstract geschreven en heb ik de readme geschreven.
+vandaag heb ik een deel van de abstract geschreven en heb ik de readme geschreven. verder heb ik een deel van de conclusie geschreven. verder zijn de punten op de i gezet in het publicatiebestand.
 
 ### resultaten
-de readme is af en de abstract is bijna af
+de readme is af, de abstract is af en de publicatie is af!
 
 ### conclusie en vervolgstappen
 we zijn klaar! jippie!
