@@ -271,19 +271,15 @@ ggplot(df_test3, aes(pss_score, heart_rate)) +
 
 ```
 
-in het volgende blok wordt een lineaire regressie gedaan om de interactie te krijgen van de pss en hartslagen per tijdsdruk
+in het volgende blok wordt een correlatie test gedaan om erachter te komen wat de correlatie is tussen de pss-score en de gemiddelde hartslagen per minuut.
 ```{r}
-df_test1 <- subset(df_long, conditie == "mean_test_1")
-df_test2 <- subset(df_long, conditie == "mean_test_2")
-df_test3 <- subset(df_long, conditie == "mean_test_3")
+cor.test(df_long$heart_rate[df_long$conditie == "mean_test_1"],
+         df_long$pss_score[df_long$conditie == "mean_test_1"])
 
-lm_test1 <-lm(df_test1$heart_rate ~ df_test1$pss_score)
-summary(lm_test1)
+cor.test(df_long$heart_rate[df_long$conditie == "mean_test_2"],
+         df_long$pss_score[df_long$conditie == "mean_test_2"])
 
-lm_test2 <-lm(df_test2$heart_rate ~ df_test2$pss_score)
-summary(lm_test2)
-
-lm_test3 <-lm(df_test3$heart_rate ~ df_test3$pss_score)
-summary(lm_test3)
+cor.test(df_long$heart_rate[df_long$conditie == "mean_test_3"],
+         df_long$pss_score[df_long$conditie == "mean_test_3"])
 ```
 
