@@ -92,24 +92,21 @@ Hierin laat gender factor zien of er een significant verschil ligt tussen gender
 ####Deelvraag: Heeft de dagelijks ervaren stress invloed op de ervaren stress tijdens te test?
 
 ![figuur 3: de relatie tussen hartslag en pss_score in de eerste test (geen tijdsdruk)](relatie_test_1.png)
-Bij figuur 3 staat op de X-as de pss score en op de y-as de hartslag. De blauwe punten zijn individuele metingen en de zwarte lijn die hierdoor is getrokken is de trendlijn. Deze loopt bijna horizontaal. Uit het lineaire regressiemodel komen de volgende gegevens: 
-Multiple R-squared:  0.0008287,	Adjusted R-squared:  -0.05468 
-F-statistic: 0.01493 on 1 and 18 DF,  p-value: 0.9041
+Bij figuur 3 staat op de X-as de pss score en op de y-as de hartslag. De blauwe punten zijn individuele metingen en de zwarte lijn die hierdoor is getrokken is de trendlijn. Deze loopt bijna horizontaal. Uit de correlatietest komen de volgende gegevens: 
+p-value = 0.9041, cor -0.02878793
 
 
 
 ![figuur 4: de relatie tussen hartslag en pss_score in de tweede test (lichte tijdsdruk)](relatie_test_2.png)
-In figuur 4 is hetzelfde te zien als in figuur 3. Ook hier loopt de trendlijn vrijwel horizontaal. Uit het lineaire regressiemodel komen de volgende gegevens: 
-Multiple R-squared:  0.0004293,	Adjusted R-squared:  -0.0551 
-F-statistic: 0.007731 on 1 and 18 DF,  p-value: 0.9309
+In figuur 4 is hetzelfde te zien als in figuur 3. Ook hier loopt de trendlijn vrijwel horizontaal. Uit de correlatietest komen de volgende gegevens: 
+p-value = 0.9309, cor -0.02072047 
 
 
 
 
 ![figuur 5: de relatie tussen hartslag en pss_score in de derde test (hoge tijdsdruk)](relatie_test_3.png)
-In figuur 5 is hetzelfde te zien als in figuur 3 en 4. Ook hier loopt de trendlijn vrijwel horizontaal. Uit het lineaire regressiemodel komen de volgende gegevens:
-Multiple R-squared:  0.003609,	Adjusted R-squared:  -0.05175 
-F-statistic: 0.06521 on 1 and 18 DF,  p-value: 0.8013
+In figuur 5 is hetzelfde te zien als in figuur 3 en 4. Ook hier loopt de trendlijn vrijwel horizontaal. Uit de correlatietest komen de volgende gegevens:
+p-value = 0.8013, cor -0.06007852 
 
 
 
