@@ -34,8 +34,8 @@ Daarnaast wordt onderzocht:
 - **H1:** Geslacht heeft wél invloed op stressreacties onder tijdsdruk.
 
 ### Deelvraag 2 — Dagelijkse stress (PSS‑10)  
-- **H1:** Dagelijkse stress heeft geen invloed op de stressreactie onder tijdsdruk.
-- **H0:** Dagelijkse stress heeft invloed op de stressreactie onder tijdsdruk.  
+- **H0:** Dagelijkse stress heeft geen invloed op de stressreactie onder tijdsdruk.
+- **H1:** Dagelijkse stress heeft invloed op de stressreactie onder tijdsdruk.  
 
 ---
 
