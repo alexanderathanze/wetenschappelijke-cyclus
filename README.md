@@ -3,6 +3,9 @@ geschreven door Jasmijn Peterse, Tristan Kruithof en Alexander Fluttert.
 contactgegevens: jrj.peterse@st.hanze.nl, tjd.kruithof@st.hanze.nl en ajlt.fluttert@st.hanze.nl
 het project heeft van 4/5/2026 tot 9/6/2026 gelopen.
 
+Dit project onderzoekt of tijdsdruk invloed heeft op de hartslag, de bloeddruk en de prestatie op korte rekentoetsen.
+Daarnaast wordt gekeken naar verschillen tussen mannen en vrouwen en naar de rol van dagelijks ervaren stress (PSS‑score).
+
 
 de hoofdvraag van dit onderzoek is: 
 Beïnvloedt een tijdsdruk de bloeddruk,hartslag en de prestatie?
@@ -38,7 +41,7 @@ Voor verdere details op hoe deze data is verzameld, staat het protocol op /proto
 Om onze scripts te runnen moet de verzamelde data in de volgende structuur:
 
 De hartslagmetingen moeten van een polar verity sense komen en gedownload worden als csv.
-Verder moeten deze metingen vernoemd worden als yyyy_mm_dd_heartrate_x.Csv.
+Verder moeten deze metingen vernoemd worden als yyyy_mm_dd_heartrate_x.csv.
 
 Daarnaast moeten de testtijden bijgehouden worden in seconden, dus niet minuut:seconden.
 
@@ -49,26 +52,45 @@ De bloeddrukdata moet gestructureerd zijn zoals deze gedownload wordt van de omr
 ## Waar kan ik wat vinden?
 
 ### protocols
-In deze map staan de protocols die gebruikt zijn voor het experiment.
+In deze map staan het protocol dat gebruikt is voor het experiment. 
+Het protocol geeft weer hoe wij onze data hebben verzameld en hoe dit experiment nagebootst kan worden.
 
 ### raw_data
-In deze map staat de rauwe data die uit onze apparaten/vragenlijst is gekomen
+In deze map staat de rauwe data die uit onze apparaten/vragenlijst is gekomen.
 
 ### analysis
 
 In de /data map staat de afgeleide data die is afgeleid van onze rauwe data. 
 In de /scripts map staan de scripts waarmee deze data is afgeleid en/of verwerkt. 
+Hierin is het bestand wetenschappelijke_cyclus.Rmd waar al onze code staat om de analyses te doen en grafieken te maken op hartslag. 
+Het bestand bloodpressure.Rmd heeft alle code om de grafieken en analyse te doen voor de bloeddruk.
+Onder deze map zijn onze logboeken ook te vinden.
 
 ### docs
 In deze map staan eventuele aanvullende documenten die gebruikt zijn voor het onderzoek.
+Hierin is de FAIR-checklist te vinden die wij hebben ingevuld om te kijken of onze data FAIR is (Findable, Accessible, Interoperable en Reusable).
 
 ### publication
-In deze map staat onze eigen publicatie 2 keer, een keer als een .RMD bestand en een keer
-als een .pdf bestand. 
+In deze map staat onze eigen publicatie 2 keer, een keer als een .RMD bestand en een keer als een .pdf bestand. 
+Het pdf bestand is het eindproduct.
 
 
 ## Analyse
 
 Voor de analyse van de data is R versie 4.5.3 (2026-03-11 ucrt) gebruikt.
 Verder zijn de gebruikte packages voor de analyse readr, ggplot, ARTool en tidyr.
-De scripts moeten van boven naar beneden uitgevoerd worden, maar kunnen los van elkaar gerund worden.
+
+Hieronder staan de stappen om de analyse te runnen.
+
+1. Download de repository
+
+2. Plaats de ruwe data in /raw_data
+
+3. Zorg dat Polar‑bestanden als volgt genoemd worden:
+yyyy_mm_dd_heartrate_x.csv
+
+4. Open /analysis/scripts/wetenschappelijke_cyclus.Rmd
+
+5. Run het script van boven naar beneden
+
+6. Voor bloeddruk: run bloodpressure.Rmd van boven naar beneden
