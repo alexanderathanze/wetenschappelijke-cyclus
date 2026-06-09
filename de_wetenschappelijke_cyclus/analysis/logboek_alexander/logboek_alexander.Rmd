@@ -409,7 +409,7 @@ de readme af schrijven
 om onze repo op orde te houden, moet de readme gemaakt worden. hierin moet in het kort staan wat we hebben onderzocht
 
 ### uitgevoerde werkzaamheden
-de readme is verder geschreven. ik zou willen zeggen dat hij af is maar dat laat ik ter beschouwing van mijn groepsgenoten. hier zijn dingen toegevoegd als wat voor een materiaal we hebben gebruikt, onderzoeksvragen, en welke software wij hebben gebruikt om de data te analyseren. 
+de readme is verder geschreven. ik zou willen zeggen dat hij af is maar dat laat ik ter beschouwing van mijn groepsgenoten. hier zijn dingen toegevoegd als wat voor een materiaal we hebben gebruikt, onderzoeksvragen, en welke software wij hebben gebruikt om de data te analyseren. tijdens het maken van de readme ben ik er wel tegenaan gelopen wat ik er precies in moet zetten, maar dat is ook verholpen.
 
 ### resultaten
 de readme is (hopelijk) af.
@@ -417,3 +417,21 @@ de readme is (hopelijk) af.
 
 ### conclusie en vervolgstappen
 de vervolgstappen zijn het verder schrijven van de resultaten en de discussie. verder moeten de bronnen ook nog in de publicatie komen. daarnaast moet de abstract ook nog afgeschreven worden.
+
+
+## 9/6/2026
+### doel van de dag
+de paper afschrijven en omzetten tot een pdf. hiervoor moeten de abstract, resultaten en discussie afgeschreven worden.
+
+### motivatie van aanpak
+misschien klinkt het een beetje lullig, maar om onze paper af te krijgen en om ons cijfer te krijgen moeten wij hem natuurlijk wel klaar krijgen en omzetten tot pdf.
+
+### uitgevoerde werkzaamheden
+vandaag heb ik een deel van de abstract geschreven en heb ik de readme geschreven.
+
+### resultaten
+de readme is af en de abstract is bijna af
+
+### conclusie en vervolgstappen
+we zijn klaar! jippie!
+

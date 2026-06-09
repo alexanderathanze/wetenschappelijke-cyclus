@@ -42,9 +42,7 @@ Om onze scripts te runnen moet de verzamelde data in de volgende structuur:
 
 De hartslagmetingen moeten van een polar verity sense komen en gedownload worden als csv.
 Verder moeten deze metingen vernoemd worden als yyyy_mm_dd_heartrate_x.csv.
-
 Daarnaast moeten de testtijden bijgehouden worden in seconden, dus niet minuut:seconden.
-
 De bloeddrukdata moet gestructureerd zijn zoals deze gedownload wordt van de omron-app.
 
 
