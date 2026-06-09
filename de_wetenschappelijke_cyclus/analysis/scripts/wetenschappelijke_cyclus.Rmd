@@ -130,6 +130,7 @@ mean_results_df$gender <- gender_pss_data$Gender
 mean_results_df$pss_score <- gender_pss_data$`PSS-10 (/40)`
 mean_results_df$toets_score <- gender_pss_data$`Totaal Rekenen (/60)`
 mean_results_df
+
 ```
 
 
@@ -158,7 +159,11 @@ de volgende code maakt een boxplot van de data met op de x-as de toets met desbe
 ```{r}
 ggplot(df_long, aes(conditie, heart_rate)) +
   geom_boxplot(width = 0.7) +
-  scale_x_discrete(labels = c("Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
+  scale_x_discrete(labels = c("Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))+
+  labs(
+    title="gemiddelde hartslag per toets",
+    y="hartslag (bpm)",
+    x="meting")
 
 
 #qqplot, shapiro wilkinson
@@ -193,7 +198,7 @@ ggplot(df_long, aes(conditie, heart_rate, fill = gender)) +
   geom_boxplot() +
   scale_fill_manual(values = c("Man" = "cyan", "Vrouw" = "lightcoral"))+
   labs(
-    title = "Hartslag per conditie, gesplitst op gender",
+    title = "gemiddelde hartslag per conditie, gesplitst op gender",
     x = "meting",
     y = "Hartslag (bpm)"
     ) +
@@ -266,9 +271,8 @@ ggplot(df_test3, aes(pss_score, heart_rate)) +
 
 ```
 
-in het volgende blok wordt de correlatie van de pss en hartslagen getest per tijdsdruk
+in het volgende blok wordt een correlatie test gedaan om erachter te komen wat de correlatie is tussen de pss-score en de gemiddelde hartslagen per minuut.
 ```{r}
-
 cor.test(df_long$heart_rate[df_long$conditie == "mean_test_1"],
          df_long$pss_score[df_long$conditie == "mean_test_1"])
 
