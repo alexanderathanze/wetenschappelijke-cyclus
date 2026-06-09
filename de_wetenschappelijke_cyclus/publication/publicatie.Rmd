@@ -2,7 +2,10 @@
 title: "publicatie"
 author: "alexander"
 date: "2026-05-22"
-output: html_document
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -13,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Veel studenten ervaren stress tijdens toetsen, en dit heeft een negatieve invloed op hun prestatie. In dit onderzoek is onderzocht of de tijdsdruk tijdens toetsen invloed heeft op de ervaren stress. Dit is gemeten door de hartslag, bloeddruk en prestatie. 20 leerlingen maakte drie rekentoetsen onder oplopende tijdsdruk (geen tijdsdruk, 1 minuut en 30 seconden voor 20 kleine rekensommen), terwijl er continu hartslag werd gemeten via een Polar Verity Sense en de bloeddruk na elke test met een Omron bloeddrukmeter. Ook werd de dagelijks ervaren stress gemeten door een PSS-10 test
 
-Uit de resultaten bleek dat de hartslag alleen een significant verschil had tussen geen en lichte tijdsdruk(p=0.00069) en tussen licht en hoge tijdsdruk(p=0.02253) maar niet tussen geen en hoge tijdsdruk ( p =0.92782). Dit geeft aan dat er geen lineaire fysiologische respons is, mogelijk door gewenning. Er werd ook geen significant verschil gevonden tussen man en vrouw(p=0.325), en de PSS-10 score toonde ook aan dat er geen significante correlatie is met de hartslag van de drie condities. De conclusie is dat tijdsdruk geen eenduidige fysiologische stressreactie veroorzaakt.
+Uit de resultaten bleek dat de hartslag alleen een significant verschil had tussen geen en lichte tijdsdruk (p = 0.00069) en tussen lichte en hoge tijdsdruk (p = 0.02253), maar niet tussen geen en hoge tijdsdruk (p = 0.92782). Dit wijst op een niet-lineaire fysiologische respons, mogelijk door gewenning. De diastolische bloeddruk vertoonde geen significante verandering over de condities (F(3, 57) = 2.11, p = .110). De systolische bloeddruk was bij toets 2 (lichte tijdsdruk) significant hoger dan in rust (+4,25 mmHg, p = .008) en hoger dan bij toets 1 (+3,7 mmHg, p = .007). Er werd geen significant verschil gevonden tussen man en vrouw in hartslag (p = 0.325) of bloeddruk (p = 0.116 voor systolisch; p = 0.055 voor diastolisch). De PSS-10 score toonde geen significante correlatie met de hartslag of bloeddrukveranderingen tijdens de drie condities. De conclusie is dat tijdsdruk geen eenduidige of lineaire fysiologische stressreactie veroorzaakt, met uitzondering van een tijdelijke stijging van de systolische bloeddruk bij lichte tijdsdruk.
 
 
 ## Introductie
@@ -105,11 +108,9 @@ p-value = 0.9309, cor -0.02072047
 
 
 
-
 ![figuur 5: de relatie tussen hartslag en pss_score in de derde test (hoge tijdsdruk)](figures/relatie_test_3.png)
 In figuur 5 is hetzelfde te zien als in figuur 3 en 4. Ook hier loopt de trendlijn vrijwel horizontaal. Uit de correlatietest komen de volgende gegevens:
 p-value = 0.8013, cor -0.06007852 
-
 
 
 
@@ -140,7 +141,7 @@ In figuur 7 kun je een boxplot van de systolische bloeddruk per meting zien. Hie
 ##### Statistische analyse: 
   
 Een repeated measures ANOVA toonde een significant effect van de meetconditie op de 
-diastolische bloeddruk, F(3, 57) = 3.68, p = .017, ges = .0142 (1,4% verklaarde variantie).
+systolische bloeddruk, F(3, 57) = 3.68, p = .017, ges = .0142 (1,4% verklaarde variantie).
 Omdat p = .017 < .05 is er een paired T test uitgevoerd, want er is een significant effect.
 
            rust_sys toets1_sys toets2_sys
@@ -213,6 +214,7 @@ gender:meting p = 0.793 geen significante verandering, genders reageren hetzelfd
 
 
 ![figuur 10: De scatterplot van de diastolische bloeddruk tegen de pss-10 test - alle toetsen](figures/scatterplot_dia.png)
+
 ##### Omschrijving:
 
 In figuur 10 kun je een scatterplot van de PSS-10 score vs de delta van de diastolische bloeddruk per toets zien. De delta van de diastolische bloeddruk van elke toets is berekend door elke toets - de bloeddruk van de rust te doen. Op de x-as kun je de PSS-10 score zien en op de y-as de stijging van de diastolische bloeddruk t.o.v. rust. In elke plot kun je allemaal zwarte stippen zien, dit zijn de meetpunten en een blauwe trendlijn die de lineaire trend in de data weergeeft. Bij toets 1 loopt de trendlijn van 0 mmHg naar -5 mmHg, je hebt hier dus te maken met een dalende trend. Bij toets 2 en 3 zijn de trendlijnen vrijwel exact hetzelfde en die begint bij -3 mmHg en loopt tot ongeveer 0 mmHg. De meetpunten zijn sterk verspreid en vertonen geen duidelijke clustering. Wel zijn er een paar uitschieters vooral bij toets 2 en 3. 
@@ -232,6 +234,7 @@ Toets 3 (Pearson): r = .134, p = .575 | geen significant verband.
 Geen van de drie toetsen toonde een significant verband tussen de PSS-10 score en de stijging in diastolische bloeddruk (alle p > .05).
 
 ![figuur 11: De scatterplot van de sytolische bloeddruk tegen de pss-10 test - alle toetsen](figures/scatterplot_sys.png)
+
 ##### Omschrijving:
 
 In figuur 11 kun je een scatterplot van de PSS-10 score vs de delta van de systolische bloeddruk per toets zien. De delta van de systolische bloeddruk van elke toets is berekend door elke toets - de bloeddruk van de rust te doen. Op de x-as kun je de PSS-10 score zien en op de y-as de stijging van de systolische bloeddruk t.o.v. rust. In elke plot kun je allemaal zwarte stippen zien, dit zijn de meetpunten en een blauwe trendlijn die de lineaire trend in de data weergeeft. Bij toets 1 loopt de trendlijn van -3 mmHg naar 5 mmHg, je hebt hier dus te maken met een stijgende trend. Bij toets 2 is de trendlijn vrijwel horizontaal, maar loopt subtiel stijgend van 3 mmHg naar 5 mmHg. Bij toets 3 loopt de trendlijn stijgend van -2 mmHg naar 4 mmHg. De meetpunten zijn sterk verspreid en vertonen geen duidelijke clustering. Wel zijn er een paar uitschieters vooral bij toets 1 en 3. 
@@ -253,13 +256,19 @@ Geen van de drie toetsen toonde een significant verband tussen de PSS-10 score e
 
 ## Conclusie & discussie
 
-De resultaten van dit onderzoek laten zien dat de invloed van tijdsdruk op fysiologische stressreacties, gemeten via hartslag en bloeddruk, minder eenduidig is dan vooraf werd verwacht. Hoewel tijdsdruk theoretisch leidt tot een acute stressreactie waarbij hartslag en bloeddruk stijgen, laten onze metingen geen sterke of consistente stijging zien tussen de drie condities. Dit sluit opvallend goed aan op eerder onderzoek (Joan Bunyi et al. (2015)), waarin eveneens werd gerapporteerd dat hartslag en bloeddruk tijdens toetsmomenten onder tijdsdruk nauwelijks significant veranderen, ondanks dat deelnemers de situatie wel als stressvol ervaren. In onze data zien we dat de hartslag alleen tussen geen tijdsdruk en lichte tijdsdruk significant toenam (p = 0.00069), en opnieuw tussen lichte en hoge tijdsdruk (p = 0.02253). Tussen geen tijdsdruk en hoge tijdsdruk werd echter geen verschil gevonden (p = 0.92782). Dit patroon suggereert dat de fysiologische respons op tijdsdruk niet lineair verloopt en mogelijk beïnvloed wordt door factoren zoals gewenning en taak vertrouwdheid.
-Een mogelijke verklaring hiervoor is dat deelnemers in de eerste conditie vooral reageerden op de nieuwe situatie. De eerste test kan een initiële stressreactie hebben uitgelokt, waardoor de hartslag relatief hoog lag, zelfs zonder tijdsdruk. Dit sluit aan bij onderzoek naar testangst en prestatie, waarin gewenning en taak vertrouwdheid een dempend effect kunnen hebben op fysiologische stressreacties tijdens opeenvolgende taken (Heissel et al., 2021). De variatie tussen deelnemers ondersteunt bovendien de hypothese dat fysiologische stressreacties sterk individueel bepaald zijn: sommige deelnemers vertoonden duidelijke stijgingen in hartslag, terwijl anderen nauwelijks fysiologische stress lieten zien. Hierdoor kunnen groepsgemiddelden subtiele individuele verschillen maskeren.
-De resultaten laten daarnaast zien dat er geen verschil is tussen mannen en vrouwen in de fysiologische reactie op tijdsdruk. Het hoofdeffect van geslacht was niet significant (p = 0.325), en ook de interactie tussen geslacht en tijdsdruk was niet significant (p = 0.207). Dit betekent dat mannen en vrouwen vergelijkbare hartslagpatronen vertoonden en op dezelfde manier reageerden op oplopende tijdsdruk. Het enige significante effect betrof de tijdsdruk zelf (p = 0.014). Op basis hiervan kan de nulhypothese voor de deelvraag over sekseverschillen niet worden verworpen: er is geen aanwijzing dat geslacht invloed heeft op hartslag, bloeddruk of prestatie.
-Ook de deelvraag over dagelijkse stress kon duidelijk worden beantwoord. De correlatieanalyses laten zien dat er geen significant verband bestaat tussen dagelijkse stress (PSS‑score) en de gemiddelde hartslag tijdens de drie testcondities. Voor test 1 werd een p‑waarde van 0.9041 gevonden met een correlatie van r = –0.0288; voor test 2 een p‑waarde van 0.9309 met r = –0.0207; en voor test 3 een p‑waarde van 0.8013 met r = –0.0601. Deze waarden liggen ver boven de drempel voor significantie en de correlaties zijn bovendien zeer klein. Dit betekent dat dagelijkse stress geen aantoonbare invloed heeft op de fysiologische stressreactie tijdens de test. Hoewel de correlaties negatief zijn, zijn ze te klein om betekenisvol te interpreteren; het is daarom niet correct om te concluderen dat mensen met meer dagelijkse stress zich “minder zouden stressen” tijdens de test.
+De resultaten van dit onderzoek laten zien dat de invloed van tijdsdruk op fysiologische stressreacties, gemeten via hartslag en bloeddruk, minder eenduidig is dan vooraf werd verwacht. Hoewel tijdsdruk theoretisch leidt tot een acute stressreactie waarbij hartslag en bloeddruk stijgen, laten onze metingen geen sterke of consistente stijging zien bij de diastolische bloeddruk. De systolische bloeddruk vormt hierop een uitzondering: toets 2 (1 minuut tijdsdruk) leidde tot een significant hogere systolische bloeddruk ten opzichte van rust (+4,25 mmHg, p = .047) en ten opzichte van toets 1 (+3,7 mmHg, p = .043). Dit sluit gedeeltelijk aan op eerder onderzoek (Joan Bunyi et al., 2015), waarin werd gerapporteerd dat fysiologische stressreacties onder tijdsdruk beperkt blijven, ondanks dat deelnemers de situatie wel als stressvol ervaren. In onze data zien we dat de hartslag alleen tussen geen tijdsdruk en lichte tijdsdruk significant toenam (p = 0.00069), en opnieuw tussen lichte en hoge tijdsdruk (p = 0.02253). Tussen geen tijdsdruk en hoge tijdsdruk werd echter geen verschil gevonden (p = 0.92782). Dit patroon suggereert dat de fysiologische respons op tijdsdruk niet lineair verloopt en mogelijk beïnvloed wordt door factoren zoals gewenning en taakvertrouwdheid.
+
+Een mogelijke verklaring hiervoor is dat deelnemers in de eerste conditie vooral reageerden op de nieuwe situatie. De eerste test kan een initiële stressreactie hebben uitgelokt, waardoor de hartslag relatief hoog lag, zelfs zonder tijdsdruk. Dit sluit aan bij onderzoek naar testangst en prestatie, waarin gewenning en taakvertrouwdheid een dempend effect kunnen hebben op fysiologische stressreacties tijdens opeenvolgende taken (Heissel et al., 2021). Sommige deelnemers lieten duidelijke hartslagstijgingen zien, anderen nauwelijks. Hierdoor kunnen groepsgemiddelden subtiele individuele verschillen maskeren.
+
+De resultaten laten daarnaast zien dat er geen verschil is tussen mannen en vrouwen in de fysiologische reactie op tijdsdruk. Het hoofdeffect van geslacht was niet significant (p = 0.325), en ook de interactie tussen geslacht en tijdsdruk was niet significant (p = 0.207). Dit betekent dat mannen en vrouwen vergelijkbare hartslagpatronen vertoonden en op dezelfde manier reageerden op oplopende tijdsdruk. Het enige significante effect betrof de tijdsdruk zelf (p = 0.014). Op basis hiervan kan de nulhypothese voor de deelvraag over sekseverschillen niet worden verworpen. Bij de diastolische bloeddruk was het gendereffect echter borderline niet-significant (p = .055) met een groot effect (ges = .175), wat suggereert dat vrouwen mogelijk een hogere diastolische bloeddruk hebben dan mannen. Door de beperkte steekproefgrootte kon dit effect niet statistisch worden aangetoond.
+
+Ook de deelvraag over dagelijkse stress kon duidelijk worden beantwoord. De correlatieanalyses laten zien dat er geen significant verband bestaat tussen dagelijkse stress (PSS‑score) en de gemiddelde hartslag tijdens de drie testcondities. Voor test 1 werd een p‑waarde van 0.9041 gevonden met een correlatie van r = –0.0288; voor test 2 een p‑waarde van 0.9309 met r = –0.0207; en voor test 3 een p‑waarde van 0.8013 met r = –0.0601. Deze waarden liggen ver boven de drempel voor significantie en de correlaties zijn bovendien zeer klein. Dit betekent dat dagelijkse stress geen aantoonbare invloed heeft op de fysiologische stressreactie tijdens de test. Hoewel de correlaties negatief zijn, zijn ze te klein om betekenisvol te interpreteren. Ditzelfde gold voor de bloeddruk: ook de correlaties tussen PSS-10 scores en de stijging in zowel diastolische als systolische bloeddruk waren niet significant (alle p > .05), wat betekent dat dagelijkse stress evenmin de bloedrukreactie tijdens de toetsen voorspelde.
+
 Een belangrijke beperking van dit onderzoek is de lage statistische power. De poweranalyse liet zien dat er ongeveer 67 deelnemers nodig zouden zijn om effecten van middelgrote omvang betrouwbaar te detecteren, terwijl dit onderzoek slechts twintig deelnemers omvatte. De berekende power lag rond de 30%, wat betekent dat de kans om een werkelijk bestaand effect te detecteren relatief laag was. Hierdoor is het mogelijk dat subtiele effecten niet zijn opgemerkt. Dat de significante verschillen tussen condities desondanks duidelijk naar voren kwamen, suggereert dat deze effecten robuust zijn, maar voorzichtigheid blijft geboden bij het interpreteren van niet‑significante resultaten.
+
 Daarnaast kan de beperkte hersteltijd tussen de condities hebben bijgedragen aan het uitblijven van duidelijke verschillen in hartslag. De deelnemers kregen geen pauze tussen de testen, waardoor de hartslag mogelijk niet volledig kon terugkeren naar het oorspronkelijke rustniveau. Hierdoor kan de fysiologische respons van de ene conditie zijn doorgelopen in de volgende, wat verschillen tussen de condities heeft afgevlakt. Ook de aard van de rekentaak kan een rol hebben gespeeld: voor sommige deelnemers was de taak mogelijk te eenvoudig, waardoor de cognitieve belasting en daarmee de stressreactie beperkt bleef. Omgevingsfactoren zoals geluid en afleiding in het schoolgebouw kunnen eveneens invloed hebben gehad op zowel fysiologische metingen als prestaties.
-Samenvattend laten de resultaten zien dat tijdsdruk geen duidelijke fysiologische stressreactie veroorzaakt in termen van bloeddruk en hartslag, maar wel een merkbare negatieve invloed heeft op de prestatie op rekentaken. De hartslag nam alleen significant toe onder lichte tijdsdruk, en niet onder hoge tijdsdruk, wat suggereert dat de stressrespons niet lineair verloopt. Geslacht bleek geen rol te spelen in de fysiologische reactie op tijdsdruk, en dagelijkse stressniveaus (PSS‑scores) bleken geen voorspeller van hartslag tijdens de test. Door de beperkte steekproef en het vaste volgordedesign moeten de resultaten voorzichtig worden geïnterpreteerd, maar ze vormen een waardevolle basis voor vervolgonderzoek. De bevindingen onderstrepen bovendien dat onderwijsinstellingen kritisch moeten kijken naar het gebruik van strikte tijdslimieten bij toetsen.
+
+Samenvattend laten de resultaten zien dat tijdsdruk een beperkte maar deels significante fysiologische stressreactie veroorzaakte: de hartslag nam significant toe onder lichte tijdsdruk en de systolische bloeddruk was significant hoger bij toets 2. De diastolische bloeddruk bleef over alle condities onveranderd. De hartslag nam alleen significant toe onder lichte tijdsdruk, en niet onder hoge tijdsdruk, wat suggereert dat de stressrespons niet lineair verloopt. Geslacht bleek geen rol te spelen in de fysiologische reactie op tijdsdruk, en dagelijkse stressniveaus (PSS‑scores) bleken geen voorspeller van hartslag tijdens de test. Door de beperkte steekproef en het vaste volgordedesign moeten de resultaten voorzichtig worden geïnterpreteerd.
 
 
 
