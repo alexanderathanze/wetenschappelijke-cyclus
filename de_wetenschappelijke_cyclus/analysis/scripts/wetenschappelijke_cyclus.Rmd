@@ -59,10 +59,10 @@ read_and_filter <- function(filelocation, testtime_1, testtime_2, testtime_3) {
 het volgende blok zorgt er voor dat de hartslagen worden gefilterd zodat alleen de hartslagen per toetstijd worden opgeslagen in een lijst
 ```{r}
 
-test_tijden <- read.csv("../../raw_data/testtijden.csv")
+test_tijden <- read.csv("../../raw_data/test_times/testtijden.csv")
 
 #deze lijn zorgt er voor dat alle bestanden met de pattern "heartrate" in files opgeslagen wordt.
-files <- list.files("../../raw_data/", pattern = "heartrate", full.names = TRUE)
+files <- list.files("../../raw_data/heartrate", pattern = "heartrate", full.names = TRUE)
 files
 
 # de volgende lapply zorgt ervoor dat de tijden wanneer de test gebeurde uit de 
@@ -125,7 +125,7 @@ mean_results_df
 
 dit blok zorgt ervoor dat de gender en pss uit de pss_gender_scores.csv in rauwe data ook in de dataframe van de mean test scores staat
 ```{r}
-gender_pss_data <- read_csv("../../raw_data/pss_gender_scores.csv")
+gender_pss_data <- read_csv("../../raw_data/google_forms/pss_gender_scores.csv")
 mean_results_df$gender <- gender_pss_data$Gender
 mean_results_df$pss_score <- gender_pss_data$`PSS-10 (/40)`
 mean_results_df$toets_score <- gender_pss_data$`Totaal Rekenen (/60)`

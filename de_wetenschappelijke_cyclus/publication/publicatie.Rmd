@@ -61,31 +61,31 @@ Aan het einde van de deelname wordt gecontroleerd of alle gegevens volledig zijn
 
 ## Resultaten
 
-![De boxplot van de diastolische bloeddruk](boxplot_dia.png)
+![De boxplot van de diastolische bloeddruk](figures/boxplot_dia.png)
 ### Conclusion: 
 ### A repeated measures ANOVA showed no significant effect of measurement type on diastolic blood pressure,
 ### F(3, 57) = 2.11, p = .110, ges = .009, so we will not perform a paired T test
 
 
-![De boxplot van de systolische bloeddruk](boxplot_sys.png)
+![De boxplot van de systolische bloeddruk](figures/boxplot_sys.png)
 ### All p value's of 1.000 or above 0.05 are not significant. That there was a significant change
 ### Between rust_sys and toets2_sys and between toets2_sys and toets1_sys. Both P-value's < 0.05.
 ### Conclusion: toets 2 (1 minuut) caused a significant difference
 
 
-![De boxplot van de diastolische bloeddruk](boxplot_dia_gender.png)
+![De boxplot van de diastolische bloeddruk](figures/boxplot_dia_gender.png)
 ### gender p = 0.055~ so not significant yet, but very borderline, worth mentioning in the final report that
 ### Woman tend to show a higher diastolic blood pressure than men.
 ### meting p = 0.105~ still the same, no significant difference across the measurements
 ### gender:meting p = 0.266~ no significant change, genders respond the same way across measurements. 
 
-![De boxplot van de diastolische bloeddruk](boxplot_sys_gender.png)
+![De boxplot van de diastolische bloeddruk](figures/boxplot_sys_gender.png)
 ### gender p = 0.116~ so not significantly different systolic bloodpressure overall between the 2 genders
 ### meting p = 0.020 still the same significant difference across the measurements (driven by toets2, see T test above)
 ### gender:meting p = 0.793 no significant change, genders respond the same way across measurements. 
 
 
-![De scatterplot van de diastolische bloeddruk tegen de pss-10 test - alle toetsen](scatterplot_dia.png)
+![De scatterplot van de diastolische bloeddruk tegen de pss-10 test - alle toetsen](figures/scatterplot_dia.png)
 #### Note:
 Cor and rho ranging from -1 to 1 (correlatie)
 p-value < 0.05 (significant) > 0.05 (niet significant)
@@ -104,7 +104,7 @@ p-value = 0.5747 (niet significant)
 
 
 
-![De scatterplot van de sytolische bloeddruk tegen de pss-10 test - alle toetsen](scatterplot_sys.png)
+![De scatterplot van de sytolische bloeddruk tegen de pss-10 test - alle toetsen](figures/scatterplot_sys.png)
 
 PSS-10 vs delta systolische bloeddruk per toets 
 
