@@ -1,94 +1,147 @@
-# Readme: heeft tijdsdruk een effect op de ervaren stress?
-geschreven door Jasmijn Peterse, Tristan Kruithof en Alexander Fluttert.
-contactgegevens: jrj.peterse@st.hanze.nl, tjd.kruithof@st.hanze.nl en ajlt.fluttert@st.hanze.nl
-het project heeft van 4/5/2026 tot 9/6/2026 gelopen.
+# README — Heeft tijdsdruk een effect op ervaren stress?
 
-Dit project onderzoekt of tijdsdruk invloed heeft op de hartslag, de bloeddruk en de prestatie op korte rekentoetsen.
-Daarnaast wordt gekeken naar verschillen tussen mannen en vrouwen en naar de rol van dagelijks ervaren stress (PSS‑score).
+**Auteurs:**  
+Jasmijn Peterse, Tristan Kruithof, Alexander Fluttert  
 
+**Contact:**  
+- jrj.peterse@st.hanze.nl  
+- tjd.kruithof@st.hanze.nl  
+- ajlt.fluttert@st.hanze.nl  
 
-de hoofdvraag van dit onderzoek is: 
-Beïnvloedt een tijdsdruk de bloeddruk,hartslag en de prestatie?
+**Projectperiode:** 4 mei 2026 – 9 juni 2026
 
-onze H0 is dat studenten onder tijdsdruk niet significant meer stress ervaren. 
-onze H1 is dat studenten onder tijdsdruk wel significant meer stress ervaren. 
+---
 
-Daarnaast zijn er twee nevenvragen: 
+## Doel van het project
+Dit project onderzoekt of **tijdsdruk invloed heeft op fysiologische stressreacties** (hartslag, bloeddruk) en op **prestatie** tijdens korte rekentoetsen.  
+Daarnaast wordt onderzocht:
 
-Heeft sexe invloed op ervaren stress onder tijdsdruk?
+- of **geslacht** invloed heeft op deze stressreactie  
+- of **dagelijks ervaren stress** (PSS‑10 score) samenhangt met de gemeten fysiologische stress
 
-H0: De sexe heeft geen invloed op de ervaren stress onder tijdsdruk.
-H1: De sexe heeft invloed op de ervaren stress onder tijdsdruk. 
+---
 
-Heeft de dagelijks ervaren stress invloed op de stress onder tijdsdruk?
+## Onderzoeksvragen & Hypothesen
 
-H0: De dagelijks ervaren stress heeft invloed op de stress onder tijdsdruk.
-H1: De dagelijks ervaren stress heeft geen invloed op de stress onder tijdsdruk.
+### Hoofdvraag  
+**Beïnvloedt tijdsdruk de bloeddruk, hartslag en prestatie?**
 
+- **H0:** Tijdsdruk heeft geen effect op fysiologische stress of prestatie.  
+- **H1:** Tijdsdruk verhoogt fysiologische stress en verlaagt prestatie.
 
+### Deelvraag 1 — Geslacht  
+- **H0:** Geslacht heeft geen invloed op stressreacties onder tijdsdruk.  
+- **H1:** Geslacht heeft wél invloed op stressreacties onder tijdsdruk.
+
+### Deelvraag 2 — Dagelijkse stress (PSS‑10)  
+- **H1:** Dagelijkse stress heeft geen invloed op de stressreactie onder tijdsdruk.
+- **H0:** Dagelijkse stress heeft invloed op de stressreactie onder tijdsdruk.  
+
+---
 
 ## Dataverzameling
 
-In dit onderzoek is gebruik gemaakt van vragenlijsten en korte rekentoetsen in google forms.
-Deze rekentoetsen en vragenlijsten zijn gemaakt op een laptop.
-De hartslagdata is verzameld door middel van de polar verity sense met bijbehorende software.
-Deze is aan het begin van elke meting (met meerdere testen) gestart.
-De data van de bloeddruk is verzameld door een omron bloeddrukmeter. 
-De metingen zijn gedaan in lokaal D1.07 en D1.08 van het van Doorenveste in Groningen.
-Voor verdere details op hoe deze data is verzameld, staat het protocol op /protocols/protocol.Rmd.
+De data is verzameld via:
 
+- **Google Forms** (rekentoetsen, PSS‑10, geslacht)
+- **Polar Verity Sense** (continue hartslagregistratie)
+- **Omron bloeddrukmeter** (bloeddruk na rust periode en na elke toets)
 
-Om onze scripts te runnen moet de verzamelde data in de volgende structuur:
+De metingen zijn uitgevoerd in **lokaal D1.07 en D1.08** van het Van Doorenveste (Groningen).
 
-De hartslagmetingen moeten van een polar verity sense komen en gedownload worden als csv.
-Verder moeten deze metingen vernoemd worden als yyyy_mm_dd_heartrate_x.csv.
-Daarnaast moeten de testtijden bijgehouden worden in seconden, dus niet minuut:seconden.
-De bloeddrukdata moet gestructureerd zijn zoals deze gedownload wordt van de omron-app.
+Het volledige protocol staat in:  
+`/protocols/protocol.Rmd`
 
+---
 
+## Datastructuur (FAIR)
 
-## Waar kan ik wat vinden?
+Alle ruwe data staat in `/raw_data`.  
+De bestanden moeten de volgende structuur hebben:
 
-### protocols
-In deze map staan het protocol dat gebruikt is voor het experiment. 
-Het protocol geeft weer hoe wij onze data hebben verzameld en hoe dit experiment nagebootst kan worden.
+### Hartslagbestanden
+- Afkomstig van Polar Verity Sense  
+- Formaat: **CSV**  
+- Bestandsnaam:  yyyy_mm_dd_heartrate_x.csv
+- Kolommen: tijdstempel, hartslag (bpm)
 
-### raw_data
-In deze map staat de rauwe data die uit onze apparaten/vragenlijst is gekomen.
+### Testtijden
+- Bestand: `testtijden.csv`  
+- Bevat start- en eindtijden (in seconden) van:
+- geen tijdsdruk  
+- lichte tijdsdruk  
+- hoge tijdsdruk
 
-### analysis
+### Bloeddruk
+- Map: `/raw_data/blood pressure/`  
+- Bestand: `bloodpressure.xlsx`  
+- Kolommen: systolisch, diastolisch, tijdstip, conditie
 
-In de /data map staat de afgeleide data die is afgeleid van onze rauwe data. 
-In de /scripts map staan de scripts waarmee deze data is afgeleid en/of verwerkt. 
-Hierin is het bestand wetenschappelijke_cyclus.Rmd waar al onze code staat om de analyses te doen en grafieken te maken op hartslag. 
-Het bestand bloodpressure.Rmd heeft alle code om de grafieken en analyse te doen voor de bloeddruk.
-Onder deze map zijn onze logboeken ook te vinden.
+### PSS + geslacht + prestaties
+- Bestand: `pss_gender_scores.csv`  
+- Kolommen:
+- Gender  
+- PSS‑10 score  
+- Totaal rekenscore  
+- Fouten per ronde (F1, F2, F3)
 
-### docs
-In deze map staan eventuele aanvullende documenten die gebruikt zijn voor het onderzoek.
-Hierin is de FAIR-checklist te vinden die wij hebben ingevuld om te kijken of onze data FAIR is (Findable, Accessible, Interoperable en Reusable).
+---
 
-### publication
-In deze map staat onze eigen publicatie 2 keer, een keer als een .RMD bestand en een keer als een .pdf bestand. 
-Het pdf bestand is het eindproduct.
+## Mappenstructuur
 
+### `/protocols`
+Bevat het volledige experimentele protocol (Rmd).
 
-## Analyse
+### `/raw_data`
+Ruwe, onbewerkte data:
+- hartslagbestanden  
+- bloeddrukbestanden  
+- testtijden  
+- PSS‑scores  
 
-Voor de analyse van de data is R versie 4.5.3 (2026-03-11 ucrt) gebruikt.
-Verder zijn de gebruikte packages voor de analyse readr, ggplot, ARTool, tidyr en ez.
+### `/analysis`
+- `/data` → afgeleide datasets  
+- `/scripts` → alle R‑scripts:
+- `wetenschappelijke_cyclus.Rmd` (hartslaganalyse)
+- `bloodpressure.Rmd` (bloeddrukanalyse)
+- `Analyse_doc.Rmd`
+- logboeken van alle groepsleden
 
-Hieronder staan de stappen om de analyse te runnen.
+### `/docs`
+Aanvullende documenten, o.a.:
+- FAIR‑checklist
 
-1. Download de repository
+### `/publication`
+Bevat de eindpublicatie:
+- `publicatie.Rmd`
+- `publicatie.pdf`
+- `/figures` → alle gebruikte afbeeldingen
 
-2. Plaats de ruwe data in /raw_data
+---
 
-3. Zorg dat Polar‑bestanden als volgt genoemd worden:
-yyyy_mm_dd_heartrate_x.csv
+## Analyse uitvoeren
 
-4. Open /analysis/scripts/wetenschappelijke_cyclus.Rmd
+### Software
+- **R versie 4.5.3 (2026‑03‑11 ucrt)**  
+- Gebruikte packages:
+- readr  
+- ggplot2  
+- tidyr  
+- ez  
+- pwr  
+- ARTool  
+- readxl  
 
-5. Run het script van boven naar beneden
+### Stappenplan
 
-6. Voor bloeddruk: run bloodpressure.Rmd van boven naar beneden
+1. **Download de repository**
+2. Plaats alle ruwe data in `/raw_data`
+3. Controleer dat hartslagbestanden correct zijn genoemd:
+4. Open het script:  
+`/analysis/scripts/wetenschappelijke_cyclus.Rmd`
+5. Installeer de benodigde packages (eenmalig):
+```r
+install.packages(c("readr", "ggplot2", "tidyr", "ez", "pwr", "ARTool", "readxl"))
+```
+6. Run het script van boven naar beneden
+7. Voor bloeddrukanalyse: run bloodpressure.Rmd
