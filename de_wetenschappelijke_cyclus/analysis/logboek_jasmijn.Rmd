@@ -3,6 +3,12 @@ title: "logboek_jasmijn"
 output: html_document
 date: "2026-06-05"
 ---
+### Doel:
+### Motivatie:
+### Uitgevoerde werkzaamheden:
+### Conclusie:
+### Volgende stap:
+
 # Introductie
 Dit is een onderzoek over stress tijdens verschillende tijdsdrukken. Ik heb voor dit onderzoek gekozen om te kunnen aantonen dat er stress wordt ervaren door
 studenten tijdens hoge tijdsdruk tijdens toetsen. De vraag die wij stellen is: Beïnvloedt een tijdsdruk de bloeddruk, hartslag en de prestatie?
@@ -14,54 +20,148 @@ wordt aangetoond dat er een kleine piek zit in de hartslag.
 ### Doel: 
 Zo veel mogelijk testdata verzamelen binnen de beschikbare tijd, 
 om ervoor te zorgen dat de dataverzamelingsfase van het project op tijd wordt afgerond.
-
 ### Motivatie: 
 Om de deadline voor de dataverzameling te halen en voldoende data 
 beschikbaar te hebben voor de volgende fase van het project, is het van belang dat 
 er dagelijks een maximum aantal deelnemers wordt getest. Vertragingen in deze fase 
 kunnen de verdere planning in gevaar brengen.
-
 ### Uitgevoerde werkzaamheden:
 Er zijn vandaag 10 deelnemers getest volgens het vastgestelde testprotocol. 
 De verzamelde data is na afloop van elke sessie ingevoerd en opgeslagen in het 
 daarvoor bestemde Excel-document (C:/Users/jrjpe/Downloads/Onderzoek stress bij tijdsdruk (Responses) (1).xlsx)
-
 ### Volgende stap: 
 We gaan als volgende stap nog minimaal 9 mensen testen, en de code schrijven om de data te verwerken.
-  
+
+
 ## 21/05/2026
 ### Doel: 
 Vandaag heb ik twee dingen afrondt: meedoen aan de journalclub en een abstract
 schrijven voor een wedstrijdje
-
 ### Motivatie: 
 De journalclub staat al ingepland en is sowieso nuttig om meer 
 feeling te krijgen met de literatuur in mijn vakgebied.
-
 ### Uitgevoerde werkzaamheden: 
 bezig geweest met journalclub, en een abstract geschreven.
-
 ### Volgende stap: 
 We gaan als volgende stap mensen testen, minimaal 9 mensen. 
 Dit gaan we doen volgens het al bestaande protecool
 
+
 ## 26/05/2026
 ### Doel: 
 Meer mensen meten om de minimale 20 personen te halen
-
 ### motivatie: 
 We hebben nog maar een week om dit afteronden
 ### Uitgevoerde werkzaamheden: 
 Verder gegaan aan het artikel schrijven, ook begonnen met uitzoeken hoe ik mijn taken moet behalen in R 
 Ook hebben we weer een persoon gevonden om te meten.
-
 ### Vervolgende stap
 Nu verder met het coderen en meer mensen meten
 
 
+## 27/05/2027
+### Doel:
+Een begin maken aan de R code schijven voor mijn taken
+### Motivatie: 
+De deadline begint nu wel heel dichtbij te komen dus ik moet echt snel beginnen
+### Uitgevoerde werkzaamheden: 
+Vandaag heb ik een begin gemaakt om 3 plotjes te schrijven om te kijken hoe veel het gemiddelde verschil in harslag was bij de verschillende toetsen. Deze werkte nog niet. Verder hebben ik en alexander ook een persoon gemeten
+### Volgende stap:
+Nu moet ik nog een plot maken met de gemiddelde harslag per toets en de drie lijnen die hier uit komen in 1 plot schrijven
+
+
+## 29/05/2026
+### Doel: 
+Verder aan de code en meer mensen testen
+### Motivatie:
+Het af maken van de code zodat we kunnen beginnen aan discussie
+### Uitgevoerde werkzaamheden:
+
+Hierdoor moest ik mijn plot een klein beetje aanpassen, nu werkt mijn plot beter die ik de les hiervoor heb geschreven. Ook hebben we nog een persoon gemeten. 
+### Conclusie:
+Ik moet nog veel doen :D
+### Volgende stap:
+De plot maken voor de gemiddelde harslag. 
+
+
+## 30/05/2026
+
 
 ## 01/06/2026
-Doel: Vandaag ben ik begonnen 
+### Doel:
+De code verder afmaken
+### Motivatie:
+De code moet af zijn zodat het artikel kan worden afgemaakt
+### Uitgevoerde werkzaamheden:
+Vandaag heeft alexander de testtijden geupdate waardoor alle testtijden nu in het document staan en documentenen de namen FAIR(----/--/--_heartrate_number.CSV) gemaakt. Nu werken mijn 3 plotjes beter en ik ben begonnen met de gemiddelde harslag per seconde per toets aan het berekenen en dit in een plot zetten. 
+
+### Volgende stap:
+De mensen meten die we moeten meten en kijken naar verschillen bij man en vrouw
+
+
+##02/06/2026
+### Doel:
+Mensen meten en code afmaken
+### Motivatie:
+Deadline
+### Uitgevoerde werkzaamheden:
+We hebben vandaag 6 mensen kunnen vinden om meetedoen aan ons onderzoek dus nu hebben we de 20 deelnemers. Ook heb ik verdergewerkt aan mijn plots. Helaas genoeg heb ik er niet aan gedacht om te checken ofdat mijn commits goed zijn gelukt waardoor het blijkt dat mijn code nooit zijn toegevoegd bij de commits en alleen de harslagdocumenten. Dus nu zijn mijn plots allemaal weg. Gelukkig weet ik nog hoe ik de gemiddelde hartslag per test had dus die heb ik opnieuw toegevoegd maar het verschil in harslag heb ik niet meer. 
+### Conclusie:
+Altijd checken ofdat de commit goed is geluk :(
+### Volgende stap:
+Beginnen aan de discussie punten die we al kunnen bespreken en conclusie. En de verloren code opnieuw schrijven.
+
+
+## 05/06/2026
+### Doel: 
+Mijn code voor de harslag terug schrijven en discussie beginnen
+### Motivatie:
+Deadline is dinsdag al
+### Uitgevoerde werkzaamheden:
+Ik heb vandaag mijn logboek netjes gemaakt zodat het er netter en overzichterlijker uitziet. Ook heb ik mijn plot voor de harslag opnieuw geschreven, en ik heb het eerste gedeelte van de discussie geschreven.
+```{r}
+test1_df <- data.frame(
+  time = 1:length(all_results[[1]]$results_1),
+  HR_bpm = all_results[[1]]$results_1,
+  test = "Test 1"
+)
+
+test2_df <- data.frame(
+  time = 1:length(all_results[[1]]$results_2),
+  HR_bpm = all_results[[1]]$results_2,
+  test = "Test 2"
+)
+
+test3_df <- data.frame(
+  time = 1:length(all_results[[1]]$results_3),
+  HR_bpm = all_results[[1]]$results_3,
+  test = "Test 3"
+)
+
+combined_long <- rbind(test1_df, test2_df, test3_df)
+
+ggplot(combined_long, aes(x = time, y = HR_bpm, color = test)) +
+  geom_line(size = 1) +
+  labs(
+    x = "Tijd (seconden)",
+    y = "Hartslag (bpm)",
+    title = "Hartslag tijdens test 1, 2 en 3"
+  ) +
+  scale_color_manual(
+    values = c("Test 1" = "blue", "Test 2" = "orange", "Test 3" = "red"),
+    labels = c("Geen tijdsdruk", "Lichte tijdsdruk", "Hoge tijdsdruk")
+  ) +
+  theme_minimal()
+```
+
+### Volgende stap:
+De discussie verder schrijven en een conclusie trekken
+
+
+
+
+
+
 
 
 

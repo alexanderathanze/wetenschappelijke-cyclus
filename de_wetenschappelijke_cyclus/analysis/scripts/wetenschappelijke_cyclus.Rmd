@@ -21,6 +21,8 @@ install.packages("tidyr")
 library(tidyr)
 install.packages("ez")
 library(ez)
+install.packages("pwr")
+library(pwr)
 ```
 
 
@@ -238,5 +240,17 @@ wilcox.test(heart_rate ~ gender, data = df_long[df_long$conditie == "mean_test_2
 
 wilcox.test(heart_rate ~ gender, data = df_long[df_long$conditie == "mean_test_3", ])
 
+```
+
+```{r}
+pwr.anova.test(k = 3,
+               f = 0.25,
+               sig.level = 0.05,
+               power = 0.80)
+
+pwr.anova.test(k = 3,
+               n = 20,
+               f = 0.22,
+               sig.level = 0.05)
 ```
 
