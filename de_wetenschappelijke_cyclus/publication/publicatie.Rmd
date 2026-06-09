@@ -61,7 +61,7 @@ Aan het einde van de deelname wordt gecontroleerd of alle gegevens volledig zijn
 
 
 
-##Resultaten
+## Resultaten
 
 ####Hoofdvraag: Beïnvloedt een tijdsdruk de bloeddruk, hartslag en de prestatie?
 
@@ -78,7 +78,7 @@ mean_test_3 0.92782     0.02253
 De getallen uit deze test zijn p-waardes. Als deze groter zijn dan 0.05 kunnen wij onze H0 niet verwerpen. 
 
 
-####Deelvraag: Zit er een verschil in ervaren stress tussen de sexes?
+#### Deelvraag: Zit er een verschil in ervaren stress tussen de sexes?
 
 ![figuur 2: een boxplot van de gemiddelde hartslag per test, gesplitst op gender](figures/mean_hartslag_per_gender.png)
 In de boxplot in figuur 2 is de gemiddelde hartslag per toets te zien, gesplitst op gender. De grootste toename in gemiddelde hartslag vond plaats bij toets 2, onder lichte tijdsdruk. Dit gebeurde bij beide sexes. Beide sexes hadden ook een lagere gemiddelde hartslag bij toets 3 dan bij toets 2. deze data is getest door middel van een ANOVA, dit waren de uitkomsten: 
@@ -91,7 +91,7 @@ In de boxplot in figuur 2 is de gemiddelde hartslag per toets te zien, gesplitst
 Hierin laat gender factor zien of er een significant verschil ligt tussen gender in onze data, conditie factor laat zien of er tussen de condities een verschil ligt en gender factor:conditie factor laat de interactie tussen deze twee factoren zien. Met een p-waarde onder de 0.05 kan de h0 verworpen worden. 
 
 
-####Deelvraag: Heeft de dagelijks ervaren stress invloed op de ervaren stress tijdens te test?
+#### Deelvraag: Heeft de dagelijks ervaren stress invloed op de ervaren stress tijdens te test?
 
 ![figuur 3: de relatie tussen hartslag en pss_score in de eerste test (geen tijdsdruk)](figures/relatie_test_1.png)
 Bij figuur 3 staat op de X-as de pss score en op de y-as de hartslag. De blauwe punten zijn individuele metingen en de zwarte lijn die hierdoor is getrokken is de trendlijn. Deze loopt bijna horizontaal. Uit de correlatietest komen de volgende gegevens: 
@@ -113,74 +113,142 @@ p-value = 0.8013, cor -0.06007852
 
 
 
+![figuur 6: De boxplot van de diastolische bloeddruk](figures/boxplot_dia.png)
 
-## Resultaten
+##### Omschrijving:
 
-![De boxplot van de diastolische bloeddruk](figures/boxplot_dia.png)
-### Conclusion: 
-### A repeated measures ANOVA showed no significant effect of measurement type on diastolic blood pressure,
-### F(3, 57) = 2.11, p = .110, ges = .009, so we will not perform a paired T test
+In figuur 6 kun je een boxplot van de diastolische bloeddruk per meting zien. Hier zijn de metingen op de x-as (rust, toets 1, toets 2, toets 3) en op de y-as de diastolische bloeddruk met een range van 50 tot 90 mmHg. Je ziet dat de spreiding over de vier metingen vrij gelijk is, maar bij toets 3 toch kleiner is. Het mediaan van de drie toets metingen ligt over het algemeen op één zelfde lijn rond de 68 mmHg, behalve rust die een mediaan heeft die net wat hoger ligt rond de 73 mmHg. Verder zijn er geen uitschieters zichtbaar.
 
 
-![De boxplot van de systolische bloeddruk](figures/boxplot_sys.png)
-### All p value's of 1.000 or above 0.05 are not significant. That there was a significant change
-### Between rust_sys and toets2_sys and between toets2_sys and toets1_sys. Both P-value's < 0.05.
-### Conclusion: toets 2 (1 minuut) caused a significant difference
+
+##### Statistische analyse: 
+
+Een repeated measures ANOVA toonde geen significant effect van de meetconditie op de 
+diastolische bloeddruk, F(3, 57) = 2.11, p = .110, ges = .009 (0,9% verklaarde variantie).
+Omdat p = .110 > .05 is er geen paired T test uitgevoerd, want er is geen significant effect.
 
 
-![De boxplot van de diastolische bloeddruk](figures/boxplot_dia_gender.png)
-### gender p = 0.055~ so not significant yet, but very borderline, worth mentioning in the final report that
-### Woman tend to show a higher diastolic blood pressure than men.
-### meting p = 0.105~ still the same, no significant difference across the measurements
-### gender:meting p = 0.266~ no significant change, genders respond the same way across measurements. 
 
-![De boxplot van de diastolische bloeddruk](figures/boxplot_sys_gender.png)
-### gender p = 0.116~ so not significantly different systolic bloodpressure overall between the 2 genders
-### meting p = 0.020 still the same significant difference across the measurements (driven by toets2, see T test above)
-### gender:meting p = 0.793 no significant change, genders respond the same way across measurements. 
+![figuur 7: De boxplot van de systolische bloeddruk](figures/boxplot_sys.png)
 
 
-![De scatterplot van de diastolische bloeddruk tegen de pss-10 test - alle toetsen](figures/scatterplot_dia.png)
-#### Note:
+##### Omschrijving:
+
+In figuur 7 kun je een boxplot van de systolische bloeddruk per meting zien. Hier zijn de metingen op de x-as (rust, toets 1, toets 2, toets 3) en op de y-as de systolische bloeddruk met een range van 85 tot 160 mmHg. Je ziet dat de spreiding over de vier metingen vrij gelijk is. Het mediaan van de vier metingen ligt bij rust en toets 1 ongeveer rond de 115 mmHg en bij toets 2 en toets 3 rond de 121 mmHg. Verder zijn er enkele uitschieters naar boven zichtbaar bij rust, toets 1 en toets 2.
+
+
+##### Statistische analyse: 
+  
+Een repeated measures ANOVA toonde een significant effect van de meetconditie op de 
+diastolische bloeddruk, F(3, 57) = 3.68, p = .017, ges = .0142 (1,4% verklaarde variantie).
+Omdat p = .017 < .05 is er een paired T test uitgevoerd, want er is een significant effect.
+
+           rust_sys toets1_sys toets2_sys
+toets1_sys 1.000    -          -         
+toets2_sys 0.047    0.043      -         
+toets3_sys 1.000    1.000      0.069     
+
+
+Alle p waardes of 1.000 of boven .05 zijn niet significant. Er was een significantie 
+tussen de metingen rust en toets 2. Ook was er een significantie tussen toets 1 en toets 2.
+Beide p waardes zijn < .05.
+
+Voor het daadwerkelijke verschil te zien is er nog een paired T test afgenomen:
+
+Toets 2 vs rust: gemiddeld 4,25 mmHg hoger bij toets 2, t(19) = 2.97, p = .008, 95% BI [1.26, 7.24]
+
+Toets 2 vs toets 1: gemiddeld 3,7 mmHg hoger bij toets 2, t(19) = 3.02, p = .007, 95% BI [1.13, 6.27]
+
+
+![figuur 8: De boxplot van de diastolische bloeddruk](figures/boxplot_dia_gender.png)
+##### Omschrijving:
+
+In figuur 8 kun je een boxplot van de diastolische bloeddruk per meting zien gesplitst op gender. Hier zijn de metingen op de x-as (rust, toets 1, toets 2, toets 3) en op de y-as de diastolische bloeddruk met een range van 50 tot 90 mmHg. In de legende rechts is te zien bij de kleur 'cyan' Man en bij 'lightcoral' Vrouw. Je ziet daarom ook in totaal 8 boxjes. Per meting voor elk gender. Je ziet dat de spreiding van mannen vrij gelijk is, behalve bij rust waar de spreiding een stuk hoger ligt dan bij de toetsen. Het mediaan van de mannen ligt ongeveer op één hoogte over alle vier de metingen. Bij de vrouwen ligt de spreiding veel hoger, waarbij toets 1 wellicht een iets grotere spreiding vertoont dan de rest. Het mediaan van de vrouwen ligt bij alle vier de metingen ongeveer op dezelfde hoogte. Verder zijn er voor de vrouwen en mannen bij alle vier de metingen geen uitschieters.
+
+
+
+##### Statistische analyse: 
+  
+Een repeated measures ANOVA toonde:
+
+effect         F        p             ges
+gender         4.217757	0.05482357		0.174754477
+meting	       2.145216	0.10520201		0.011343808
+gender:meting	 1.356523	0.26588739		0.007203278
+
+
+gender p = 0.055 dus net niet significant, dat vrouwen met een ges = .175 (17,5% verklaarde variantie) een hogere diastolische
+bloeddruk laten zien dan mannen.
+
+meting p = 0.105 nog hetzelfde, niet significant.
+  
+gender:meting p = 0.266 geen significante verandering, genders reageren hetzelfde over de verschillende metingen
+
+
+![figuur 9: De boxplot van de diastolische bloeddruk](figures/boxplot_sys_gender.png)
+
+##### Omschrijving:
+
+In figuur 9 kun je een boxplot van de systolische bloeddruk per meting zien gesplitst op gender. Hier zijn de metingen op de x-as (rust, toets 1, toets 2, toets 3) en op de y-as de systolische bloeddruk met een range van 85 tot 160 mmHg. In de legende rechts is te zien bij de kleur 'cyan' Man en bij 'lightcoral' Vrouw. Je ziet daarom ook in totaal 8 boxjes. Per meting voor elk gender. Je ziet dat de spreiding van mannen vrij gelijk is, behalve bij rust waar de spreiding hoger ligt dan bij de toetsen. Het mediaan van de mannen ligt niet op dezelfde hoogte bij alle vier de metingen. Waarbij het toe lijkt te nemen tot bij toets 2, waarna het weer af neemt bij toets 3. Het mediaan van toets 1 en 3 liggen ongeveer op dezelfde hoogte. Bij de vrouwen ligt de spreiding vrij gelijk en wellicht net wat hoger dan dat van de mannen, maar de spreiding van toets 3 is aanzienlijk groter dan de rust, toets 1 en toets 2 metingen. Het mediaan van de vrouwen ligt bij alle vier de metingen ongeveer op dezelfde hoogte. Verder zijn er voor de vrouwen bij toets 1, 2 en 3 veel uitschieters naar boven en bij toets 3 één naar beneden. En bij de mannen bij toets 1 en 2 uitschieters naar boven.
+
+
+
+##### Statistische analyse: 
+  
+Een repeated measures ANOVA toonde:
+
+effect         F          p             ges
+gender         2.7233351  0.11623149	  0.121819129
+meting	       3.5574003	0.02009643	  0.016165650
+gender:meting	 0.3445925	0.79317069		0.001589109
+
+
+gender p = 0.116 dus niet een significant andere systolische bloeddruk tussen de 2 genders
+
+meting p = 0.020 nog steeds dezelfde significantie tussen de toetsen (driven by toets2, see T test above)
+ges = 0.016 (1,6% verklaarde variantie)
+
+gender:meting p = 0.793 geen significante verandering, genders reageren hetzelfde over alle metingen. 
+
+
+
+![figuur 10: De scatterplot van de diastolische bloeddruk tegen de pss-10 test - alle toetsen](figures/scatterplot_dia.png)
+##### Omschrijving:
+
+In figuur 10 kun je een scatterplot van de PSS-10 score vs de delta van de diastolische bloeddruk per toets zien. De delta van de diastolische bloeddruk van elke toets is berekend door elke toets - de bloeddruk van de rust te doen. Op de x-as kun je de PSS-10 score zien en op de y-as de stijging van de diastolische bloeddruk t.o.v. rust. In elke plot kun je allemaal zwarte stippen zien, dit zijn de meetpunten en een blauwe trendlijn die de lineaire trend in de data weergeeft. Bij toets 1 loopt de trendlijn van 0 mmHg naar -5 mmHg, je hebt hier dus te maken met een dalende trend. Bij toets 2 en 3 zijn de trendlijnen vrijwel exact hetzelfde en die begint bij -3 mmHg en loopt tot ongeveer 0 mmHg. De meetpunten zijn sterk verspreid en vertonen geen duidelijke clustering. Wel zijn er een paar uitschieters vooral bij toets 2 en 3. 
+
+
+##### Statistische analyse: 
+
 Cor and rho ranging from -1 to 1 (correlatie)
 p-value < 0.05 (significant) > 0.05 (niet significant)
 
-### Delta test 1
-Cor: -0.369447 (negatieve correlatie)
-p-value = 0.1089 (niet significant)
+Voor het meten van de samenhang tussen de PSS-10 score en de stijging in diastolische bloeddruk per toets zijn correlatietests uitgevoerd. De delta is berekend als de bloeddruk tijdens de toets minus de bloeddruk in rust. Voor toets 2 is een Spearman-correlatietest gebruikt vanwege een niet-normale verdeling, voor toets 1 en 3 een Pearson-correlatietest.
 
-### Delta test 2
-rho = 0.1016328  (kleine positieve correlatie)
-p-value = 0.6698 (niet significant)
+Toets 1 (Pearson): r = -.369, p = .109 | geen significant verband.
+Toets 2 (Spearman): ρ = .102, p = .670 | geen significant verband.
+Toets 3 (Pearson): r = .134, p = .575 | geen significant verband.
 
-### Delta test 3
-Cor: 0.1335096  (kleine positieve correlatie)
-p-value = 0.5747 (niet significant)
+Geen van de drie toetsen toonde een significant verband tussen de PSS-10 score en de stijging in diastolische bloeddruk (alle p > .05).
+
+![figuur 11: De scatterplot van de sytolische bloeddruk tegen de pss-10 test - alle toetsen](figures/scatterplot_sys.png)
+##### Omschrijving:
+
+In figuur 11 kun je een scatterplot van de PSS-10 score vs de delta van de systolische bloeddruk per toets zien. De delta van de systolische bloeddruk van elke toets is berekend door elke toets - de bloeddruk van de rust te doen. Op de x-as kun je de PSS-10 score zien en op de y-as de stijging van de systolische bloeddruk t.o.v. rust. In elke plot kun je allemaal zwarte stippen zien, dit zijn de meetpunten en een blauwe trendlijn die de lineaire trend in de data weergeeft. Bij toets 1 loopt de trendlijn van -3 mmHg naar 5 mmHg, je hebt hier dus te maken met een stijgende trend. Bij toets 2 is de trendlijn vrijwel horizontaal, maar loopt subtiel stijgend van 3 mmHg naar 5 mmHg. Bij toets 3 loopt de trendlijn stijgend van -2 mmHg naar 4 mmHg. De meetpunten zijn sterk verspreid en vertonen geen duidelijke clustering. Wel zijn er een paar uitschieters vooral bij toets 1 en 3. 
 
 
+##### Statistische analyse:
 
-![De scatterplot van de sytolische bloeddruk tegen de pss-10 test - alle toetsen](figures/scatterplot_sys.png)
-
-PSS-10 vs delta systolische bloeddruk per toets 
-
-Waarbij delta = toets bloeddruk - rust bloeddruk
-
-#### Note:
 Cor and rho ranging from -1 to 1 (correlatie)
-p-value = 0.05 standard practice
 p-value < 0.05 (significant) > 0.05 (niet significant)
 
-### Delta test 1
-Cor: 0.2886083 (negatieve correlatie)
-p-value = 0.2172 (niet significant)
+Dezelfde aanpak als figuur 10, maar dan voor de systolische bloeddruk. Voor toets 2 is opnieuw een Spearman-correlatietest gebruikt, voor toets 1 en 3 een Pearson-correlatietest.
 
-### Delta test 2
-rho = 0.07559422  (kleine positieve correlatie)
-p-value = 0.7514 (niet significant)
+Toets 1 (Pearson): r = .289, p = .217 | geen significant verband.
+Toets 2 (Spearman): ρ = .076, p = .751 | geen significant verband.
+Toets 3 (Pearson): r = .215, p = .364 | geen significant verband.
 
-### Delta test 3
-Cor: 0.2145054  (kleine positieve correlatie)
-p-value = 0.3638 (niet significant)
+Geen van de drie toetsen toonde een significant verband tussen de PSS-10 score en de stijging in systolische bloeddruk (alle p > .05).
 
 
 ## Conclusie & discussie
