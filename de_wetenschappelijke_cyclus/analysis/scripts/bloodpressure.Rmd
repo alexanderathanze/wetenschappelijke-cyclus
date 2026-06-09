@@ -4,9 +4,13 @@ output: html_document
 ---
 
 Install libary's but only once
+
 ```{r}
 install.packages("readxl")
+install.packages("readr")
 install.packages("ggplot2")
+install.packages("tidyr")
+install.packages("ez")
 ```
 
 
@@ -15,11 +19,16 @@ Load library's each session
 ```{r}
 library(readxl)
 library(ggplot2)
+library(readr)
+library(tidyr)
+library(ez)
 ```
 
 
-Read the data and assign to vector what you want to use. 
-In this case we need the diastolic and systolic bloodpressure of every person we measured.
+
+
+Read the data and assign to vector what you want to use. In this case we need the diastolic and systolic blood pressure of every person we measured. 
+
 ```{r}
 data <- read_excel("../../raw_data/blood_pressure/bloodpressure.xlsx")
 
@@ -29,43 +38,43 @@ systolic <- data$`Systolic (mmHg)`
 
 
 Check if there are any NA's in the data
+
 ```{r}
 sum(is.na(diastolic))
 sum(is.na(systolic))
 ```
+```{r}
+
+```
+
 
 
 Diastolic measurements
+
 ```{r}
 rust_diastolic <- as.numeric(diastolic[seq(4, length(diastolic), by = 4)])
 
 toets_diastolic_1 <- as.numeric(diastolic[seq(3, length(diastolic), by = 4)])
 toets_diastolic_2 <- as.numeric(diastolic[seq(2, length(diastolic), by = 4)])
 toets_diastolic_3 <- as.numeric(diastolic[seq(1, length(diastolic), by = 4)])
-
-verschil_diastolic_1 <- toets_diastolic_1 - rust_diastolic
-verschil_diastolic_2 <- toets_diastolic_2 - rust_diastolic
-verschil_diastolic_3 <- toets_diastolic_3 - rust_diastolic
-
-
 ```
 
 
 Systolic measurements
+
+
 ```{r}
+
 rust_systolic <- as.numeric(systolic[seq(4, length(diastolic), by = 4)])
 
 toets_systolic_1 <- as.numeric(systolic[seq(3, length(systolic), by = 4)])
 toets_systolic_2 <- as.numeric(systolic[seq(2, length(systolic), by = 4)])
 toets_systolic_3 <- as.numeric(systolic[seq(1, length(systolic), by = 4)])
 
-verschil_systolic_1 <- toets_systolic_1 - rust_systolic
-verschil_systolic_2 <- toets_systolic_2 - rust_systolic
-verschil_systolic_3 <- toets_systolic_3 - rust_systolic
 ```   
 
 
-
+Means of systolic and diastolic measurements
 ```{r}
 gem_rust_dia <- mean(rust_diastolic)
 gem_toets_1_dia <- mean(toets_diastolic_1)
@@ -73,7 +82,56 @@ gem_toets_2_dia <- mean(toets_diastolic_2)
 gem_toets_3_dia <- mean(toets_diastolic_3)
 
 
+gem_rust_sys <- mean(rust_systolic)
+gem_toets_1_sys <- mean(toets_systolic_1)
+gem_toets_2_sys <- mean(toets_systolic_2)
+gem_toets_3_sys <- mean(toets_systolic_3)
+```
 
+Gender and pss-10 score per contestant
+
+```{r}
+gender_pss_data <- read_csv("../../raw_data/pss_gender_scores.csv")
+gender <- gender_pss_data$Gender
+pss_10 <- gender_pss_data$`PSS-10 (/40)`
+
+```
+
+
+
+Making 1 data frame for them all
+
+```{r}
+# Just choosing 1 of the measurements as all are measured once per contestant 
+n <- length(rust_diastolic)
+persoon <- 1:n
+
+# Gender must be reversed as our first measurements of all the bloodpressure are our last measurements
+
+bloodpressure_df <- data.frame(
+  persoon = persoon,
+  gender = rev(gender),
+  pss_10 = rev(pss_10),
+  
+  rust_sys = rust_systolic,
+  toets1_sys = toets_systolic_1,
+  toets2_sys = toets_systolic_2,
+  toets3_sys = toets_systolic_3,
+  
+  rust_dia = rust_diastolic,
+  toets1_dia = toets_diastolic_1,
+  toets2_dia = toets_diastolic_2,
+  toets3_dia = toets_diastolic_3
+)
+
+
+bloodpressure_df
+```
+
+
+Line graph of the diastolic blood pressure during the rest phase and after the 3 tests
+
+```{r}
 df <- data.frame(
   meting  = c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"),
   waarde  = c(gem_rust_dia, gem_toets_1_dia, gem_toets_2_dia, gem_toets_3_dia)
@@ -88,19 +146,21 @@ ggplot(df, aes(x = meting, y = waarde, group = 1)) +
        x = "Meting",
        y = "Diastolisch (mmHg)") +
   theme_minimal()
+
+
 ```
+
+
+Line graph of the systolic blood pressure during the rest phase and after the 3 tests
+
+
 ```{r}
-gem_rust_sys <- mean(rust_systolic)
-gem_toets_1_sys <- mean(toets_systolic_1)
-gem_toets_2_sys <- mean(toets_systolic_2)
-gem_toets_3_sys <- mean(toets_systolic_3)
-
-
 
 df <- data.frame(
   meting  = c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"),
   waarde  = c(gem_rust_sys, gem_toets_1_sys, gem_toets_2_sys, gem_toets_3_sys)
 )
+
 
 df$meting <- factor(df$meting, levels = c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
 
@@ -113,45 +173,498 @@ ggplot(df, aes(x = meting, y = waarde, group = 1)) +
   theme_minimal()
 ```
 
-```{r}
-n <- length(rust_diastolic)
-persoon <- 1:n
 
-
-df <- data.frame(
-  persoon = rep(persoon, 4),
-  meting  = rep(c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"), each = n),
-  waarde  = c(rust_diastolic, toets_diastolic_1, toets_diastolic_2, toets_diastolic_3)
-)
-
-df$meting <- factor(df$meting, levels = c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
-
-ggplot(df, aes(x = meting, y = waarde)) +
- geom_boxplot()
-  labs(title = "Systolische bloeddruk per meting",
-       x = "Meting",
-       y = "Systolisch (mmHg)") +
-  theme_minimal()
-```
+Box graph of the diastolic blood pressure during the rest phase and after the 3 tests
 
 ```{r}
-n <- length(rust_systolic)
-persoon <- 1:n
 
-
-df <- data.frame(
-  persoon = rep(persoon, 4),
-  meting  = rep(c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"), each = n),
-  waarde  = c(rust_systolic, toets_systolic_1, toets_systolic_2, toets_systolic_3)
+df_long_dia <- pivot_longer (
+  bloodpressure_df,
+  cols = c(rust_dia, toets1_dia, toets2_dia, toets3_dia),
+  names_to = "meting",
+  values_to = "waarde"
 )
 
-df$meting <- factor(df$meting, levels = c("Rust", "Toets 1 - (geen tijd)", "Toets 2 - (1 minuut)", "Toets 3 - (30 seconden)"))
-
-ggplot(df, aes(x = meting, y = waarde)) +
- geom_boxplot()
-  labs(title = "Systolische bloeddruk per meting",
+ggplot(df_long_dia, aes(x = meting, y = waarde)) +
+ geom_boxplot() +
+  labs(
+       title = "Diastolische bloeddruk per meting",
        x = "Meting",
-       y = "Systolisch (mmHg)") +
-  theme_minimal()
+       y = "Diastolisch (mmHg)"
+       ) 
+
+
+
 ```
 
+Box graph of the diastolic blood pressure during the rest phase and after the 3 tests per gender
+
+```{r}
+
+
+ggplot(df_long_dia, aes(x = meting, y = waarde, fill = gender)) +
+ geom_boxplot() +
+  labs(
+       title = "Diastolische bloeddruk per meting",
+       x = "Meting",
+       y = "Diastolisch (mmHg)",
+       
+       ) + 
+       scale_fill_manual(values = c("Man" = "cyan", "Vrouw" = "lightcoral"))
+
+
+```
+
+Statistical verdict on our diastolic data
+
+```{r}
+shapiro.test(rust_diastolic)
+qqnorm(rust_diastolic)
+
+shapiro.test(toets_diastolic_1)
+qqnorm(toets_diastolic_1)
+
+shapiro.test(toets_diastolic_2)
+qqnorm(toets_diastolic_2)
+
+shapiro.test(toets_diastolic_3)
+qqnorm(toets_diastolic_3)
+
+
+# All data is normally spread, p > 0.05
+# So repeated Anova test and then paired t test
+
+# Sorts df_long on person so it prevents any mismatch
+df_long_dia_sorted <- df_long_dia[order(df_long_dia$meting, df_long_dia$persoon), ]
+
+
+result <- ezANOVA(
+  data   = df_long_dia_sorted,
+  dv     = waarde,
+  wid    = persoon,
+  within = meting
+)
+
+result$ANOVA
+
+# Conclusion: 
+# A repeated measures ANOVA showed no significant effect of measurement type on diastolic blood pressure,
+# F(3, 57) = 2.11, p = .110, ges = .009, so we will not perform a paired T test
+
+# Check for any significance between the genders
+result_gender <- ezANOVA(
+  data    = df_long_dia_sorted,
+  dv      = waarde,
+  wid     = persoon,
+  within  = meting,
+  between = gender
+)
+
+result_gender$ANOVA
+
+# gender p = 0.055~ so not significant yet, but very borderline, worth mentioning in the final report that
+# Woman tend to show a higher diastolic blood pressure than men.
+# meting p = 0.105~ still the same, no significant difference across the measurements
+# gender:meting p = 0.266~ no significant change, genders respond the same way across measurements. 
+
+```
+A repeated measures ANOVA showed no significant effect of measurement type on diastolic blood pressure, F(3, 57) = 2.11, p = .110, ges = .009
+
+
+
+
+Box graph of the systolic blood pressure during the rest phase and after the 3 tests
+
+```{r}
+
+df_long_sys <- pivot_longer (
+  bloodpressure_df,
+  cols = c(rust_sys, toets1_sys, toets2_sys, toets3_sys),
+  names_to = "meting",
+  values_to = "waarde"
+)
+
+ggplot(df_long_sys, aes(x = meting, y = waarde)) +
+ geom_boxplot() +
+  labs(
+       title = "Systolische bloeddruk per meting",
+       x = "Meting",
+       y = "Systolisch (mmHg)"
+       ) 
+
+```
+
+Box graph of the systolic blood pressure during the rest phase and after the 3 tests per gender
+
+```{r}
+
+ggplot(df_long_sys, aes(x = meting, y = waarde, fill = gender)) +
+ geom_boxplot() +
+  labs(
+       title = "Systolische bloeddruk per meting",
+       x = "Meting",
+       y = "Systolisch (mmHg)"
+       ) +
+      scale_fill_manual(values = c("Man" = "cyan", "Vrouw" = "lightcoral"))
+        
+```
+
+Statistical verdict on our systolic data
+```{r}
+
+shapiro.test(rust_systolic)
+qqnorm(rust_systolic)
+
+shapiro.test(toets_systolic_1)
+qqnorm(toets_systolic_1)
+
+shapiro.test(toets_systolic_2)
+qqnorm(toets_systolic_2)
+
+shapiro.test(toets_systolic_3)
+qqnorm(toets_systolic_3)
+
+df_long_sys_sorted <- df_long_sys[order(df_long_sys$meting, df_long_sys$persoon), ]
+
+
+result <- ezANOVA(
+  data   = df_long_sys_sorted,
+  dv     = waarde,
+  wid    = persoon,
+  within = meting
+)
+
+result$ANOVA
+
+# P = 0.017~ < P = 0.05, so there's a significant statistical difference.
+# Ges = 0.0142~ difference still small, but still significant.
+# That's why we do a pairwise T test after this.
+
+pairwise.t.test(
+  df_long_sys_sorted$waarde,
+  df_long_sys_sorted$meting,
+  paired          = TRUE,
+  p.adjust.method = "bonferroni"
+)
+
+# All p value's of 1.000 or above 0.05 are not significant. That there was a significant change
+# Between rust_sys and toets2_sys and between toets2_sys and toets1_sys. Both P-value's < 0.05.
+# Conclusion: toets 2 (1 minuut) caused a significant difference
+
+
+
+
+# And for the gender of systolic bloodpressure
+result_gender <- ezANOVA(
+  data    = df_long_sys_sorted,
+  dv      = waarde,
+  wid     = persoon,
+  within  = meting,
+  between = gender
+)
+
+result_gender$ANOVA
+
+# gender p = 0.116~ so not significantly different systolic bloodpressure overall between the 2 genders
+# meting p = 0.020 still the same significant difference across the measurements (driven by toets2, see T test above)
+# gender:meting p = 0.793 no significant change, genders respond the same way across measurements. 
+
+```
+
+We also want to see if people with a higher monthly experienced stress (measured with the pss-10)
+Also experience an increase in blood pressure during the test, to try to measure this we will measure
+the delta of test 1 to 3. By substracting their blood pressure during rest. 
+
+```{r}
+bloodpressure_df$delta_toets1_dia <- toets_diastolic_1 - rust_diastolic
+bloodpressure_df$delta_toets2_dia <- toets_diastolic_2 - rust_diastolic
+bloodpressure_df$delta_toets3_dia <- toets_diastolic_3 - rust_diastolic
+
+bloodpressure_df$delta_toets1_sys <- toets_systolic_1 - rust_systolic
+bloodpressure_df$delta_toets2_sys <- toets_systolic_2 - rust_systolic
+bloodpressure_df$delta_toets3_sys <- toets_systolic_3 - rust_systolic
+
+```
+
+
+We will instantly check the statistical probability of the data used in the next 8 graphs
+```{r}
+shapiro.test(bloodpressure_df$pss_10)
+
+shapiro.test(bloodpressure_df$delta_toets1_sys)
+shapiro.test(bloodpressure_df$delta_toets2_sys)
+shapiro.test(bloodpressure_df$delta_toets3_sys)
+
+shapiro.test(bloodpressure_df$delta_toets1_dia)
+shapiro.test(bloodpressure_df$delta_toets2_dia)
+shapiro.test(bloodpressure_df$delta_toets3_dia)
+
+
+```
+
+
+The P value of every delta of every test is normal, except of test 2 for the diastolic blood pressure
+That's why we run a spearman test for that instead of pearson.
+
+```{r}
+cor.test(bloodpressure_df$pss_10, bloodpressure_df$delta_toets1_sys, method = "pearson")
+cor.test(bloodpressure_df$pss_10, bloodpressure_df$delta_toets2_sys, method = "pearson")
+cor.test(bloodpressure_df$pss_10, bloodpressure_df$delta_toets3_sys, method = "pearson")
+
+cor.test(bloodpressure_df$pss_10, bloodpressure_df$delta_toets1_dia, method = "pearson")
+cor.test(bloodpressure_df$pss_10, bloodpressure_df$delta_toets2_dia, method = "spearman")
+cor.test(bloodpressure_df$pss_10, bloodpressure_df$delta_toets3_dia, method = "pearson")
+```
+
+
+
+
+Diastolic blood pressure set out against the pss-10 scores (perceived stress scale, 10 questions) - test 1
+
+```{r}
+ggplot(bloodpressure_df, aes(x = pss_10, y = delta_toets1_dia)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "PSS-10 vs Diastolische bloeddruk (toets 1)",
+    x     = "PSS-10 score",
+    y     = "Bloeddruk (mmHg)"
+  )
+
+```
+
+Diastolic blood pressure set out against the pss-10 scores (perceived stress scale, 10 questions) - test 2
+
+```{r}
+ggplot(bloodpressure_df, aes(x = pss_10, y = delta_toets2_dia)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "PSS-10 vs Diastolische bloeddruk (toets 2)",
+    x     = "PSS-10 score",
+    y     = "Bloeddruk (mmHg)"
+  )
+  
+```
+
+Diastolic blood pressure set out against the pss-10 scores (perceived stress scale, 10 questions) - test 3
+
+```{r}
+ggplot(bloodpressure_df, aes(x = pss_10, y = delta_toets3_dia)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "PSS-10 vs Diastolische bloeddruk (toets 3)",
+    x     = "PSS-10 score",
+    y     = "Bloeddruk (mmHg)"
+  )
+  
+```
+
+
+Systolic blood pressure set out against the pss-10 scores (perceived stress scale, 10 questions) - test 1
+
+```{r}
+ggplot(bloodpressure_df, aes(x = pss_10, y = delta_toets1_sys)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "PSS-10 vs Systolische bloeddruk (toets 1)",
+    x     = "PSS-10 score",
+    y     = "Bloeddruk (mmHg)"
+  )
+  
+```
+
+
+Systolic blood pressure set out against the pss-10 scores (perceived stress scale, 10 questions) - test 2
+
+```{r}
+ggplot(bloodpressure_df, aes(x = pss_10, y = delta_toets2_sys)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "PSS-10 vs Systolische bloeddruk (toets 2)",
+    x     = "PSS-10 score",
+    y     = "Bloeddruk (mmHg)"
+  )
+  
+```
+
+
+Systolic blood pressure set out against the pss-10 scores (perceived stress scale, 10 questions) - test 3
+
+```{r}
+ggplot(bloodpressure_df, aes(x = pss_10, y = delta_toets3_sys)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "PSS-10 vs Systolische bloeddruk (toets 3)",
+    x     = "PSS-10 score",
+    y     = "Bloeddruk (mmHg)"
+  )
+  
+```
+Added the graphs together as one as it has way more oversight.
+And has a smaller footprint.
+
+### Diastolic blood pressure
+
+```{r}
+df_delta_long_dia <- pivot_longer(
+  bloodpressure_df,
+  cols = c(delta_toets1_dia, delta_toets2_dia, delta_toets3_dia),
+  names_to = "toets",
+  values_to = "delta"
+)
+
+ggplot(df_delta_long_dia, aes(x = pss_10, y = delta)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~toets) +
+  labs(
+    title = "PSS-10 vs delta diastolische bloeddruk per toets",
+    x     = "PSS-10 score",
+    y     = "Stijging t.o.v. rust (mmHg)"
+  )
+  
+```
+
+### Systolic blood pressure
+
+```{r}
+df_delta_long_sys <- pivot_longer(
+  bloodpressure_df,
+  cols = c(delta_toets1_sys, delta_toets2_sys, delta_toets3_sys),
+  names_to = "toets",
+  values_to = "delta"
+)
+
+ggplot(df_delta_long_sys, aes(x = pss_10, y = delta)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~toets) +
+  labs(
+    title = "PSS-10 vs delta systolische bloeddruk per toets",
+    x     = "PSS-10 score",
+    y     = "Stijging t.o.v. rust (mmHg)"
+  )
+```
+
+
+
+Now also if there's a difference between genders
+
+Diastolic difference with the delta of each test and rest fase 
+
+```{r}
+df_delta_long_dia <- pivot_longer (
+  bloodpressure_df,
+  cols = c(delta_toets1_dia, delta_toets2_dia, delta_toets3_dia),
+  names_to = "toets",
+  values_to = "delta"
+)
+
+
+ggplot(df_delta_long_dia, aes(x = pss_10, y = delta, color = gender)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~toets) +
+  labs(
+    title = "PSS-10 vs delta diastolische bloeddruk per toets",
+    x     = "PSS-10 score",
+    y     = "Stijging t.o.v. rust (mmHg)",
+    color = "Gender"
+  ) + scale_color_manual(values = c("Man" = "cyan", "Vrouw" = "lightcoral"))
+
+  
+```
+
+
+Systolic difference with the delta of each test and rest fase 
+
+```{r}
+
+df_delta_long_sys <- pivot_longer (
+  bloodpressure_df,
+  cols = c(delta_toets1_sys, delta_toets2_sys, delta_toets3_sys),
+  names_to = "toets",
+  values_to = "delta"
+)
+
+ggplot(df_delta_long_sys, aes(x = pss_10, y = delta, color = gender)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~toets) +
+  labs(
+    title = "PSS-10 vs delta systolische bloeddruk per toets",
+    x     = "PSS-10 score",
+    y     = "Stijging t.o.v. rust (mmHg)",
+    color = "Gender"
+    
+  ) + scale_color_manual(values = c("Man" = "cyan", "Vrouw" = "lightcoral"))
+  
+  
+```
+ 
+Now the statistical analysis on the gender split diastolic and systolic blood pressure
+
+First divide the data between the two genders in separate vectors
+```{r}
+mannen <- bloodpressure_df[bloodpressure_df$gender == "Man",]
+vrouwen <- bloodpressure_df[bloodpressure_df$gender == "Vrouw",]
+```
+
+
+
+### Diastolic blood pressure:
+
+
+Then check if the data is normally distributed and do this for all tests on diastolic bloodpressure
+```{r}
+shapiro.test(mannen$delta_toets1_dia)
+shapiro.test(vrouwen$delta_toets1_dia)
+shapiro.test(mannen$delta_toets2_dia)
+shapiro.test(vrouwen$delta_toets2_dia)
+shapiro.test(mannen$delta_toets3_dia)
+shapiro.test(vrouwen$delta_toets3_dia)
+```
+
+All are normally distributed, but except for the women test1 and test2 so those get spearman for the correlation test
+The rest are standard pearson.
+```{r}
+cor.test(mannen$pss_10, mannen$delta_toets1_dia)
+cor.test(mannen$pss_10, mannen$delta_toets2_dia)
+cor.test(mannen$pss_10, mannen$delta_toets3_dia)
+
+cor.test(vrouwen$pss_10, vrouwen$delta_toets1_dia, method = "spearman")
+cor.test(vrouwen$pss_10, vrouwen$delta_toets2_dia, method = "spearman")
+
+cor.test(vrouwen$pss_10, vrouwen$delta_toets3_dia)
+```
+### Systolic blood pressure:
+
+Then check if the data is normally distributed and do this for all tests on systolic bloodpressure
+
+```{r}
+shapiro.test(mannen$delta_toets1_sys)
+shapiro.test(vrouwen$delta_toets1_sys)
+shapiro.test(mannen$delta_toets2_sys)
+shapiro.test(vrouwen$delta_toets2_sys)
+shapiro.test(mannen$delta_toets3_sys)
+shapiro.test(vrouwen$delta_toets3_sys)
+```
+All are normally distributed, but except for the women test1  so that gets spearman for the correlation test
+The rest are standard pearson.
+```{r}
+cor.test(mannen$pss_10, mannen$delta_toets1_sys)
+cor.test(mannen$pss_10, mannen$delta_toets2_sys)
+cor.test(mannen$pss_10, mannen$delta_toets3_sys)
+
+cor.test(vrouwen$pss_10, vrouwen$delta_toets1_sys, method = "spearman")
+
+cor.test(vrouwen$pss_10, vrouwen$delta_toets2_sys)
+cor.test(vrouwen$pss_10, vrouwen$delta_toets3_sys)
+```
+
+Nothing is significant enough all p > 0.05
