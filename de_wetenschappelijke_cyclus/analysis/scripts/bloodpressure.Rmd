@@ -314,7 +314,6 @@ ggplot(df_long_sys, aes(x = meting, y = waarde, fill = gender)) +
         
 ```
 
-
 Statistical verdict on our systolic data
 ```{r}
 
@@ -355,7 +354,9 @@ pairwise.t.test(
 
 # All p value's of 1.000 or above 0.05 are not significant. That there was a significant change
 # Between rust_sys and toets2_sys and between toets2_sys and toets1_sys. Both P-value's < 0.05.
-# Conclusion: toets 2 (1 minuut) caused a significantly different
+# Conclusion: toets 2 (1 minuut) caused a significant difference
+
+
 
 
 # And for the gender of systolic bloodpressure
@@ -411,7 +412,6 @@ The P value of every delta of every test is normal, except of test 2 for the dia
 That's why we run a spearman test for that instead of pearson.
 
 ```{r}
-
 cor.test(bloodpressure_df$pss_10, bloodpressure_df$delta_toets1_sys, method = "pearson")
 cor.test(bloodpressure_df$pss_10, bloodpressure_df$delta_toets2_sys, method = "pearson")
 cor.test(bloodpressure_df$pss_10, bloodpressure_df$delta_toets3_sys, method = "pearson")
@@ -532,6 +532,7 @@ ggplot(df_delta_long_dia, aes(x = pss_10, y = delta)) +
     x     = "PSS-10 score",
     y     = "Stijging t.o.v. rust (mmHg)"
   )
+  
 ```
 
 ### Systolic blood pressure
@@ -553,7 +554,6 @@ ggplot(df_delta_long_sys, aes(x = pss_10, y = delta)) +
     x     = "PSS-10 score",
     y     = "Stijging t.o.v. rust (mmHg)"
   )
-
 ```
 
 
@@ -609,7 +609,7 @@ ggplot(df_delta_long_sys, aes(x = pss_10, y = delta, color = gender)) +
     
   ) + scale_color_manual(values = c("Man" = "cyan", "Vrouw" = "lightcoral"))
   
-  ggsave("../logboek_tristan/scatterplot_sys_gender.png", width = 8, height = 6, dpi = 300)
+  
 ```
  
 Now the statistical analysis on the gender split diastolic and systolic blood pressure
